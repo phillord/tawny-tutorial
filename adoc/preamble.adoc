@@ -1,0 +1,78 @@
+
+== Introduction
+
+* Tawny-OWL is fully programmatic environment for Ontology Development
+* Presents a different model of ontology development
+* Very powerful
+* Allows reuse of commodity tooling
+
+
+== Today
+
+* Some taught material
+* Some "follow-by-leader"
+* Plenty of time for questions
+* A flexible tail
+
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+Today, we will have some taught material, particularly at the beginning and
+the end, where I need to describe parts of the system, some practical time
+where we build a small ontology using tawny. Then I have a reasonably flexible
+tail where I try and address questions that people have. Also, there is a
+degree of guesswork into how much material I can get into the time available,
+which this helps to address.
+
+I do not have time to describe all of the features of tawny, nor give a full
+tutorial.
+
+====
+endif::backend-slidy[]
+
+
+
+== Today
+
+* Attempted to make decoupled
+
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+Although the tutorial does "build" I have tried to make it as loosely coupled
+as possible.
+
+====
+endif::backend-slidy[]
+
+
+== Prerequisites
+
+* Required
+** Basic knowledge of ontologies
+** Basic knowledge of OWL
+** Basic knowledge of biology (amino-acids!)
+** For last 1/3: Basic Programming Knowledge
+
+* Not Required
+** Knowledge of Clojure
+** Knowledge of OWL API
+** Knowledge of Tawny-OWL
+
+
+== Outcomes
+
+* Understand the motivation behind Tawny
+* Understand and use basic Clojure infrastructure
+* Build a basic ontology with Tawny
+* Understanding pattern usage within Tawny
+* Implementing a pattern
+
+== Secondary Outcomes
+
+* Understand how to repurpose software tooling for ontologies
+
