@@ -1,0 +1,16 @@
+
+keyword = "Ontology|Namespace|Class|Individual|ObjectProperty|Import"
+
+type = "Domain:|Range:|InverseOf:|SubPropertyOf:"
+
+symbol = "EquivalentTo:|SubClassOf:|Annotations:|DisjointWith:|Types:|Facts:"
+
+string delim "\"" "\"" escape "\\" multiline
+
+preproc = "and|or"
+
+comment start "#"
+
+vardef URLPART = '[[:word:]\./\-_~]+'
+url = '(<?)' + $URLPART + '@' + $URLPART + '(>?)'
+url = '(<?)' + '[[:word:]]+://' + $URLPART + '(>?)'

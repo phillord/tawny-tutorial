@@ -1,0 +1,13 @@
+
+
+== Tawny-OWL Key Features
+
+* Ontology building tool
+* Unprogrammatic syntax, minimal baggage
+* Evaluative
+* Broadcasting
+* Patternized
+* Fully Extensible
+* Integrated Reasoning
+* Build on commondity language
+* Access to fully programming Tool Chain

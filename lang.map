@@ -1,0 +1,5 @@
+notlisp = lisp.lang
+omn = omn.lang
+lisp = lisp.lang
+java = java.lang
+slang = slang.lang

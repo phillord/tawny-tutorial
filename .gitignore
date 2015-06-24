@@ -10,4 +10,15 @@ pom.xml.asc
 .hgignore
 .hg/
 /adoc/2015_lisbon.html
-/src/lisbon/features.adoc
+/src/lisbon/*.adoc
+Makefile-local
+/.cask/
+/adoc/2015_lisbon.pdf
+/adoc/2015_lisbon_book.html
+/adoc/2015_lisbon_pdf_wrapper.xml
+/adoc/2015_prerequisities.html
+/adoc/auto/
+/catalog-v001.xml
+/catnip.omn
+/o.omn
+/o.owl

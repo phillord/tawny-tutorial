@@ -1,4 +1,3 @@
-
 Building Ontologies with Tawny-OWL
 =================================
 :author: Phillip Lord
@@ -10,3 +9,9 @@ Building Ontologies with Tawny-OWL
 include::preamble.adoc[]
 include::karyotypes.adoc[]
 include::../src/lisbon/features.adoc[]
+include::pre-requisities.adoc[]
+include::../src/lisbon/hello.adoc[]
+
+include::../src/lisbon/onto_hello_s.adoc[]
+include::../src/lisbon/amino_acid_tree_s.adoc[]
+

@@ -1,0 +1,40 @@
+
+== Tawny-OWL and it's environment
+
+* Now, describe Tawny-OWL and environment
+** Java/JDK
+** OWL-API
+** Clojure
+** Tawny-OWL
+
+
+== Java
+
+* Most common language on earth
+* Associated Java Virtual Machine
+* On every platform
+* 90% of ontology software written in Java
+
+
+== OWL API
+
+* Library for OWL applications
+* First implementation 10 years ago
+* Now forms the basis for Protege
+
+
+== Clojure
+
+* One of the lisp family of languages
+* First lisp defined in 1958
+* Clojure much newer
+* Core of the language implemented in Java
+* Able to use Java libraries straight-forwardly
+* Java libraries/applications can run Clojure
+
+== Tawny-OWL
+
+* Library implemented in Clojure
+* Where possible, uses OWL API directly
+* Returns "OWL API" objects
+* Additional functionality (e.g. broadcasting) implemented in Clojure

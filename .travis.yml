@@ -1,0 +1,12 @@
+language: clojure
+before_install:
+  - curl -fsSkL https://gist.github.com/rejeep/7736123/raw | sh
+  - export PATH="/home/travis/.cask/bin:$PATH"
+  - export PATH="/home/travis/.evm/bin:$PATH"
+  - evm install $EVM_EMACS --skip --use
+  - sudo apt-get install texlive-latex-recommended tex4ht
+  - cask
+env:
+  - EVM_EMACS=emacs-24.4-bin
+script:
+  - make all

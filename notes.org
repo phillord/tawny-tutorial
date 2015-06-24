@@ -1,0 +1,233 @@
+
+
+
+* IDEs
+
+I need a nice IDE to recommend. Starting with Emacs may be problematic.
+
+
+
+** Gorilla REPL
+
+Runs directly from lein command line -- which means people need to be command
+line savvy and pre-install lein.
+
+GUI is rather clunk and uses a lot of space. Difficult to go back and change.
+
+
+
+
+** NightCode
+
+Single jar installation, including lein.
+
+Pops up windows hard right on wrong screen.
+
+Relatively easy to set up a project though.
+
+Seems to crash
+
+
+** catnip
+
+Requires lein, but cuter than gorilla
+
+
+
+* Display
+
+Do the whole thing in org with reveal?
+
+reveal does this irritating autozoom thing which is rather unfortunate. It
+means I have to be careful about the amount of stuff on screen, since I can't
+scroll like I can with asciidoc/slidy.
+
+This can be switched off, but the scroll bars don't come back, so it's
+useless.
+
+Also, it doesn't record what slide I am on, so the autoreload thing doesn't
+work.
+
+And I can't do the single slide thing.
+
+
+
+* Syllabus
+
+
+** Section 1 -- intro to hello world
+
+*** Introduction
+
+ - Welcome
+ - What is the history (the karyotype ontology)
+ - What is tawny (a programmatic API)
+
+*** Key Features
+
+ - Aimed at ontology building, NOT manipulation.
+ - Unprogrammatic syntax, minimal baggage
+ - Broadcasting
+ - Fully extensible
+ - Integrated reasoning
+ - Build on commodity language
+ - Access to fully programming tool chain (unit tests, git, build, dependency)
+
+*** Tawny environment
+ 
+ - Tawny architecture
+ - Build on Clojure
+ - Clojure is a lisp, build on JVM
+ - Sits on top of OWL API
+
+*** Pre-requisites
+
+ - JVM
+ - Protege (for some of it)
+ - lein
+ - https://github.com/phillord/tawny-tutorial
+
+*** Clojure Hello World
+
+ - Key Feature of Tawny
+ - Also, key disadvantage over Protege/OBOedit
+ - Need a working Clojure environment
+ - Your mileage may vary -- feel free to skip
+
+ - Obtaining this tutorial: either git or download
+ - Leiningen
+ - Run lein catnip
+ - Open Hello World, and run it.
+ - Also try out the REPL
+
+ - Other options
+ - Emacs with CIDER
+ - Eclipse with Counter-Clockwise
+ - Cursive
+ - Lighttable
+
+
+*** How to follow
+
+ - A complete leiningen project
+ - src/tawny/lisbon
+ - Place to try stuff in...
+ - src/tawny/lisbon/hello_1.clj
+ - Solutions (and all these slides)
+ - src/tawny/lisbon/hello_1_s.clj
+
+
+*** Tawny Hello World
+
+ - Namespace declaration -- this is a template, just copy it!
+ - I should do all the namespaces
+ - defontology form
+ - defclass
+ - Comments, labels and general tawny syntax
+ - defoproperty
+ - the use of the "owl-" prefix
+ - save-ontology and open in protege
+
+
+** Section 2 -- basic amino acid ontology
+
+*** Introduction
+
+ - We build a small ontology of amino acids
+ - Nice because it's tractable and well-defined.
+ - Also start to build patterns
+
+
+*** Define the class
+
+ - AminoAcid
+ - Glycine, Alanine
+ - "super" keyword -- not "subclassof"
+ - Tawny is idempotent (generally)
+   
+
+*** as-subclasses
+
+ - Painful, so introduce a pattern
+ - as-subclasses
+ - :disjoint
+ - :cover
+ - Interesting ontological question -- the biologists will say this is correct
+ - The chemists will not.
+
+   
+*** Defining the Properties
+
+ - Want to define amino-acids by their properties
+ - Are a set of standard characteristics we can use
+ - Most are numerical
+ - We build an abstraction which is the value partition
+ - as-subproperty
+ - Define a value partition by hand
+ - Introduce as-facets
+
+
+*** Formal Use of patterns
+ 
+ - defpartition
+
+
+** Section 3
+
+
+*** Identifiers in Tawny
+
+ - Tawny name, Clojure identifiers and URIs
+ - How to build an OBO ID ontology
+ - Building an ontology with strings
+ - Why symbols are good
+
+*** Importing, requiring and using an ontology
+
+ - Introducing an external ontology
+ - Why importing is not (necessarily) enough
+ - read
+
+*** AminoAcid with sio
+
+ - equivalents and same as
+
+
+*** How to program an autosave function
+ - Clojure Java 101
+ - Proxies
+ - Listeners
+ 
+*** The amino-acid pattern
+
+ - Advanced
+ - Build the pattern
+ - Add SmallAminoAcid
+ - Add SmallPolarAminoAcid
+
+ - Reasoning
+ - Add them all (do don't show)
+ - Filtering
+
+*** Advanced Extensions
+ 
+ - No more follow my leader
+
+ - Axiom Annotations
+ - Work patterns
+ - Git (any we don't need URI gen)
+ - Unit Testing
+ - Continous integration
+ - Polyglot
+ - Memorize
+ - Scaffolding
+
+
+*** The Future
+ 
+ - Literate Ontologies
+ - In Tawny pattern language (complete)
+ - Manual!
+
+
+    

@@ -19,7 +19,7 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 We didn't start out to develop a new ontology engineering tool. It happened
-along the way, as we tried at address a specific use cae, which was modelling
+along the way, as we tried at address a specific use case, which was modelling
 human karyotypes. 
 ====
 endif::backend-slidy[]
@@ -207,15 +207,50 @@ endif::backend-slidy[]
 * Java (JVM) -- because of the OWL API
 * Pre-existing development tooling
 
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+These are the limitations that we had to live within. Most importantly of all,
+I wanted it to be as simple as possible to build structurally simple
+ontologies. It should largely be possible to type and write ontologies without
+feeling that you are programming.
+
+It was going to be written using the OWL API because there is too much code
+there to rewrite, and no one would trust me to do that in a standards
+compliant
+
+This required the use of the JVM.
+
+And I wanted access to pre-existing development tooling. I did not want to
+build a complete development environment, I needed something off-the-shelf, so
+that it was good.
+
+====
+endif::backend-slidy[]
+
+
 == Karyotype Ontology
 
 * What have we achieved?
+* Build by Dr Jennifer Warrender
 * Around 1000 classes in the karyotype ontology
 * Similar numbers of tests, structural and reasoner based
 * Models 10 events, with patterns for downstream use
 * Multiple levels of ploidy
 * Performance tested axiomatisation
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+Before I move onto tawny-owl, what did we achieve with the karyotype ontology.
+Well, I think quite a lot. We now have a large, consistent (in both the formal
+and informal sense of the word) ontology that describes most levels of the ISCN.
+
+====
+endif::backend-slidy[]
 
 
 

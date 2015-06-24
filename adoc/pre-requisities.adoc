@@ -1,0 +1,65 @@
+
+
+== Tawny Tutorial
+
+* The source for these slides
+* All the sample code
+* And an empty workspace
+* `git clone https://github.com/phillord/tawny-tutorial.git`
+* Or download https://github.com/phillord/tawny-tutorial/releases
+
+== Other Technical Pre-Requisites
+
+* JVM
+* Leiningen
+* https://github.com/phillord/tawny-tutorial
+* Protege
+
+
+== Installing JVM
+
+* You will need Java 1.7 or upward
+* 1.8 or upward is recommended 
+
+* https://java.com/en/download/
+* Or use your OS package manager
+* You need JDK, not just Java
+
+
+== Installing Leiningen
+
+* This is a Clojure build tool
+* http://leiningen.org/
+* Download the shell script (Linux,Mac)
+* Or your package manager (*leiningen 2* -- lein 1 will not work)
+* For Windows, the installer works
+* http://leiningen-win-installer.djpowell.net/
+* Or you can download the batch file and setup manually
+
+== Testing the Pre-Requisities
+
+* In the terminal/cmd, in tawny-tutorial directory
+
+`lein run`
+
+* There will be a long download period then:
+
+`The Tawny Tutorial is Installed and Ready`
+
+== Protege
+
+* Not really a pre-requisite
+* One part will use it if available
+
+http://protege.stanford.edu
+
+
+== Or: the alternative
+
+* Install some Clojure IDE/Environment
+* Emacs with CIDER is my environment of choice
+* Eclipse with Counter Clockwise.
+* VIM Fireplace
+* Any of the many other options
+* If you do this, you are on your own...
+* You will get a much stronger editing environment that otherwise

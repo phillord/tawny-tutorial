@@ -1,0 +1,36 @@
+\ProvidesPackage{omn}
+%% This defines a new language and style for the listings package
+%% (adapted from Phillip Lord's omn.sty).
+%% Stick \usepackage{omn} into your preamble and all should work.
+%% This supports Manchester Syntax
+
+\RequirePackage{xcolor}
+\RequirePackage{listings}
+
+\lstdefinelanguage{omn}%
+{%
+  comment=[l]\#,%
+  keywords=[1]{Prefix:, Ontology:, Import:, AnnotationProperty:,
+    Datatype:, Class:, DataProperty:, DisjointClasses:, Individual:,
+    Namespace:, ObjectProperty:, Alias:, owl:Thing},%
+  keywords=[2]{some,only,exactly,and,or,not},%
+  keywords=[3]{Annotations:,Domain:,Range:,SubClassOf:,InverseOf:,%
+    DisjointWith:,EquivalentTo:,SubPropertyOf:,Characteristics:,
+    DisjointUnion:, Types:, Facts:},%
+  alsoletter={:},%
+  string=[d]",%
+  morestring=[s]{<}{>}%
+}
+
+\lstdefinestyle{omnstyle}%
+{%
+  basicstyle=\small\ttfamily,%
+  language=omn,%
+  stringstyle=\color{purple},%
+  keywordstyle=[1]\color{violet},%
+  keywordstyle=[2]\color{teal},%
+  keywordstyle=[3]\color{blue},%
+  commentstyle=\color{red},%
+  showstringspaces=false,%
+  captionpos=b%
+}
