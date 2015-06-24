@@ -63,7 +63,12 @@
    build-sources))
 
 (defvar build-sources
-  '("core.clj"))
+  '("core.clj"
+    "features.clj"
+    "hello.clj"
+    "onto_hello_s.clj"
+    "amino_acid_tree_s.clj"
+    ))
 
 (commander
  (command "gen-src" "Generate adoc from Clojure" build/gen-src)

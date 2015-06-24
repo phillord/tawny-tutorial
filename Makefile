@@ -6,7 +6,11 @@ WING=$(CASKRUN) script/build.el --
 
 ADOC_FILES = $(wildcard adoc/*.adoc) $(wildcard src/lisbon/*.adoc)
 
-all: slides book pdf pre-req
+all: slides book pre-req
+
+test: all
+	## lein run is part of the practical!
+	lein run
 
 install:
 	$(CASK) install
@@ -28,9 +32,9 @@ book-fast: adoc/2015_lisbon_book.html
 adoc/2015_lisbon_book.html: $(ADOC_FILES)
 	asciidoc --backend=html --out-file adoc/2015_lisbon_book.html adoc/2015_lisbon.adoc 
 
-pdf: gen-src pdf-fast
+# pdf: gen-src pdf-fast
 
-pdf-fast: adoc/2015_lisbon.pdf
+# pdf-fast: adoc/2015_lisbon.pdf
 
 adoc/2015_lisbon.pdf: $(ADOC_FILES)
 	a2x --dblatex-opts \

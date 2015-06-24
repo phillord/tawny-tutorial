@@ -4,9 +4,13 @@ before_install:
   - export PATH="/home/travis/.cask/bin:$PATH"
   - export PATH="/home/travis/.evm/bin:$PATH"
   - evm install $EVM_EMACS --skip --use
-  - sudo apt-get install texlive-latex-recommended tex4ht
+  - sudo apt-get install texlive-latex-recommended asciidoc source-highlight
   - cask
 env:
   - EVM_EMACS=emacs-24.4-bin
 script:
-  - make all
+  - make test
+notifications:
+   email:
+     - travis@russet.org.uk
+  

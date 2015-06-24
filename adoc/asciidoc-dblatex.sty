@@ -23,3 +23,160 @@
 
 %% Just make the pain go away
 \lstdefinelanguage{slang}{}
+
+\lstdefinelanguage{clojure}%
+{%
+  comment=[l]{;;},%
+  keywords=[1]{*, *', *1, *2, *3, *agent*, *allow-unresolved-vars*,
+    *assert*, *clojure-version*, *command-line-args*, *compile-files*,
+    *compile-path*, *compiler-options*, *data-readers*,
+    *default-data-reader-fn*, *e, *err*, *file*, *flush-on-newline*,
+    *fn-loader*, *in*, *loaded-libs*, *loading-verbosely*,
+    *math-context*, *ns*, *out*, *pending-paths*, *print-dup*,
+    *print-length*, *print-level*, *print-meta*, *print-readably*,
+    *read-eval*, *source-path*, *unchecked-math*,
+    *use-context-classloader*, *verbose-defrecords*,
+    *warn-on-reflection*, +, +', -, -', ->, ->>, ->ArrayChunk, ->Vec,
+    ->VecNode, ->VecSeq, -cache-protocol-fn, -reset-methods, .., /, =,
+    ==, >0?, >1?, EMPTY-NODE, accessor, aclone, add-annotations,
+    add-classpath, add-doc-and-meta, add-watch, agent, agent-error,
+    agent-errors, aget, alength, alias, all-ns, alter, alter-meta!,
+    alter-var-root, amap, ams, ancestors, apply, areduce, array,
+    array-map, as->, aset, aset-boolean, aset-byte, aset-char,
+    aset-double, aset-float, aset-int, aset-long, aset-short,
+    asm-type, assert, assert-args, assert-same-protocol,
+    assert-valid-fdecl, assoc, assoc!, assoc-in, associative?, await,
+    await-for, await1, bases, bean, bigdec, bigint, biginteger,
+    binding, binding-conveyor-fn, bit-and, bit-and-not, bit-clear,
+    bit-flip, bit-not, bit-or, bit-set, bit-shift-left,
+    bit-shift-right, bit-test, bit-xor, boolean, boolean-array,
+    booleans, bound-fn, bound-fn*, bound?, build-positional-factory,
+    butlast, byte, byte-array, bytes, case, case-map, cast, char,
+    char-array, char-escape-string, char-name-string, char?, chars,
+    check-cyclic-dependency, check-valid-options, chunk, chunk-append,
+    chunk-buffer, chunk-cons, chunk-first, chunk-next, chunk-rest,
+    chunked-seq?, class?, clear-agent-errors, clojure-version, coll?,
+    commute, comp, comparator, compare, compare-and-set!, compile,
+    complement, concat, cond, cond->, cond->>, condp, conj, conj!,
+    cons, constantly, construct-proxy, contains?, count, counted?,
+    create-ns, create-struct, ctor-sigs, cycle, data-reader-urls,
+    data-reader-var, dec, dec', decimal?, declare, def-aset,
+    default-data-readers, definline, definterface, defmacro,
+    defmethod, defmulti, defn, defn-, defonce, defprotocol, defrecord,
+    defstruct, deftype, delay, delay?, deliver, denominator, deref,
+    deref-future, derive, descendants, descriptor, destructure, disj,
+    disj!, dissoc, dissoc!, distinct, distinct?, doall, dorun, doseq,
+    dosync, dotimes, doto, double, double-array, doubles, drop,
+    drop-last, drop-while, emit-defrecord, emit-deftype*,
+    emit-extend-protocol, emit-extend-type, emit-hinted-impl,
+    emit-impl, emit-method-builder, emit-protocol, empty, empty?,
+    ensure, enumeration-seq, error-handler, error-mode,
+    escape-class-name, eval, even?, every-pred, every?, ex-data,
+    ex-info, expand-method-impl-cache, extend, extend-protocol,
+    extend-type, extenders, extends?, false?, ffirst, file-seq,
+    filter, filter-key, filter-methods, filterv, find, find-field,
+    find-keyword, find-ns, find-protocol-impl, find-protocol-method,
+    find-var, first, fits-table?, flatten, float, float-array, float?,
+    floats, flush, fn, fn?, fnext, fnil, for, force, format,
+    frequencies, future, future-call, future-cancel,
+    future-cancelled?, future-done?, future?, gen-class,
+    gen-interface, generate-class, generate-interface, generate-proxy,
+    gensym, get, get-in, get-method, get-proxy-class,
+    get-super-and-interfaces, get-thread-bindings, get-validator,
+    global-hierarchy, group-by, group-by-sig, hash, hash-combine,
+    hash-map, hash-set, identical?, identity, if-let, if-not, ifn?,
+    imap-cons, implements?, in-ns, inc, inc', init-proxy, instance?,
+    int, int-array, integer?, interleave, intern, interpose, into,
+    into-array, into1, ints, io!, is-annotation?,
+    is-runtime-annotation?, isa?, iterate, iterator-seq, juxt, keep,
+    keep-indexed, key, keys, keyword, keyword?, last, lazy-cat,
+    lazy-seq, let, letfn, libspec?, line-seq, list, list*, list?,
+    load, load-all, load-data-reader-file, load-data-readers,
+    load-file, load-lib, load-libs, load-one, load-reader,
+    load-string, loaded-libs, locking, long, long-array, longs, loop,
+    macroexpand, macroexpand-1, make-array, make-hierarchy, map,
+    map-indexed, map?, mapcat, mapv, max, max-key, max-mask-bits,
+    max-switch-table-size, maybe-destructured, maybe-min-hash, memfn,
+    memoize, merge, merge-hash-collisions, merge-with, meta,
+    method-sig, methods, min, min-key, mk-am, mk-bound-fn, mod,
+    most-specific, munge, namespace, namespace-munge, nary-inline,
+    neg?, newline, next, nfirst, nil?, nnext, non-private-methods,
+    normalize-slurp-opts, not-any?, not-empty, not-every?, not=, ns,
+    ns-aliases, ns-imports, ns-interns, ns-map, ns-name, ns-publics,
+    ns-refers, ns-resolve, ns-unalias, ns-unmap, nth, nthnext,
+    nthrest, num, number?, numerator, object-array, odd?,
+    overload-name, parents, parse-impls, parse-opts, parse-opts+specs,
+    partial, partition, partition-all, partition-by, pcalls, peek,
+    persistent!, pmap, pop, pop!, pop-thread-bindings, pos?, pr,
+    pr-on, pr-str, pref, prefer-method, prefers, prep-hashes,
+    prep-ints, prependss, prim->class, primitives-classnames, print,
+    print-ctor, print-dup, print-initialized, print-map, print-meta,
+    print-method, print-object, print-sequential, print-simple,
+    print-str, printf, println, println-str, prn, prn-str,
+    process-annotation, promise, protected-final-methods, protocol?,
+    proxy, proxy-call-with-super, proxy-mappings, proxy-name,
+    proxy-super, push-thread-bindings, pvalues, quot, rand, rand-int,
+    rand-nth, range, ratio?, rational?, rationalize, re-find,
+    re-groups, re-matcher, re-matches, re-pattern, re-seq, read-line,
+    read-string, realized?, reduce, reduce-kv, reduce1, reduced,
+    reduced?, reductions, ref, ref-history-count, ref-max-history,
+    ref-min-history, ref-set, refer, refer-clojure, reify,
+    release-pending-sends, rem, remove, remove-all-methods,
+    remove-method, remove-ns, remove-watch, repeat, repeatedly,
+    replace, replicate, require, reset!, reset-meta!, resolve,
+    restart-agent, resultset-seq, reverse, reversible?,
+    root-directory, root-resource, rseq, rsubseq, satisfies?, second,
+    select-keys, send, send-off, send-via, seq, seq?, seque, sequence,
+    sequential?, set, set-agent-send-executor!,
+    set-agent-send-off-executor!, set-error-handler!, set-error-mode!,
+    set-validator!, set?, setup-reference, shift-mask, short,
+    short-array, shorts, shuffle, shutdown-agents, sigs, slurp,
+    some->, some->>, some-fn, sort, sort-by, sorted-map,
+    sorted-map-by, sorted-set, sorted-set-by, sorted?,
+    special-symbol?, spit, split-at, split-with, spread, str, string?,
+    struct, struct-map, subs, subseq, subvec, super-chain, supers,
+    swap!, symbol, symbol?, sync, system-newline, take, take-last,
+    take-nth, take-while, test, the-class, the-ns, thread-bound?,
+    throw-if, time, to-array, to-array-2d, trampoline, transient,
+    tree-seq, true?, type, unchecked-add, unchecked-add-int,
+    unchecked-byte, unchecked-char, unchecked-dec, unchecked-dec-int,
+    unchecked-divide-int, unchecked-double, unchecked-float,
+    unchecked-inc, unchecked-inc-int, unchecked-int, unchecked-long,
+    unchecked-multiply, unchecked-multiply-int, unchecked-negate,
+    unchecked-negate-int, unchecked-remainder-int, unchecked-short,
+    unchecked-subtract, unchecked-subtract-int, underive, unquote,
+    unquote-splicing, update-in, update-proxy, use, val,
+    valid-java-method-name, validate-fields,
+    validate-generate-class-options, vals, var-get, var-set, var?,
+    vary-meta, vec, vector, vector-of, vector?, when, when-first,
+    when-let, when-not, while, with-bindings, with-bindings*,
+    with-in-str, with-loading-context, with-local-vars, with-meta,
+    with-open, with-out-str, with-precision, with-redefs,
+    with-redefs-fn, xml-seq, zero?, zipmap, rest, deftest, not},%
+  keywords=[2]{def, if, do, let, letfn, quote, var, fn, loop, recur,
+    throw, try, monitor-enter ,monitor-exit, defn, defmacro, for,
+    doseq, if-let, when-let},%
+  keywords=[3]{:doc, :author, :use, :require, :as, :pre, :post, :when,
+    :exclude, :refer-clojure},%
+  keywords=[5]{is},%
+  alsoletter={-,?,,1,2,&,*,>,!,:,+},%
+  string=[b]"%
+}
+
+\lstdefinestyle{clojurestyle}
+{%
+  basicstyle=\small\ttfamily,%
+  language=lisp,%
+  keywordstyle=[1]\color{violet},% %%Clojure -- clojure.core
+  keywordstyle=[2]\color{magenta},% %%Clojure -- clojure.org/special_forms
+  keywordstyle=[3]\color{cyan},% %%Clojure keywords
+  keywordstyle=[5]\color{teal},% %%Clojure -- clojure.test
+  commentstyle=\color{red},%
+  stringstyle=\color{purple},%
+  frame=none,%
+  showstringspaces=false,%
+  captionpos=b%
+}
+
+\lstalias{notlisp}{lisp}
+
