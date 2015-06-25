@@ -1,13 +1,33 @@
+;; == Task {counter:task} Patternising
+
+;; * Make full use of an existing pattern from Tawny
+
+
+;; == Patternising
+
+;; * We still have a lot of typing
+;; * The value partition has lots of bits
+;; * Easy to get wrong
+;; * Tawny supports this pattern directly
+
+
+
+;; == Namespace
+
+;; * The value partition pattern is found in `tawny.pattern`
+;; * We import it here
+
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;;
+
+;; As usual, we start with the real/false namespace
+
 ;; [source,lisp]
 ;; ----
 (ns lisbon.amino-acid-pattern-s
   (:use [tawny owl pattern]))
 ;; ----
-
 
 ;; ====
 ;; endif::backend-slidy[]
@@ -18,18 +38,71 @@
 ;;   (:use [tawny.owl]))
 ;; ----
 
+;; == And the preamble
+
+;; * This is the same as before
 
 ;; [source,lisp]
 ;; ----
 (defontology aa)
 
 (defclass AminoAcid)
+;; ----
 
+;; == The size value partition
 
+;; * This is a new form
+;; * Syntactically similar to what we seen before
+;; * `defpartition` defines that we will have a partition
+;; * `[Tiny Small Large]` are the values
+;; * `hasSize` is implicit -- it will be created
+
+;; [source,lisp]
+;; ----
 (defpartition Size
   [Tiny Small Large]
   :domain AminoAcid)
+;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; This is syntactically similar because it's just a new function defined in the
+;; language. We are adding nothing clever here just using a language as it is
+;; intended to be used.
+;; ====
+;; endif::backend-slidy[]
+
+
+;; == The size value partition
+
+;; * And (some of) the OMN.
+
+;; [source,omn]
+;; ----
+;; ObjectProperty: aa:hasSize
+;;     Domain: 
+;;         aa:AminoAcid
+;;     
+;;     Range: 
+;;         aa:Size
+;;     
+;;     Characteristics: 
+;;         Functional
+
+
+;; Class: aa:Size
+;;     EquivalentTo: 
+;;         aa:Large or aa:Small or aa:Tiny
+;; ----
+;;     
+;; == More value partitions
+
+;; * Adding partitions for all the properties is easy.
+
+
+;; [source,lisp]
+;; ----
 (defpartition Charge
   [Positive Neutral Negative]
   :domain AminoAcid)
@@ -42,15 +115,22 @@
   [Polar NonPolar]
   :domain AminoAcid)
 
-
 (defpartition SideChainStructure
   [Aromatic Aliphatic]
   :domain AminoAcid)
+;; ----
 
+;; == Using these partitions
 
+;; * `defpartition` also applies the `as-facet` function
+;; * So, we can use `facet` also
+;; * Syntactically, the ontology has simplfied
+;; * Same semantics underneath
+
+;; [source,lisp]
+;; ----
 (as-subclasses
  AminoAcid
-
 
  (defclass Alanine
    :super (facet Neutral Hydrophobic NonPolar Aliphatic Tiny))
@@ -66,5 +146,10 @@
 
  ;; and the rest
  )
-
 ;; ----
+
+;; == Task {task}: Patternising
+
+;; * Tawny directly supports the value partition
+;; * This integrates with facets
+;; * Together can simply this (very common!) form of ontology

@@ -17,7 +17,7 @@ include::../src/lisbon/hello.adoc[]
 include::../src/lisbon/onto_hello_s.adoc[]
 include::../src/lisbon/amino_acid_tree_s.adoc[]
 include::../src/lisbon/amino_acid_props_s.adoc[]
-
+include::../src/lisbon/amino_acid_pattern_s.adoc[]
 
 
 
