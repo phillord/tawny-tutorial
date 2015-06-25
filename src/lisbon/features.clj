@@ -129,9 +129,9 @@
 
 ;; [source,lisp]
 ;; ----
-;; (defclass A
-;;   :label "A"
-;;   :comment "A is a kind of thing.")
+(defclass A
+  :label "A"
+  :comment "A is a kind of thing.")
 ;; ----
 
 ;; ifndef::backend-slidy[]

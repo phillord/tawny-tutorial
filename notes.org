@@ -87,6 +87,7 @@ And I can't do the single slide thing.
  - lein
  - https://github.com/phillord/tawny-tutorial
 
+
 *** Clojure Hello World
 
  - Key Feature of Tawny
@@ -172,7 +173,7 @@ And I can't do the single slide thing.
  - defpartition
 
 
-** Section 3
+** Section 3 Programmatic Considerations
 
 
 *** Identifiers in Tawny

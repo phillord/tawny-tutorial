@@ -1,14 +1,22 @@
-;; == Task 1: Defining a Tree
+;; == Task {counter:task}: Defining a Tree
 
 ;; * For the next section, we build an amino acid ontology
 ;; * We do this in several ways
 ;; * First, we start with a simple hierarchy
 
+;; == Amino Acids
+
+;; * Chemical Molecules
+;; * Central Carbon, with an amino and acid group
+;; * And a "side chain" or "R" group which defines the differences
+;; * Have a number of chemical properties
+;; * There are 20
+
 
 ;; == A namespace
 
 ;; * You can should create your ontology in the file `lisbon/amino_acid_tree.clj`
-;; * The code in these slides in in `lisbon/amino_acid_tree_s.clj`
+;; * The full code in these slides can be found in `lisbon/amino_acid_tree_s.clj`
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -52,6 +60,14 @@
 ;; and the rest...
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Defining the basic tree is not too hard -- we just use the `:super` keyword.
+;; If you think this involves too much typing, yes, it does.
+;; ====
+;; endif::backend-slidy[]
+
 ;; == Disjoint
 
 ;; * Let's make everything disjoint
@@ -63,21 +79,38 @@
 ;; [source,lisp]
 ;; ----
 (defclass Alanine
-          :disjoint Arginine Asparagine)
+    :super AminoAcid
+    :disjoint Arginine Asparagine)
 ;; ----
-
 
 ;; == Disjoint
 
 ;; * But there is a more serious problem
-;; * Change `Asparagine` to this
+;; * Change `Arginine` to this
 ;; * This will now crash (probably)
 
 ;; [source,notlisp]
 ;; ----
 ;; (defclass Arginine
-;;           :disjoint Alanine Asparagine)
+;;     :super AminoAcid
+;;     :disjoint Alanine Asparagine)
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; In theory, this should crash, but it may not if you have previously evaluated
+;; (or saved in catnip) the `Asparagine` form above. This reflects one problem
+;; with REPL based languages -- sometimes your source can get out of sync with
+;; your REPL. If it does not crash now, it *will* crash when you restart and eval
+;; again.
+
+;; Most REPL programmers restart defensively every hour or two to guard against
+;; this.
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Explict Definition
 
@@ -87,6 +120,16 @@
 ;; * Can be avoided by using Strings
 ;; * But that is error-prone
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Explicit definition is a good thing, but does hold out the possibility for
+;; being a real pain. We think that it is not so in Tawny, because we have
+;; features for working around it. It is possible to avoid entirely anyway, but I
+;; personally do not, because it makes spelling errors all too likely. I will
+;; show this once later on.
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Simplifying the definition
 
@@ -107,6 +150,24 @@
   ;; and the rest...
   )
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Before we show the solution to the disjoint problem, we simplify our
+;; definitions. Typing `:super AminoAcid` a lot is a pain also, so lets avoid
+;; that. We introduce a new function, `as-subclasses`
+
+;; The advantage of lexically grouping all of the subclasses in this way is also
+;; that it makes the *intent* of the developer obvious. If we need to add a new
+;; subclass later (unlikely in this case once finished, but during development
+;; yes), then adding it next in the list *also* makes it a subclass as it
+;; should be.
+
+;; This ability to make the developer intent, and conformance to a pattern
+;; explicit is a good thing!
+;; ====
+;; endif::backend-slidy[]
 
 ;; == And disjoint!
 
@@ -132,6 +193,15 @@
  )
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Now that we have achieved this, we can also solve the disjoint problem, by
+;; adding a keyword in. All the classes will now be made disjoint. If you want to
+;; be sure, evaluate the source, save it and look at the OMN.
+;; ====
+;; endif::backend-slidy[]
+
 
 ;; == And, finally, covering
 
@@ -140,12 +210,26 @@
 ;; * To do this we use a "covering" axiom
 ;; * Interesting ontology! Biologically true, chemically not.
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; We can add a *covering* axiom in the same way. Unlike `disjoint` this is not a
+;; formal part of OWL, but is a design pattern. The interesting thing about this
+;; is that biologically it is true -- there are only 20 amino acids and we will
+;; name them all. But to a chemist, it is demonstrably false as there are many,
+;; many amino acids. How we scope the ontology and frame our competency questions
+;; can very much affect the model that we build. We will show later that this
+;; axiom has a very significant affect on the end model, much more significant
+;; than you might presuppose at the moment.
+;; ====
+;; endif::backend-slidy[]
+
 
 ;; == And, finally, covering
 
 ;; * This is also easy to implement
 ;; * Here with all the amino-acids in full
-
+;; * Again, the source code grouping is useful!
 
 ;; [source,lisp]
 ;; ----
@@ -177,6 +261,15 @@
  (defclass Valine))
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Putting in a covering axiom, then adding a new sibling and forgetting to
+;; modify the covering axiom is an easy mistake to make, and can be very
+;; difficult to pick up, either by eye or by testing. Tawny makes this harder.
+;; ====
+;; endif::backend-slidy[]
+
 ;; == And, finally, covering
 
 ;; * And, here is a subset of the equivalent OMN
@@ -202,10 +295,24 @@
 ;;     aa:Threonine, aa:Tryptophan, aa:Tyrosine, aa:Valine
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; I have not shown all the OMN because it is long and tedious, but these are the
+;; keypoints added by the subclasses function.
 
-;; == Task 1: Conclusions
+;; If you evaluated the `:disjoint Alanine` definitions early (and they did not
+;; crash!), then you will find that there are some `Disjoint:` frames on
+;; individual amino acids also. These make no semantic difference and are an
+;; artifact of the tutorial.
+;; ====
+;; endif::backend-slidy[]
+
+
+;; == Task {task}: Conclusions
 
 ;; * It is easy to build simple hierarchies
 ;; * We can group parts of the tree
 ;; * There is support for disjoints
 ;; * There is support for covering axioms
+
