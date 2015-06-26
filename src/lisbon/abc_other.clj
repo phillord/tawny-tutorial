@@ -11,4 +11,4 @@
 (defclass C)
 
 ;; save this for later examples!
-(save-ontology "resources/abc.owl" :owl)
+(save-ontology "resources/abcother.owl" :owl)

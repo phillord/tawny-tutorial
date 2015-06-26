@@ -7,17 +7,25 @@ Building Ontologies with Tawny-OWL
 
 
 include::preamble.adoc[]
+
 include::karyotypes.adoc[]
+
 include::../src/lisbon/features.adoc[]
+
 include::pre-requisities.adoc[]
+
 include::../src/lisbon/hello.adoc[]
 
-
-
 include::../src/lisbon/onto_hello_s.adoc[]
+
 include::../src/lisbon/amino_acid_tree_s.adoc[]
+
 include::../src/lisbon/amino_acid_props_s.adoc[]
+
 include::../src/lisbon/amino_acid_pattern_s.adoc[]
 
+include::../src/lisbon/whats_in_a_name_s.adoc[]
 
+include::../src/lisbon/use_abc_s.adoc[]
 
+include::../src/lisbon/read_abc_s.adoc[]

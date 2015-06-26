@@ -7,9 +7,18 @@
 
 ;; * We still have a lot of typing
 ;; * The value partition has lots of bits
-;; * Easy to get wrong
+;; * Easy to get wrong (`Polarity` was wrong) 
 ;; * Tawny supports this pattern directly
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; I missed half the axioms of `Polarity` in the last set of examples. Believe me
+;; or not, but I did not do this deliberately, it was a genuine mistake; as
+;; should be obvious from the existence of this note, I did leave it in
+;; deliberately once I discovered it!
+;; ====
+;; endif::backend-slidy[]
 
 
 ;; == Namespace
