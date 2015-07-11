@@ -1,0 +1,143 @@
+
+== Can I add annotations on axioms?
+
+* OWL allows annotation of axioms
+* For example as provenance for axiom
+* Tawny provides a syntax for this
+* Annotates `SubClassOf` axiom between `Man` and `Person` with a comment.
+
+[source,lisp]
+----
+(defclass Man
+ :super
+ (annotate Person
+           (owl-comment "States that every man is a person")))
+----
+
+== How does this affect ontology deployment
+
+* Potentially none -- Tawny generates an OWL file
+* Potentially automatable
+** Can add publication code to project source
+** Can expand the *project* to publish (i.e. leiningen)
+* Or can publish as a maven artefact
+** Ontology can be downloaded as a software artefact
+** Separates out ontology identifier and download location
+** Manages all ontology dependency resolution
+** And provides tools for examining dependency transitive closure
+
+== How do you version your ontology?
+
+* Tawny-OWL uses a line-orientated syntax
+* You edit *source code* not a visualisation of an XML file
+* Like various OBO flat file syntaxes, it works well in git or any VCS
+* Leiningen supports release versioning, using Semantic Versioning
+
+== How do you test your ontology
+
+* Clojure supports one or more unit tests frameworks
+* We use the default (core.test) framework
+* Tawny-OWL provides some fixtures
+* Also use spreadsheet generated testing
+** Paper – http://arxiv.org/abs/1505.04112
+** Tawny-Karyotype – http://github.com/jaydchan/tawny-karyotype
+** Plain English Summary - http://www.russet.org.uk/blog/3074
+
+== How do you continuously integrate your ontology?
+
+* We can test ontologies with standard frameworks
+* These can run directly from leiningen
+* This workflow allows the use of standard CI environment with no changes
+* We use github/travis-CI
+* Note, iff you import ontologies via URI, you may not get a repeatable build.
+
+== What about advanced documentation for Ontologies?
+
+* Tawny-OWL ontologies are readable text
+* It is possible to embed rich readable comments
+* Also can use literate programming tools
+* noweb, or org-mode use traditional approach
+* I have also developed "lentic" which integrates with editor
+
+== Can I internationalise my ontology?
+
+* Can add internationalised labels
+
+[source,lisp]
+----
+(label "Ciao" "it")
+----
+
+* Can define internationalized function aliases
+
+[source,lisp]
+----
+(defn etichetta [l]
+  (label l "it"))
+----
+
+* Can use `tawny.polyglot` to use property bundles
+
+== Can I scaffold my ontology from existing source
+
+* Can "import" ontology terms from spreadsheet, XML or a database
+* Can work over existing source
+* Therefore can generate core of ontology
+* And expand it with manually annotated crosslinks
+
+* See paper in ICBO 2015!
+
+== What happens if the labels of read ontologies change
+
+* OBO ontologies use numeric IDs
+* These are unreadable, so we syntactically transform labels
+* If label changes (but ID remains the same) is a problem
+* Can use `tawny.memorize` to remember mappings
+* Then add aliases to those now missing (with optional "deprecated" warnings)
+
+== How do you convert an existing ontology to Tawny
+
+* `tawny.render` can perform a syntactic transformation
+* Given OWL provides equivalent Clojure code
+* Used interactively to provide documentation
+* Can be used to port an ontology
+* Currently "patternising" ontology is manual
+* See Jennifer Warrenders PhD thesis where we did this with SIO
+
+== How Fast is Tawny
+
+* For raw, un-patternized ontology tawny takes about 2x as reading OWL/XML
+* Tested by rendering and load GO
+* About 56Mb of lisp
+* Loads in about 1min
+* Most of excess time is in parsing (Clojure also compiles)
+* Patternized ontology would involve less parsing
+
+== Can I integrate more tightly with protege?
+
+* We have build a GUI shell into Protege
+* Can also use Protege to open a Clojure REPL via a socket
+* Protege then displays directly the state of Tawny
+* Good for demonstration
+* But a little flaky for normal use
+* Having Protege reload an OWL file easier
+
+
+== How does Tawny affect dependency management with ontologies?
+
+* Clojure uses maven dependency management
+* We can specify dependencies with versions
+* Can fix versions or specify ranges
+* Can use standard tools to display, query and analyse versions
+* Can publish on Maven central or Clojars (no infrastructure to maintain!)
+
+== Can I link ontologies into software?
+
+* OWL API objects become first class entities in Clojure
+* Can refer to them directly
+* We integrated Overtone -- a music generation system
+* Added in Tawny-OWL and the Music Ontology
+* We now have software that plays a tune
+* And provides OWL metadata about that tune
+* More to investigate here.
+

@@ -1,0 +1,37 @@
+
+== Hiatus
+
+* Hope that I have shown basic and advanced functionality
+* Key feature of Tawny is extensibility
+* Reuse of existing tooling
+* Would welcome feedback
+* Never used catnip in this sense before, glad to know if it worked for you
+
+== Questions and Answers
+
+* Remainder of tutorial will be audience driven
+* Welcome to take any questions
+* Also have set of potential questions with prepared answers
+* Can get full tutorial, with notes
+
+* Readable http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015/
+* Source http://github.com/phillord/tawny-tutorial
+
+
+== Questions
+
+- Can I add annotations on axioms?
+- How does this affect ontology deployment?
+- How do you version your ontology?
+- How do you test your ontology?
+- How do you continously integrate your ontology?
+- What about advanced documentation for ontologies?
+- Can I internationalise my ontology?
+- Can I scaffolding my ontology from existing sources?
+- What happens if the labels of read ontologies change?
+- How do you convert an existing ontology to Tawny?
+- How fast is tawny?
+- Can I integrate more tightly with protege?
+- How does Tawny affect dependency management with ontologies
+- Can I link ontologies into software
+

@@ -34,3 +34,8 @@ include::../src/lisbon/autosave_s.adoc[]
 
 include::../src/lisbon/amino_acid_build_s.adoc[]
 
+include::questions.adoc[]
+
+include::answers.adoc[]
+
+include::acknowledgements.adoc[]
