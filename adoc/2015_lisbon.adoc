@@ -29,3 +29,8 @@ include::../src/lisbon/whats_in_a_name_s.adoc[]
 include::../src/lisbon/use_abc_s.adoc[]
 
 include::../src/lisbon/read_abc_s.adoc[]
+
+include::../src/lisbon/autosave_s.adoc[]
+
+include::../src/lisbon/amino_acid_build_s.adoc[]
+

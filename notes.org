@@ -194,11 +194,13 @@ And I can't do the single slide thing.
  - equivalents and same as
 
 
-*** How to program an autosave function
+*** DONE How to program an autosave function
+    CLOSED: [2015-07-11 Sat 09:07]
  - Clojure Java 101
  - Proxies
  - Listeners
  
+
 *** The amino-acid pattern
 
  - Advanced
@@ -211,18 +213,28 @@ And I can't do the single slide thing.
  - Filtering
  - 
 
+
 *** Advanced Extensions
- 
+
  - No more follow my leader
 
- - Axiom Annotations
- - Work patterns
- - Git (any we don't need URI gen)
- - Unit Testing
- - Continous integration
- - Polyglot
- - Memorize
- - Scaffolding
+**** Questions
+
+ - Can I add annotations on axioms
+ - How does this affect ontology deployment?
+ - How do you version your ontology?
+ - How do you test your ontology?
+ - How do you continously integrate your ontology?
+ - Can I internationalise my ontology?
+ - Can I scaffolding your ontology from existing sources?
+ - What happens if the labels of read ontologies change?
+ - How do you convert an existing ontology to Tawny?
+ - How fast is tawny?
+ - Can I integrate more tightly with protege?
+ - How does Tawny affect dependency management with ontologies
+ - Can I link ontologies into software
+
+
 
 
 *** The Future

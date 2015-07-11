@@ -54,7 +54,7 @@
 
 ;; * Tawny-OWL provides a solution called _reading_
 ;; * Reading makes all entities available as symbols
-;; * In this case, `abcother.owl` has been saved locally
+;; * In this case, from a file `abcother.owl` has been saved locally
 ;; * Can read from any URL.
 
 ;; [source,lisp]
@@ -89,9 +89,11 @@
 (owl-import abc)
 ;; ----
 
+
 ;; == Reading
 
 ;; * And access it's value by symbol
+;; * Symbols must be defined.
 
 ;; [source,lisp]
 ;; ----
@@ -101,6 +103,15 @@
 (defclass MyB
   :super B)
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Having read our ontology this now gives us the ability to refer directly, with
+;; symbols. So, we can type `A` or `B`. This is safe, and has all the advantages
+;; of symbol based definition.
+;; ====
+;; endif::backend-slidy[]
 
 
 ;; == Task {task}: Conclusion
