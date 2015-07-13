@@ -14,7 +14,7 @@
 ;; [source,notlisp]
 ;; ----
 ;; (ns lisbon.amino-acid-sio
-;;   (:use [tawny.owl])
+;;   (:use [tawny owl pattern])
 ;;   (:require [sio-maven.sio :as sio]))
 ;; ----
 
@@ -24,7 +24,7 @@
 ;; [source,lisp]
 ;; ----
 (ns lisbon.amino-acid-sio-s
-  (:use [tawny.owl])
+  (:use [tawny owl pattern])
   (:require [sio-maven.sio :as sio]))
 ;; ----
 ;; ====
