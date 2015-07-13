@@ -1,10 +1,10 @@
 
 == Can I add annotations on axioms?
 
-* OWL allows annotation of axioms
-* For example as provenance for axiom
+* OWL allows annotation of axioms, for provenance for example
 * Tawny provides a syntax for this
 * Annotates `SubClassOf` axiom between `Man` and `Person` with a comment.
+* http://www.russet.org.uk/blog/3028
 
 [source,lisp]
 ----
@@ -14,17 +14,55 @@
            (owl-comment "States that every man is a person")))
 ----
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+One of the reasons for the complexity of the OWL API is that it allows
+annotations to be passed in lots of places, including on the axioms that
+assert the relationship between, for example, two classes. One simplification
+I made with Tawny is to hide this complexity. Moreover, Tawny is frame-centric
+so the axioms are not normally seen explicitly.
+
+Unfortunately, it appears that in hiding the complexity, I had also hidden a
+capability that people actually use: GO uses axiom annotations for provenance
+for instance. So I have added this capability into tawny with a slightly
+expanded syntax.
+
+The `annotate` function returns an object encapsulating and OWL API entity and
+an annotation that will be added to the axiom of the frame. We can see this in
+the example given. Note that we are annotating neither `Person` nor `Man` in
+this case, but the relationship between them.
+====
+endif::backend-slidy[]
+
 == How does this affect ontology deployment
 
 * Potentially none -- Tawny generates an OWL file
 * Potentially automatable
-** Can add publication code to project source
-** Can expand the *project* to publish (i.e. leiningen)
+** In project source, or through leiningen plugin
 * Or can publish as a maven artefact
 ** Ontology can be downloaded as a software artefact
 ** Separates out ontology identifier and download location
-** Manages all ontology dependency resolution
-** And provides tools for examining dependency transitive closure
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+We can deploy ontologies to bioportal or to anywhere else exactly as we do
+now. Save the OWL file, and do stuff to it manually.
+
+Of course, in a programmable environment, it is also very easy to add
+additional deployment technology -- so generate one or more files, copy them
+to another location, via ssh or http, check them in somewhere. This can be
+achieved either in the project source or as a leiningen plugin.
+
+Or, finally, we can deploy our ontology like any other piece of Clojure code,
+as a maven artifact, to maven central, to clojars (like maven central but for
+Clojure), or to our own private repo. This also separates our the ontology
+identifier from the download location. It's possible to argue whether this is
+a good thing or a bad thing.
+====
+endif::backend-slidy[]
+
 
 == How do you version your ontology?
 
@@ -32,6 +70,13 @@
 * You edit *source code* not a visualisation of an XML file
 * Like various OBO flat file syntaxes, it works well in git or any VCS
 * Leiningen supports release versioning, using Semantic Versioning
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+====
+endif::backend-slidy[]
 
 == How do you test your ontology
 
@@ -59,6 +104,13 @@
 * noweb, or org-mode use traditional approach
 * I have also developed "lentic" which integrates with editor
 
+== How do I collaborative develop by ontology?
+
+* The same was as all software
+* Version control for asynchronous, fork and merge with git
+* Collaborative chat use gerrit, or skype
+* Synchronous editing, try floobits, a web editor
+
 == Can I internationalise my ontology?
 
 * Can add internationalised labels
@@ -68,7 +120,7 @@
 (label "Ciao" "it")
 ----
 
-* Can define internationalized function aliases
+* Can define internationalized function calls
 
 [source,lisp]
 ----
@@ -126,10 +178,36 @@
 == How does Tawny affect dependency management with ontologies?
 
 * Clojure uses maven dependency management
-* We can specify dependencies with versions
-* Can fix versions or specify ranges
-* Can use standard tools to display, query and analyse versions
+* We can now publish ontologies as maven artefacts
+* And specify dependencies, with versions, and tooling
 * Can publish on Maven central or Clojars (no infrastructure to maintain!)
+* Separates ID and download location -- disobeys LOD principles
+* But fulfils, SLOD principles.
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+Clojure uses maven dependency management. As a tawny ontology is just a piece
+of clojure, we can use the same mechanism with tawny ontologies also. Which
+means that we can specify ontological dependencies also. This means we can
+specify version ranges (OWL doesn't allow this to my knowledge). And we can
+can reuse tooling. We can use leiningin to show us a dependency graph, we can
+look for version conflicts, we can exclude duplicates from the transistive
+closure.
+
+Interestingly, we can also publish our ontology independently from our IDs.
+So, we can get someone else to maintain all the infrastructure for deployment
+(including of multiple versions) without having to adopt their identifiers
+(like bioportal).
+
+This rather breaks the Linked Open Data (LOD) principles, of course which says
+that IDs should resolve. Using maven dependencies we don't need this at
+all. But it fulls the SLOD (significant load of dependencies) principle which
+says if your software has lots of dependencies *and* lots of different people
+maintaining the infrastructure for their availability it is going to break all
+the time.
+====
+endif::backend-slidy[]
 
 == Can I link ontologies into software?
 

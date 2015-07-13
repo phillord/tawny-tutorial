@@ -26,6 +26,7 @@
 - How do you test your ontology?
 - How do you continously integrate your ontology?
 - What about advanced documentation for ontologies?
+- How do I collaboratively develop my ontology?
 - Can I internationalise my ontology?
 - Can I scaffolding my ontology from existing sources?
 - What happens if the labels of read ontologies change?
