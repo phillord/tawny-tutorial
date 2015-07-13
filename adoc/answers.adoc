@@ -74,7 +74,24 @@ endif::backend-slidy[]
 ifndef::backend-slidy[]
 [NOTE]
 ====
+Tawny-OWL uses a line-orientated syntax and what you edit is source code, not
+some XML that has been generated. So, it works very well with version control.
+The serialisation order is entirely predictable because there is not
+serialisation -- it's source code, it only changes if you edit it.
 
+Working with source code also means that diff tools show you changes in the
+same form of the code that you edit, so it's very easy to compare two
+versions, two branches what ever. The only exception to this are the EDN files
+used for numeric IDs of OBO identifiers. These have been designed to version
+well (they are generated but not regeneratable, so should be regarded a source
+code), but only time will tell. "They do not version well" will be considered
+to be a bug though, and will be something I would want to fix.
+
+We've used git for all the various ontologies we have developed, and it works
+nicely.
+
+It is also possible to version in the sense of release tagged versions of an
+ontology and to use a dependency mechanism.
 ====
 endif::backend-slidy[]
 
@@ -88,6 +105,17 @@ endif::backend-slidy[]
 ** Tawny-Karyotype – http://github.com/jaydchan/tawny-karyotype
 ** Plain English Summary - http://www.russet.org.uk/blog/3074
 
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+We test our ontologies explicitly and sometimes very heavily. Tawny-OWL
+provides some fixtures to make this easy and we use `core.test` but there
+other test frameworks and we might move at some point. This has been written
+up as a paper, and I would suggest reading these for further information.
+====
+endif::backend-slidy[]
+
 == How do you continuously integrate your ontology?
 
 * We can test ontologies with standard frameworks
@@ -95,6 +123,9 @@ endif::backend-slidy[]
 * This workflow allows the use of standard CI environment with no changes
 * We use github/travis-CI
 * Note, iff you import ontologies via URI, you may not get a repeatable build.
+
+
+
 
 == What about advanced documentation for Ontologies?
 
@@ -219,3 +250,12 @@ endif::backend-slidy[]
 * And provides OWL metadata about that tune
 * More to investigate here.
 
+== What's this `:super`? why not `:subclass`?
+
+* Manchester syntax uses `SubClassOf:`
+* Tawny uses `:super` for the same purpose!
+* Confusing!
+* Manchester syntax is actually backward
+* In tawny, all frames are `A has :frame B`
+* In Manchester `A is a SubClassOf: B`
+* http://www.russet.org.uk/blog/2985

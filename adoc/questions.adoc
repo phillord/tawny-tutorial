@@ -33,6 +33,6 @@
 - How do you convert an existing ontology to Tawny?
 - How fast is tawny?
 - Can I integrate more tightly with protege?
-- How does Tawny affect dependency management with ontologies
-- Can I link ontologies into software
-
+- How does Tawny affect dependency management with ontologies?
+- Can I link ontologies into software?
+- What's this `:super`? why not `:subclass`?
