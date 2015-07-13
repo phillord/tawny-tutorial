@@ -347,7 +347,7 @@
 
 ;; == Doing them all
 
-;; * "Doing them all" actually means that do the cartesian product
+;; * "Doing them all" actually means the cartesian product
 ;; * Surprisingly there is not a function for this
 ;; * This is pure Clojure, not doing to describe it
 
@@ -389,7 +389,7 @@
 ;; [NOTE]
 ;; ====
 ;; We now call actually run the cartesian product. We add "nil" so that we get
-;; single, double, and triple a wsell as full length products, and filter for nil
+;; single, double, and triple as well as full length products, and filter for nil
 ;; to get rid of them again.
 ;; ====
 ;; endif::backend-slidy[]
@@ -407,6 +407,18 @@
 (consistent?)
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Tawny support a couple of reasoners out of the box, including Hermit and ELK.
+;; Here we are instantiating using a `:keyword`, but this is just a short-cut --
+;; any OWL API `OWLReasonerFactory` can be used directly.
+
+;; The reasoner is invoked to check consistency automatically. Tawny uses a GUI
+;; (a progress bar) by default to show this process, but falls
+;; ====
+;; endif::backend-slidy[]
+
 ;; == Reasoning
 
 ;; * We can count numbers
@@ -417,6 +429,17 @@
 (count (subclasses AminoAcid))
 (count (isubclasses AminoAcid))
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Working out what has happened can be quite hard (this is something that we
+;; wish to fix in future versions of tawny), but counting subclasses work as well
+;; as anything. We now have a lot more inferred subclasses than asserted.
+
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Reasoning
 
@@ -495,7 +518,7 @@
 ;; [source,lisp]
 ;; ----
 (count
- (isubclasses SmallAminoAcid)
+ (isubclasses SmallAminoAcid))
 ;; ----
 
 ;; == As a query
