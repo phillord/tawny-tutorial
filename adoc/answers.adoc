@@ -88,7 +88,9 @@ code), but only time will tell. "They do not version well" will be considered
 to be a bug though, and will be something I would want to fix.
 
 We've used git for all the various ontologies we have developed, and it works
-nicely.
+nicely. Actually "nicely" is an understatement. The move to modern version
+management, rather than anything bespoke build just for ontologies makes an
+enormous difference. For my money, it's reason to move to tawny all by itself.
 
 It is also possible to version in the sense of release tagged versions of an
 ontology and to use a dependency mechanism.
@@ -124,7 +126,21 @@ endif::backend-slidy[]
 * We use github/travis-CI
 * Note, iff you import ontologies via URI, you may not get a repeatable build.
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+Once you can test, then you can continuous integrate. We do this with
+Travis-CI which is nice and it supports Clojure and Leiningen out of the box
+(er, cloud). It also continuously integrates with the software environment
+(including tawny). You can reason on there as well (tawny works headless just
+fine).
 
+If you import ontologies via URI you are totally dependent on them being
+stable or you will not get a repeatable build. It's probably better to import
+ontologies via their version IRI anyway to ensure this, although it's nice
+widely done.
+====
+endif::backend-slidy[]
 
 
 == What about advanced documentation for Ontologies?
@@ -135,12 +151,40 @@ endif::backend-slidy[]
 * noweb, or org-mode use traditional approach
 * I have also developed "lentic" which integrates with editor
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+OWL raw does allow documentation but it's poor. With annotation properties you
+have no structure at all unless you use microsyntax. Moreover most annotations
+are sets -- so no order.
+
+We have been experimenting heavily with literate programming tools. I started
+this quite a few years back, but they now work well, and we have build a
+specialised tool called "lentic".
+====
+endif::backend-slidy[]
+
+
 == How do I collaborative develop by ontology?
 
 * The same was as all software
 * Version control for asynchronous, fork and merge with git
 * Collaborative chat use gerrit, or skype
 * Synchronous editing, try floobits, a web editor
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+Collaborative development is not a new requirement and is, in fact, the
+default for some environments. Just use existing tools. Git if you want
+asynchronous development, or floobits, or even a virtual machine, tmux and
+Emacs in the console. What ever.
+
+The point is, it's not a problem for tawny. It's a problem for many software
+engineers world-wide and they have provided some very, very slick solutions.
+====
+endif::backend-slidy[]
+
 
 == Can I internationalise my ontology?
 
@@ -161,6 +205,17 @@ endif::backend-slidy[]
 
 * Can use `tawny.polyglot` to use property bundles
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+It's very easy. Tawny programmability means that you can also support a
+default language if you chose to, and have your ontologies use their own
+native language for all parts of the system. `tawny.polyglot` uses property
+bundles which I believe integrate well with most machine-supported translation
+environments.
+====
+endif::backend-slidy[]
+
 == Can I scaffold my ontology from existing source
 
 * Can "import" ontology terms from spreadsheet, XML or a database
@@ -169,6 +224,7 @@ endif::backend-slidy[]
 * And expand it with manually annotated crosslinks
 
 * See paper in ICBO 2015!
+* http://www.russet.org.uk/blog/3076
 
 == What happens if the labels of read ontologies change
 
@@ -177,6 +233,20 @@ endif::backend-slidy[]
 * If label changes (but ID remains the same) is a problem
 * Can use `tawny.memorize` to remember mappings
 * Then add aliases to those now missing (with optional "deprecated" warnings)
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+The problem here is that we have to do something to get readable names for OBO
+style ontologies. But we are now using a part of the OBO style ontology that
+is open to change with, perhaps, fewer guarantees than for identifiers.
+
+Tawny has support for this. It's solves the problem by saving the mapping that
+it creates between a label and a URI. If the URI remains, but the label
+disappears than tawny adds an alias and deprecation warning.
+====
+endif::backend-slidy[]
+
 
 == How do you convert an existing ontology to Tawny
 
@@ -187,6 +257,17 @@ endif::backend-slidy[]
 * Currently "patternising" ontology is manual
 * See Jennifer Warrenders PhD thesis where we did this with SIO
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+We do have a methodology for doing this. We can render most of the ontology
+automatically, which provides the basis for this kind of port. But actually
+making use of the advanced features of tawny (like patterns or the
+`as-subclasses` functionality) is manual. In general, at least some of this
+will be necessary although it can be done manually.
+====
+endif::backend-slidy[]
+
 == How Fast is Tawny
 
 * For raw, un-patternized ontology tawny takes about 2x as reading OWL/XML
@@ -196,6 +277,20 @@ endif::backend-slidy[]
 * Most of excess time is in parsing (Clojure also compiles)
 * Patternized ontology would involve less parsing
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+In short, it's fast enough that you are probably never going to notice it. We
+cannot currently test how much different the patternisation would make, but it
+might be substantial.
+
+It is also worth noting that with an ontology the size of GO, iff it were
+developed in Tawny, it would be unlikely to be single file. Interactively
+(i.e. in the editor) you probably would not be loading the whole ontology most
+of the time anyway.
+====
+endif::backend-slidy[]
+
 == Can I integrate more tightly with protege?
 
 * We have build a GUI shell into Protege
@@ -204,6 +299,25 @@ endif::backend-slidy[]
 * Good for demonstration
 * But a little flaky for normal use
 * Having Protege reload an OWL file easier
+
+
+https://vimeo.com/79395370
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+This should work nicely and it does, but the truth is that at the moment a
+REPL opened inside Protege hangs periodically and I do not know exactly why; I
+suspect it is that Protege is not entirely happy with having it's data
+structures changed underneath it, but I have not had the leisure to debug
+this yet.
+
+In our hands, the auto-reload function works well. I tend to render first to
+OMN and look at that. Tawny also has a documentation capability which shows
+you the "unwound" definition of terms. And then finally I use protege after
+that.
+====
+endif::backend-slidy[]
 
 
 == How does Tawny affect dependency management with ontologies?
@@ -250,6 +364,17 @@ endif::backend-slidy[]
 * And provides OWL metadata about that tune
 * More to investigate here.
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+One of the great unexplored areas of Tawny at the moment is how much value we
+can get embedding an ontology into software. We did have a very short project
+integrating a semantic system (tawny) with a music generation system. This
+works and was fun. I think there is a lot of scope for research in this
+area yet.
+====
+endif::backend-slidy[]
+
 == What's this `:super`? why not `:subclass`?
 
 * Manchester syntax uses `SubClassOf:`
@@ -259,3 +384,18 @@ endif::backend-slidy[]
 * In tawny, all frames are `A has :frame B`
 * In Manchester `A is a SubClassOf: B`
 * http://www.russet.org.uk/blog/2985
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+I made this change very carefully and was very reticient about it: not least
+because it made my main user of Tawny at the time (Jennifer Warrender) change
+all of their existing code. But I had really confusing code inside Tawny where
+my `add-subclass` functions had backward semantics to all the others.
+
+I changed from ":subclass" to a more plain ":super" at the same time. This
+opens up a slight risk because object-property has the same frame but for a
+different purpose. I do not worry about this too much because other tools will
+pick up, for example, the use of a class as a super-property.
+====
+endif::backend-slidy[]
