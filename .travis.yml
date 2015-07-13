@@ -7,6 +7,7 @@ addons:
     - source-highlight
 before_install:
   - wget http://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz
+  - ls
   - tar xvf emacs-24.5.tar.xv
   - cd emacs-24.5 && ./configure --prefix=$HOME/emacs && make && make install
   - curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
