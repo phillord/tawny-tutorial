@@ -1,4 +1,4 @@
-(defproject lisbon "0.1.0-SNAPSHOT"
+(defproject lisbon "1.0-SNAPSHOT"
   :description "A Tutorial for Tawny-OWL"
   :url "http://github.com/phillord/tawny-tutorial"
   :plugins [[lein-catnip "0.5.1" :exclusions [org.clojure/clojure]]]
