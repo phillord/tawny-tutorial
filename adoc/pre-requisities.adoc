@@ -30,7 +30,7 @@
 
 * This is a Clojure build tool
 * http://leiningen.org/
-* Download the shell script (Linux,Mac)
+* Download the shell script (Linux,Mac) and run it!
 * Or your package manager (*leiningen 2* -- lein 1 will not work)
 * For Windows, the installer works
 * http://leiningen-win-installer.djpowell.net/

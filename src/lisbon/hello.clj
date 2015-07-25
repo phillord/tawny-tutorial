@@ -66,7 +66,7 @@
 
 ;; * It should print
 
-;; `Catnip running on http://localhost:50393`
+;; `Catnip running on http://localhost:nnnn`
 
 ;; * And with luck a web browser will pop up.
 

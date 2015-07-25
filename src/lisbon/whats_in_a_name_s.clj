@@ -82,7 +82,7 @@
 ;; ----
 ;; (ns lisbon.whats-in-a-name
 ;;   (:use [tawny owl obo])
-;;   (:require [clojure.string :as s)))
+;;   (:require [clojure.string :as s))
 ;; ----
 
 
