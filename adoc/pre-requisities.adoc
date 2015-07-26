@@ -62,4 +62,4 @@ http://protege.stanford.edu
 * VIM Fireplace
 * Any of the many other options
 * If you do this, you are on your own...
-* You will get a much stronger editing environment that otherwise
+* You will get a much stronger editing environment thanotherwise

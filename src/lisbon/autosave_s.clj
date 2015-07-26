@@ -171,7 +171,7 @@
 
 ;; == auto-save in detail
 
-;; * The `o/owl-ontology-manager` function returns an OWLOntologyManager
+;; * The `o/owl-ontology-manager` function returns an `OWLOntologyManager`
 ;; * Clojure uses the `.` syntax to call methods
 ;; * So, call `addOntologyChangeListener` on the manager
 ;; * With `listener` as an argument
@@ -191,7 +191,7 @@
 
 ;; In general, I hide the existance of the `OWLOntologyManager`, and the
 ;; `OWLOntologyDataFactory`. Generally, there is only one. There are more
-;; flexible approaches, of course, but I have had too make decisions in the
+;; flexible approaches, of course, but I have had to make decisions in the
 ;; development of tawny. Otherwise, pretty much every function would require a
 ;; Manager, or Factory and an ontology as a argument and tawny, as it stands
 ;; would have become unusable.

@@ -24,7 +24,7 @@
 ;; == Namespace
 
 ;; * The value partition pattern is found in `tawny.pattern`
-;; * We import it here
+;; * We `use` it here
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -44,7 +44,7 @@
 ;; [source,notlisp]
 ;; ----
 ;; (ns lisbon.amino-acid-pattern
-;;   (:use [tawny.owl]))
+;;   (:use [tawny owl pattern]))
 ;; ----
 
 ;; == And the preamble

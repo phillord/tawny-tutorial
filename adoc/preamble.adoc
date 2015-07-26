@@ -28,7 +28,6 @@ which this helps to address.
 
 I do not have time to describe all of the features of tawny, nor give a full
 tutorial.
-
 ====
 endif::backend-slidy[]
 

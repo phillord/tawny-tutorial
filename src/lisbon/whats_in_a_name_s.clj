@@ -276,7 +276,7 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Interesteingly, when we get to here, we get a strange ID with a UUID for
+;; Interestingly, when we get to here, we get a strange ID with a UUID for
 ;; fragment and an IRI that it unrelated to anything.
 ;; ====
 ;; endif::backend-slidy[]
@@ -340,11 +340,11 @@
 ;; deterministic, so it will cause no false diffs in versioning.
 
 ;; This is potentially useful if you are collaborating with others and want to
-;; co-ordinate at pre-release time. It's not essentially if others are using
+;; co-ordinate at pre-release time. It's not essential if others are using
 ;; tawny -- there is no need, since classes can be refered to by symbol.
 
 ;; There is a potential disadvantage. This creates an IRI (and entry in the file)
-;; for every new entity created. Not a problem with protege, but tawny is full
+;; for every new entity created. Not a problem with protege, but tawny is fully
 ;; programmatic. I can create 10^6 new classes in one line of code.
 
 ;; pre-iris all appear at the end of the EDN file!

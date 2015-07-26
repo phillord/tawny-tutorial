@@ -76,7 +76,7 @@ ifndef::backend-slidy[]
 ====
 Tawny-OWL uses a line-orientated syntax and what you edit is source code, not
 some XML that has been generated. So, it works very well with version control.
-The serialisation order is entirely predictable because there is not
+The serialisation order is entirely predictable because there is no
 serialisation -- it's source code, it only changes if you edit it.
 
 Working with source code also means that diff tools show you changes in the
@@ -137,7 +137,7 @@ fine).
 
 If you import ontologies via URI you are totally dependent on them being
 stable or you will not get a repeatable build. It's probably better to import
-ontologies via their version IRI anyway to ensure this, although it's nice
+ontologies via their version IRI anyway to ensure this, although it's not
 widely done.
 ====
 endif::backend-slidy[]
@@ -209,10 +209,12 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 It's very easy. Tawny programmability means that you can also support a
-default language if you chose to, and have your ontologies use their own
-native language for all parts of the system. `tawny.polyglot` uses property
-bundles which I believe integrate well with most machine-supported translation
-environments.
+default language if you chose to, and have your ontologists use their own
+native language for all parts of the system. Our example of `etichetta` above
+is one of the complicated examples -- tawny has to know the default language
+also. In most cases, we could just define aliases (see `tawny.english` for
+examples). `tawny.polyglot` uses property bundles which I believe integrate well
+with most machine-supported translation environments.
 ====
 endif::backend-slidy[]
 
@@ -232,7 +234,7 @@ endif::backend-slidy[]
 * These are unreadable, so we syntactically transform labels
 * If label changes (but ID remains the same) is a problem
 * Can use `tawny.memorize` to remember mappings
-* Then add aliases to those now missing (with optional "deprecated" warnings)
+* Which adds aliases to those now missing (with optional "deprecated" warnings)
 
 ifndef::backend-slidy[]
 [NOTE]
@@ -255,7 +257,7 @@ endif::backend-slidy[]
 * Used interactively to provide documentation
 * Can be used to port an ontology
 * Currently "patternising" ontology is manual
-* See Jennifer Warrenders PhD thesis where we did this with SIO
+* See Jennifer Warrenders PhD thesis where she did this with SIO
 
 ifndef::backend-slidy[]
 [NOTE]
@@ -274,14 +276,14 @@ endif::backend-slidy[]
 * Tested by rendering and load GO
 * About 56Mb of lisp
 * Loads in about 1min
-* Most of excess time is in parsing (Clojure also compiles)
+* Most of excess time is in parsing, (Clojure also compiles)
 * Patternized ontology would involve less parsing
 
 ifndef::backend-slidy[]
 [NOTE]
 ====
 In short, it's fast enough that you are probably never going to notice it. We
-cannot currently test how much different the patternisation would make, but it
+cannot currently test how much difference the patternisation would make, but it
 might be substantial.
 
 It is also worth noting that with an ontology the size of GO, iff it were
@@ -293,7 +295,7 @@ endif::backend-slidy[]
 
 == Can I integrate more tightly with protege?
 
-* We have build a GUI shell into Protege
+* We have built a GUI shell into Protege
 * Can also use Protege to open a Clojure REPL via a socket
 * Protege then displays directly the state of Tawny
 * Good for demonstration
@@ -351,6 +353,9 @@ all. But it fulls the SLOD (significant load of dependencies) principle which
 says if your software has lots of dependencies *and* lots of different people
 maintaining the infrastructure for their availability it is going to break all
 the time.
+
+Thanks to Helen Parkinson for inspiring (a slightly different version) of the
+SLOD acronym.
 ====
 endif::backend-slidy[]
 

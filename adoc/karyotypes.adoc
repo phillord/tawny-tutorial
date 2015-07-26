@@ -49,6 +49,7 @@ The current representation goes back to the days of type writers. The
 specification is not machine interpretable, the ISCN strings themselves are
 not interpretable, in fact, you cannot even represent them fully in ascii
 because they use meaningful underlines.
+
 endif::backend-slidy[]
 
 == A partonomy?
@@ -219,7 +220,7 @@ feeling that you are programming.
 
 It was going to be written using the OWL API because there is too much code
 there to rewrite, and no one would trust me to do that in a standards
-compliant
+compliant way.
 
 This required the use of the JVM.
 

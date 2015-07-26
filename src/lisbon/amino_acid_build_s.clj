@@ -297,7 +297,7 @@
   :equivalent (owl-and (facet Small Polar)))
 
 (defclass LargeNonPolarAminoAcid
-  :equivalent (owl-and (facet (list Large NonPolar))))
+  :equivalent (owl-and (facet Large NonPolar)))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -364,6 +364,7 @@
 ;; == Doing them all
 
 ;; * Call the `amino-acid-def` function on cartesian product
+;; * This creates 453 defined classes
 
 ;; [source,lisp]
 ;; ----
@@ -415,7 +416,9 @@
 ;; any OWL API `OWLReasonerFactory` can be used directly.
 
 ;; The reasoner is invoked to check consistency automatically. Tawny uses a GUI
-;; (a progress bar) by default to show this process, but falls
+;; (a progress bar) by default to show this process, but falls back to text if
+;; that is not possible (so you can check consistency in a CI environment without
+;; hassles.
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -436,8 +439,6 @@
 ;; Working out what has happened can be quite hard (this is something that we
 ;; wish to fix in future versions of tawny), but counting subclasses work as well
 ;; as anything. We now have a lot more inferred subclasses than asserted.
-
-
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -481,7 +482,7 @@
 ;; * Happens because there are 20 amino-acids
 ;; * But 700 defined classes
 ;; * Many defined classes have necessarily the same extent
-;; * Many can have no individuals
+;; * Many can have no individuals (`Negative` and `Hydrophobic`)
 ;; * Only happens *with* the covering axiom
 
 
@@ -494,13 +495,13 @@
 
 ;; This only happens because of the magic `:cover` axiom. We know all of the
 ;; amino acids that exist --- as there are no hydrophobic charged amino-acids (as
-;; the two facets are not independent for obvious reasons of biology!), that
+;; the two facets are not independent for obvious reasons of chemistry!), that
 ;; class becomes inconsistent. Without the `:cover` axiom, the reasoner would
 ;; assume that this class *could* exist but we have just not mentioned it.
 
 ;; So, the reasoning is telling us something about the biology -- and whether we
 ;; want this form of conclusion depends on whether we are talking about biology
-;; or chemistry -- after all if we were a chemisty many amino acids could be
+;; or chemistry -- after all if we were a chemist many amino acids could be
 ;; created that separate out of equivalent classes, and many make some
 ;; unsatisifiable classes satisfiable.
 

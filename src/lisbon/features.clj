@@ -198,6 +198,8 @@
 
 ;; It is possible to avoid this if you wish.
 
+;; General Concept Inclusions are fully supported which OMN doesn't do.
+
 ;; We can also build patterns in the same syntax and files as the ontology. You
 ;; will see many examples of this through the tutorial.
 

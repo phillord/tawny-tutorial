@@ -14,7 +14,7 @@
 ;; [NOTE]
 ;; ====
 ;; It is possible that you want access to an OWL ontology that was not developed
-;; using Tawny-OWL, but some legacy editor like Protege?
+;; using Tawny-OWL, but by some legacy editor like Protege?
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -54,7 +54,7 @@
 
 ;; * Tawny-OWL provides a solution called _reading_
 ;; * Reading makes all entities available as symbols
-;; * In this case, from a file `abcother.owl` has been saved locally
+;; * In this case, a file `abcother.owl` has been saved locally
 ;; * Can read from any URL.
 
 ;; [source,lisp]
@@ -88,7 +88,6 @@
 
 (owl-import abc)
 ;; ----
-
 
 ;; == Reading
 

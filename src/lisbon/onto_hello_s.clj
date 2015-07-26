@@ -12,7 +12,7 @@
 
 ;; * For everything that follows you have:
 ;; ** An empty file for trying out the examples (`src/lisbon/onto_hello.clj`)
-;; ** A full file with all the answers (`src/lisbon/onto_hello_src.clj`)
+;; ** A full file with all the answers (`src/lisbon/onto_hello_s.clj`)
 ;; * Better to copy and paste if you can!
 
 
@@ -82,8 +82,8 @@
 ;; ====
 
 ;; Next we define a new ontology. It has a name that we can use to refer to it,
-;; which is a useful property as we shall, although most of the time, we do not
-;; have to. For the defontology statement everything except for the name is
+;; which is a useful property as we shall see, although most of the time, we do
+;; not have to. For the `defontology` statement everything except for the name is
 ;; optional, although there are quite a few frames more of which we will use as
 ;; we move through the tutorial.
 
@@ -241,8 +241,8 @@
 ;; ====
 ;; There are also options. We have symbol short-cuts which should be obvious to
 ;; programmers. We have an `owl-only` function which I used to use because I used
-;; to forget which is the clojure.core function and which was not. And I have
-;; consistent namespace called tawny.english, but this requires using the
+;; to forget which is the `clojure.core` function and which was not. And I have
+;; consistent namespace called `tawny.english`, but this requires using the
 ;; namespace mechanism of Clojure in a way that is slightly more complex than I
 ;; wish to describe.
 ;; ====

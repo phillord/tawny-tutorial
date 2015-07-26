@@ -5,7 +5,7 @@
 ;; * Tawny-OWL has many benefits, out-of-the-box
 ;; * Comes with one significant cost
 ;; * Requires a working Clojure environment
-;; * And an understand of how to use it
+;; * And an understanding of how to use it
 
 
 ;; ifndef::backend-slidy[]

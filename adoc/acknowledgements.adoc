@@ -5,3 +5,4 @@
 * Anthony Moorman, Driving use case
 * Ignazzio Palmizziano, OWL API Support
 * Matt Horridge, Protege, OWL API Support
+* Robert Stevens, Amino Acid Ontology
