@@ -13,4 +13,5 @@ script:
 notifications:
    email:
      - travis@russet.org.uk
+     - jaydchan@gmail.com
   
