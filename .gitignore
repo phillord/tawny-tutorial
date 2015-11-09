@@ -14,9 +14,9 @@ pom.xml.asc
 /src/lisbon/*.adoc
 Makefile-local
 /.cask/
-/adoc/2015_lisbon.pdf
-/adoc/2015_lisbon_book.html
-/adoc/2015_lisbon_pdf_wrapper.xml
+/adoc/2015_swat4ls.pdf
+/adoc/2015_swat4ls_book.html
+/adoc/2015_swat4ls_pdf_wrapper.xml
 /adoc/2015_prerequisities.html
 /adoc/auto/
 /catalog-v001.xml
