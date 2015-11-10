@@ -15,6 +15,7 @@ pom.xml.asc
 Makefile-local
 /.cask/
 /adoc/2015_swat4ls.pdf
+/adoc/2015_swat4ls.html
 /adoc/2015_swat4ls_book.html
 /adoc/2015_swat4ls_pdf_wrapper.xml
 /adoc/2015_prerequisities.html
