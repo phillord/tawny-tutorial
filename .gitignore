@@ -10,7 +10,6 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-/adoc/2015_lisbon.html
 /src/tawny/tutorial/*.adoc
 Makefile-local
 /.cask/
