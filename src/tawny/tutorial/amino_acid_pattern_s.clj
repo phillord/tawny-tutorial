@@ -7,7 +7,7 @@
 
 ;; * We still have a lot of typing
 ;; * The value partition has lots of bits
-;; * Easy to get wrong (`Polarity` was wrong) 
+;; * Easy to get wrong (`Polarity` was wrong)
 ;; * Tawny supports this pattern directly
 
 ;; ifndef::backend-slidy[]
@@ -34,7 +34,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.amino-acid-pattern-s
+(ns tutorial.amino-acid-pattern-s
   (:use [tawny owl pattern]))
 ;; ----
 
@@ -43,7 +43,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.amino-acid-pattern
+;; (ns tutorial.amino-acid-pattern
 ;;   (:use [tawny owl pattern]))
 ;; ----
 

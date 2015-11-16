@@ -29,7 +29,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.autosave
+;; (ns tutorial.autosave
 ;;   (:require [tawny.owl :as o])
 ;;   (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
 ;; ----
@@ -56,7 +56,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.autosave-s
+(ns tutorial.autosave-s
   (:require [tawny.owl :as o])
   (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
 ;; ----

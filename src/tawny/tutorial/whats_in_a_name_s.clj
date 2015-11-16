@@ -64,7 +64,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.whats-in-a-name-s
+(ns tutorial.whats-in-a-name-s
   (:use [tawny owl])
   (:require [tawny.obo])
   (:require [clojure.string :as s]))
@@ -80,7 +80,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.whats-in-a-name
+;; (ns tutorial.whats-in-a-name
 ;;   (:use [tawny owl obo])
 ;;   (:require [clojure.string :as s))
 ;; ----
@@ -228,7 +228,7 @@
 
 ;; [source,lisp]
 ;; ----
-(tawny.obo/obo-restore-iri obo "./src/lisbon/whats_in_a_name.edn")
+(tawny.obo/obo-restore-iri obo "./src/tutorial/whats_in_a_name.edn")
 ;; ----
 
 ;; == OBO Identifiers
@@ -328,7 +328,7 @@
 ;; ----
 ;; this stores any new IDs we have created
 (comment
-  (tawny.obo/obo-store-iri obo "./src/lisbon/whats_in_a_name.edn"))
+  (tawny.obo/obo-store-iri obo "./src/tutorial/whats_in_a_name.edn"))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -363,7 +363,7 @@
 ;; this coins permanent IDS, in a controlled process!
 (comment
   (tawny.obo/obo-generate-permanent-iri
-   "./src/lisbon/whats_in_a_name.edn"
+   "./src/tutorial/whats_in_a_name.edn"
    "http://purl.obolibrary.org/obo/EXAM_"))
 ;; ----
 

@@ -11,7 +11,7 @@ pom.xml.asc
 .hgignore
 .hg/
 /adoc/2015_lisbon.html
-/src/lisbon/*.adoc
+/src/tawny/tutorial/*.adoc
 Makefile-local
 /.cask/
 /adoc/2015_swat4ls.pdf

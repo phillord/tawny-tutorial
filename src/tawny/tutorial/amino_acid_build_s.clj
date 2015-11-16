@@ -37,7 +37,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.amino-acid-build
+;; (ns tutorial.amino-acid-build
 ;;   (:use [tawny owl pattern reasoner util]))
 ;; ----
 
@@ -50,7 +50,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.amino-acid-build-s
+(ns tutorial.amino-acid-build-s
   (:use [tawny owl pattern reasoner util]))
 ;; ----
 ;; ====

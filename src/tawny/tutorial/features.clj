@@ -1,5 +1,3 @@
-
-
 ;; == Tawny-OWL Key Features
 
 ;; * Now we move onto Tawny-OWL features
@@ -32,7 +30,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.features
+(ns tutorial.features
   (:use [tawny owl reasoner]))
 ;; ----
 

@@ -1,5 +1,3 @@
-
-
 ;; == Paying the Piper
 
 ;; * Tawny-OWL has many benefits, out-of-the-box
@@ -72,15 +70,15 @@
 
 ;; == Catnip
 
-;; * Open the file `src/lisbon/hello.clj`
+;; * Open the file `src/tutorial/hello.clj`
 ;; * Save the file with Ctrl-S
 ;; * This *also* compiles the file
-;; * Ctrl-R or click where it says `lisbon.hello`
+;; * Ctrl-R or click where it says `tutorial.hello`
 ;; * Type `hello`
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.hello)
+(ns tutorial.hello)
 
 (def hello "hello world")
 ;; ----

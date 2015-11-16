@@ -11,8 +11,8 @@
 ;; == Ontological Hello World
 
 ;; * For everything that follows you have:
-;; ** An empty file for trying out the examples (`src/lisbon/onto_hello.clj`)
-;; ** A full file with all the answers (`src/lisbon/onto_hello_s.clj`)
+;; ** An empty file for trying out the examples (`src/tutorial/onto_hello.clj`)
+;; ** A full file with all the answers (`src/tutorial/onto_hello_s.clj`)
 ;; * Better to copy and paste if you can!
 
 
@@ -27,7 +27,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.onto-hello-s
+(ns tutorial.onto-hello-s
   (:use [tawny.owl]))
 ;; ----
 
@@ -43,7 +43,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.onto-hello
+;; (ns tutorial.onto-hello
 ;;   (:use [tawny.owl]))
 ;; ----
 

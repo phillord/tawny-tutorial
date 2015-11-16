@@ -1,4 +1,4 @@
-(ns lisbon.core)
+(ns tutorial.core)
 
 (defn -main
   []

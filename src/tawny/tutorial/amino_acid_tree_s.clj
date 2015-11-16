@@ -15,8 +15,8 @@
 
 ;; == A namespace
 
-;; * You can should create your ontology in the file `lisbon/amino_acid_tree.clj`
-;; * The full code in these slides can be found in `lisbon/amino_acid_tree_s.clj`
+;; * You can should create your ontology in the file `tutorial/amino_acid_tree.clj`
+;; * The full code in these slides can be found in `tutorial/amino_acid_tree_s.clj`
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -24,7 +24,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns lisbon.amino-acid-tree-s
+(ns tutorial.amino-acid-tree-s
   (:use [tawny.owl]))
 ;; ----
 
@@ -34,7 +34,7 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.amino-acid-tree
+;; (ns tutorial.amino-acid-tree
 ;;   (:use [tawny.owl]))
 ;; ----
 

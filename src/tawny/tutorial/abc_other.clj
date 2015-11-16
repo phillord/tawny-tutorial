@@ -1,6 +1,5 @@
-(ns lisbon.abc
+(ns tutorial.abc
   (:use [tawny.owl]))
-
 
 (defontology abc
   :iri "http://www.w3id.org/ontolink/example/abcother.owl"

@@ -76,9 +76,9 @@
 ;; ====
 ;; [source,lisp]
 ;; ----
-(ns lisbon.use-abc-s
+(ns tutorial.use-abc-s
   (:use [tawny.owl])
-  (:require [lisbon.abc]))
+  (:require [tutorial.abc]))
 ;; ----
 ;; ====
 ;; endif::backend-slidy[]
@@ -92,9 +92,9 @@
 
 ;; [source,notlisp]
 ;; ----
-;; (ns lisbon.use-abc
+;; (ns tutorial.use-abc
 ;;   (:use [tawny.owl])
-;;   (:require [lisbon.abc]))
+;;   (:require [tutorial.abc]))
 ;; ----
 
 ;; == Using
@@ -108,7 +108,7 @@
 ;; ----
 (defontology useabc)
 
-(owl-import lisbon.abc/abc)
+(owl-import tutorial.abc/abc)
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -143,13 +143,13 @@
 ;; == Using
 
 ;; * The `require` statement also allows us to use symbols
-;; * Here, we use an explicit name space `lisbon.abc`
+;; * Here, we use an explicit name space `tutorial.abc`
 ;; * And a symbol `B`.
 
 ;; [source,lisp]
 ;; ----
 (defclass MyB
-  :super lisbon.abc/B)
+  :super tutorial.abc/B)
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -159,7 +159,7 @@
 ;; mechanism. That the symbols refer to ontology terms really makes no
 ;; difference.
 
-;; If you get bored of typing, then you can also alias `lisbon.abc` to a shorter
+;; If you get bored of typing, then you can also alias `tutorial.abc` to a shorter
 ;; form, as we saw earlier with `clojure.string`.
 ;; ====
 ;; endif::backend-slidy[]
