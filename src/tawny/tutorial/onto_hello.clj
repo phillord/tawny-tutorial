@@ -27,7 +27,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.onto-hello-s
+(ns tutorial.onto-hello
   (:use [tawny.owl]))
 ;; ----
 

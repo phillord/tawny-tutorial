@@ -1,1 +1,1 @@
-(ns tutorial.import-abc-s)
+(ns tutorial.import-abc)

@@ -50,7 +50,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.amino-acid-build-s
+(ns tutorial.amino-acid-build
   (:use [tawny owl pattern reasoner util]))
 ;; ----
 ;; ====

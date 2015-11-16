@@ -76,7 +76,7 @@
 ;; ====
 ;; [source,lisp]
 ;; ----
-(ns tutorial.use-abc-s
+(ns tutorial.use-abc
   (:use [tawny.owl])
   (:require [tutorial.abc]))
 ;; ----

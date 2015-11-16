@@ -56,7 +56,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.autosave-s
+(ns tutorial.autosave
   (:require [tawny.owl :as o])
   (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
 ;; ----

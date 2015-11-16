@@ -64,7 +64,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.whats-in-a-name-s
+(ns tutorial.whats-in-a-name
   (:use [tawny owl])
   (:require [tawny.obo])
   (:require [clojure.string :as s]))

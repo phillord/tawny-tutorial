@@ -13,7 +13,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.amino-acid-props-s
+(ns tutorial.amino-acid-props
   (:use [tawny owl pattern]))
 ;; ----
 

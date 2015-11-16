@@ -66,9 +66,15 @@
   '("core.clj"
     "features.clj"
     "hello.clj"
-    "onto_hello_s.clj"
-    "amino_acid_tree_s.clj"
-    ))
+    "onto_hello.clj"
+    "amino_acid_tree.clj"
+    "amino_acid_props.clj"
+    "amino_acid_pattern.clj"
+    "whats_in_a_name.clj"
+    "use_abc.clj"
+    "read_abc.clj"
+    "amino_acid_build.clj"
+    "autosave.clj"))
 
 (commander
  (command "gen-src" "Generate adoc from Clojure" build/gen-src)

@@ -1,4 +1,4 @@
-(ns tutorial.core)
+(ns tawny.tutorial.core)
 
 (defn -main
   []

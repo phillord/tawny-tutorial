@@ -23,7 +23,7 @@
 ;; ====
 ;; [source,lisp]
 ;; ----
-(ns tutorial.amino-acid-sio-s
+(ns tutorial.amino-acid-sio
   (:use [tawny owl pattern])
   (:require [sio-maven.sio :as sio]))
 ;; ----
