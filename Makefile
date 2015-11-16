@@ -4,7 +4,7 @@ CASKRUN=$(CASK) exec emacs --debug --script
 WING=$(CASKRUN) script/build.el --
 
 
-ADOC_FILES = $(wildcard adoc/*.adoc) $(wildcard src/lisbon/*.adoc)
+ADOC_FILES = $(wildcard adoc/*.adoc) $(wildcard src/tawny/tutorial/*.adoc)
 
 all: slides book pre-req
 

@@ -9,33 +9,33 @@ include::preamble.adoc[]
 
 include::karyotypes.adoc[]
 
-include::../src/lisbon/features.adoc[]
+include::../src/tawny/tutorial/features.adoc[]
 
 include::pre-requisities.adoc[]
 
-include::../src/lisbon/hello.adoc[]
+include::../src/tawny/tutorial/hello.adoc[]
 
-include::../src/lisbon/onto_hello_s.adoc[]
+include::../src/tawny/tutorial/onto_hello_s.adoc[]
 
-include::../src/lisbon/amino_acid_tree_s.adoc[]
+include::../src/tawny/tutorial/amino_acid_tree_s.adoc[]
 
-include::../src/lisbon/amino_acid_props_s.adoc[]
+include::../src/tawny/tutorial/amino_acid_props_s.adoc[]
 
-include::../src/lisbon/amino_acid_pattern_s.adoc[]
+include::../src/tawny/tutorial/amino_acid_pattern_s.adoc[]
 
-include::../src/lisbon/whats_in_a_name_s.adoc[]
+include::../src/tawny/tutorial/whats_in_a_name_s.adoc[]
 
-include::../src/lisbon/use_abc_s.adoc[]
+include::../src/tawny/tutorial/use_abc_s.adoc[]
 
-include::../src/lisbon/read_abc_s.adoc[]
+include::../src/tawny/tutorial/read_abc_s.adoc[]
 
-include::../src/lisbon/amino_acid_build_s.adoc[]
+include::../src/tawny/tutorial/amino_acid_build_s.adoc[]
 
 include::questions.adoc[]
 
 include::answers.adoc[]
 
-include::../src/lisbon/autosave_s.adoc[]
+include::../src/tawny/tutorial/autosave_s.adoc[]
 
 == Conclusions
 

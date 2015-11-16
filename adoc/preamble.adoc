@@ -90,8 +90,8 @@ endif::backend-slidy[]
 == Notes on Notes
 
 * All materials are available
-* These slides (2015_lisbon.html)
-* As a book with lecture notes (2015_lisbon_book.html)
+* These slides (2015_swat4ls.html)
+* As a book with lecture notes (2015_swat4ls_book.html)
 * Same thing as PDF (but less well checked!).
 
 http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015

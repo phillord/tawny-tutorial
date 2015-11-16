@@ -52,14 +52,14 @@
   (mapc
    (lambda (file)
      (gensource-gen-if-necessary
-      (concat "./src/lisbon/" file)))
+      (concat "./src/tawny/tutorial/" file)))
    build-sources))
 
 (defun build/clean-src ()
   (mapc
    (lambda (file)
      (gensource-clean-if-possible
-      (concat "./src/lisbon/" file)))
+      (concat "./src/tawny/tutorial/" file)))
    build-sources))
 
 (defvar build-sources
