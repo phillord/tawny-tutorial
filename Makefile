@@ -48,5 +48,6 @@ pre-req: adoc/2015_prerequisities.adoc
 
 clean:
 	rm adoc/*html
+	rm src/tawny/tutorial/*adoc
 
 -include Makefile-local
