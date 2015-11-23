@@ -43,11 +43,14 @@ adoc/2015_swat4ls.pdf: $(ADOC_FILES)
 	adoc/2015_swat4ls_pdf_wrapper.adoc
 	mv adoc/2015_swat4ls_pdf_wrapper.pdf adoc/2015_swat4ls.pdf
 
-pre-req: adoc/2015_prerequisities.adoc
+pre-req:
+	adoc/2015_prerequisities.adoc
 	asciidoc adoc/2015_prerequisities.adoc
 
 clean:
 	rm adoc/*html
 	rm src/tawny/tutorial/*adoc
+	rm output/*omn
+	rm output/*owl
 
 -include Makefile-local
