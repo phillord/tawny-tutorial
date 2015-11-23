@@ -20,6 +20,5 @@ Makefile-local
 /adoc/2015_prerequisities.html
 /adoc/auto/
 /catalog-v001.xml
-/catnip.omn
-/o.omn
-/o.owl
+*.omn
+*.owl
