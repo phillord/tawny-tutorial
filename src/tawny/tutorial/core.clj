@@ -60,4 +60,6 @@
   (save-ontology tawny.tutorial.amino-acid-sio/aasio "amino-acid-sio.omn" :omn)
   (save-ontology tawny.tutorial.amino-acid-sio/aasio "amino-acid-sio.owl" :owl)
 
-  (println "The Tawny Tutorial is Installed and Ready"))
+  (println "The Tawny Tutorial is Installed and Ready")
+
+  (System/exit 0))
