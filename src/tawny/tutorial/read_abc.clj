@@ -34,7 +34,7 @@
 ;; ====
 ;; [source,lisp]
 ;; ----
-(ns tutorial.read-abc
+(ns tawny.tutorial.read-abc
   (:use [tawny.owl])
   (:require [tawny.read]))
 ;; ----

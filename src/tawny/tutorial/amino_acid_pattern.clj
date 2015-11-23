@@ -34,7 +34,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.amino-acid-pattern
+(ns tawny.tutorial.amino-acid-pattern
   (:use [tawny owl pattern]))
 ;; ----
 

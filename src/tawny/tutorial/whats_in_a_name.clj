@@ -64,7 +64,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.whats-in-a-name
+(ns tawny.tutorial.whats-in-a-name
   (:use [tawny owl])
   (:require [tawny.obo])
   (:require [clojure.string :as s]))
@@ -228,7 +228,7 @@
 
 ;; [source,lisp]
 ;; ----
-(tawny.obo/obo-restore-iri obo "./src/tutorial/whats_in_a_name.edn")
+(tawny.obo/obo-restore-iri obo "./src/tawny/tutorial/whats_in_a_name.edn")
 ;; ----
 
 ;; == OBO Identifiers

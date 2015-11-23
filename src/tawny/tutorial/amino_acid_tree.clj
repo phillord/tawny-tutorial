@@ -24,7 +24,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.amino-acid-tree
+(ns tawny.tutorial.amino-acid-tree
   (:use [tawny.owl]))
 ;; ----
 

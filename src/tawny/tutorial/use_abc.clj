@@ -76,9 +76,9 @@
 ;; ====
 ;; [source,lisp]
 ;; ----
-(ns tutorial.use-abc
+(ns tawny.tutorial.use-abc
   (:use [tawny.owl])
-  (:require [tutorial.abc]))
+  (:require [tawny.tutorial.abc]))
 ;; ----
 ;; ====
 ;; endif::backend-slidy[]
@@ -108,7 +108,7 @@
 ;; ----
 (defontology useabc)
 
-(owl-import tutorial.abc/abc)
+(owl-import tawny.tutorial.abc/abc)
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -149,7 +149,7 @@
 ;; [source,lisp]
 ;; ----
 (defclass MyB
-  :super tutorial.abc/B)
+  :super tawny.tutorial.abc/B)
 ;; ----
 
 ;; ifndef::backend-slidy[]

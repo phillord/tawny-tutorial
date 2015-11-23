@@ -78,7 +78,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.hello)
+(ns tawny.tutorial.hello)
 
 (def hello "hello world")
 ;; ----

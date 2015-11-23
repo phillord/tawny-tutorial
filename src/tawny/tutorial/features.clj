@@ -30,7 +30,7 @@
 
 ;; [source,lisp]
 ;; ----
-(ns tutorial.features
+(ns tawny.tutorial.features
   (:use [tawny owl reasoner]))
 ;; ----
 
