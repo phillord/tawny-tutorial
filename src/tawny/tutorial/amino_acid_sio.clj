@@ -11,24 +11,12 @@
 ;; * `sio-maven.sio` is a namespace with a `defread` form in it
 ;; * We add an alias (to save typing!)
 
-;; [source,notlisp]
-;; ----
-;; (ns tutorial.amino-acid-sio
-;;   (:use [tawny owl pattern])
-;;   (:require [sio-maven.sio :as sio]))
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.amino-acid-sio
   (:use [tawny owl pattern])
   (:require [sio-maven.sio :as sio]))
 ;; ----
-;; ====
-;; endif::backend-slidy[]
 
 ;; == More amino-acids
 

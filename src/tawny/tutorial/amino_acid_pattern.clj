@@ -26,25 +26,10 @@
 ;; * The value partition pattern is found in `tawny.pattern`
 ;; * We `use` it here
 
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-
-;; As usual, we start with the real/false namespace
-
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.amino-acid-pattern
   (:use [tawny owl pattern]))
-;; ----
-
-;; ====
-;; endif::backend-slidy[]
-
-;; [source,notlisp]
-;; ----
-;; (ns tutorial.amino-acid-pattern
-;;   (:use [tawny owl pattern]))
 ;; ----
 
 ;; == And the preamble
@@ -157,7 +142,7 @@
  )
 ;; ----
 
-;; == Task {task}: Patternising
+;; == Task {task}: Conclusions
 
 ;; * Tawny directly supports the value partition
 ;; * This integrates with facets

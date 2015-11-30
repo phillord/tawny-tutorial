@@ -12,30 +12,14 @@
 ;; * Have a number of chemical properties
 ;; * There are 20
 
-
 ;; == A namespace
 
-;; * You can should create your ontology in the file `tutorial/amino_acid_tree.clj`
-;; * The full code in these slides can be found in `tutorial/amino_acid_tree_s.clj`
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
+;; * The full code in these slides can be found in `tutorial/amino_acid_tree.clj`
 
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.amino-acid-tree
   (:use [tawny.owl]))
-;; ----
-
-;; ====
-;; endif::backend-slidy[]
-
-
-;; [source,notlisp]
-;; ----
-;; (ns tutorial.amino-acid-tree
-;;   (:use [tawny.owl]))
 ;; ----
 
 ;; == Tree
@@ -73,7 +57,7 @@
 ;; * Let's make everything disjoint
 ;; * `Asparagine` is not the same as `Alanine` or `Arginine`
 ;; * With three amino-acids, this is painful and error-prone
-;; * With twenty it would untenable
+;; * With twenty it would be almost impossible
 
 
 ;; [source,lisp]
@@ -101,7 +85,7 @@
 ;; ====
 
 ;; In theory, this should crash, but it may not if you have previously evaluated
-;; (or saved in catnip) the `Asparagine` form above. This reflects one problem
+;; the `Asparagine` form above. This reflects one problem
 ;; with REPL based languages -- sometimes your source can get out of sync with
 ;; your REPL. If it does not crash now, it *will* crash when you restart and eval
 ;; again.

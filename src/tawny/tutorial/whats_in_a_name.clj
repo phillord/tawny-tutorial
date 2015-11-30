@@ -58,9 +58,8 @@
 
 ;; == Namespace
 
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
+;; * We will use `tawny.obo` later to show numeric IDs
+;; * `clojure.string` is for string manipulation.
 
 ;; [source,lisp]
 ;; ----
@@ -69,22 +68,6 @@
   (:require [tawny.obo])
   (:require [clojure.string :as s]))
 ;; ----
-
-
-;; ====
-;; endif::backend-slidy[]
-
-
-;; * We will use `tawny.obo` later to show numeric IDs
-;; * `clojure.string` is for string manipulation.
-
-;; [source,notlisp]
-;; ----
-;; (ns tutorial.whats-in-a-name
-;;   (:use [tawny owl obo])
-;;   (:require [clojure.string :as s))
-;; ----
-
 
 ;; == Symbols and IRIs
 
@@ -319,7 +302,7 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == How OBO identifiers
+;; == How OBO identifiers work
 
 ;; * Stable pre-iri's
 ;; * No need for a server such as URIgen

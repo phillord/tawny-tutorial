@@ -1,13 +1,13 @@
 Tawny-OWL Tutorial Pre-Requisites
 =================================
-:author: Phillip Lord
+:author: Phillip Lord and Jennifer Warrender
 
 
-This document describes the technical pre-requisities for the Tawny-OWL
+This document describes the technical pre-requisites for the Tawny-OWL
 tutorial. These are the things that you will need installed on your machine to
 be able to follow the tutorial through.
 
-Quite a few of these involve large downloads, hence this pre-requisities
+Quite a few of these involve large downloads, hence this pre-requisites
 document. Things will go much quicker if a substantial number of participants
 have done this before hand!
 

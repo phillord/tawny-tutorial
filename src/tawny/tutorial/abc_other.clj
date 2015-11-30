@@ -1,4 +1,4 @@
-(ns tutorial.abc
+(ns tawny.tutorial.abc
   (:use [tawny.owl]))
 
 (defontology abc

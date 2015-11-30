@@ -4,33 +4,16 @@
 ;; * Now we define some properties
 ;; * First, we do this the long-hand way.
 
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-
-;; We start with our usual duplicated namespace.
-
-;; [source,lisp]
-;; ----
-(ns tawny.tutorial.amino-acid-props
-  (:use [tawny owl pattern]))
-;; ----
-
-
-;; ====
-;; endif::backend-slidy[]
-
 ;; == Namespace
 
 ;; * By now you shold be familiar with the name space definition
 ;; * It is different.
 ;; * The `:use` clause means "use both `tawny.owl` and `tawny.pattern`".
 
-;; [source,notlisp]
+;; [source,lisp]
 ;; ----
-;; (ns tutorial.amino-acid-props
-;;   (:use [tawny owl pattern]))
+(ns tawny.tutorial.amino-acid-props
+  (:use [tawny owl pattern]))
 ;; ----
 
 ;; == Starting our ontology
@@ -201,7 +184,7 @@
 ;; ====
 ;; I had a number of options for the implementation of facets. It would be
 ;; possible to do this without having them visible in the ontology, but this
-;; seemed to the best way forward. Happy to solict opinions on this.
+;; seemed to the best way forward.
 ;; ====
 ;; endif::backend-slidy[]
 

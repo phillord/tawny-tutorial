@@ -35,10 +35,10 @@
 ;; * Tawny-OWL does have more namespaces
 ;; * But not many
 
-;; [source,notlisp]
+;; [source,lisp]
 ;; ----
-;; (ns tutorial.amino-acid-build
-;;   (:use [tawny owl pattern reasoner util]))
+(ns tawny.tutorial.amino-acid-build
+  (:use [tawny owl pattern reasoner util]))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -48,11 +48,6 @@
 ;; would almost certainly `require` `pattern`, `reasoner` and `util` through an
 ;; alias.
 
-;; [source,lisp]
-;; ----
-(ns tawny.tutorial.amino-acid-build
-  (:use [tawny owl pattern reasoner util]))
-;; ----
 ;; ====
 ;; endif::backend-slidy[]
 

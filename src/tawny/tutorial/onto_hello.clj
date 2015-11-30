@@ -4,35 +4,9 @@
 
 ;; == Ontological Hello World
 
-;; * We have a working Clojure "hello world"
-;; * Let's build an ontological one
-
-
-;; == Ontological Hello World
-
 ;; * For everything that follows you have:
-;; ** An empty file for trying out the examples (`src/tutorial/onto_hello.clj`)
 ;; ** A full file with all the answers (`src/tutorial/onto_hello_s.clj`)
 ;; * Better to copy and paste if you can!
-
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-
-;; The slides and tutorial material that I am showing are all developed in files
-;; with names `_s.clj`, but I am providing cut-and-paste material for files
-;; without the `_s.clj`. This is the real namespace declaration. The false one
-;; comes next.
-
-;; [source,lisp]
-;; ----
-(ns tawny.tutorial.onto-hello
-  (:use [tawny.owl]))
-;; ----
-
-;; ====
-;; endif::backend-slidy[]
 
 ;; == The namespace
 
@@ -41,12 +15,11 @@
 ;; * But `_` in file name is `-` in namespace
 ;; * `:use` makes `tawny.owl` namespace available
 
-;; [source,notlisp]
+;; [source,lisp]
 ;; ----
-;; (ns tutorial.onto-hello
-;;   (:use [tawny.owl]))
+(ns tawny.tutorial.onto-hello
+  (:use [tawny.owl]))
 ;; ----
-
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -253,7 +226,7 @@
 
 ;; * Either add this form to the file and Ctrl-S
 ;; * Or just type into REPL (window with prompt)
-;; * Open `o.omn` either in Catnip, a text editor or Protege to check
+;; * Open `o.omn` either in a text editor or Protege to check
 
 ;; [source,notlisp]
 ;; ----
@@ -285,7 +258,7 @@
 (refine HelloWorld
         :label "Hello World"
         :comment "Hello World is a kind of greeting directed generally at everything."
-        :annotation (label "Olá mundo" "pt"))
+        :annotation (label "Aalreet world" "gb_ncl"))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -293,8 +266,10 @@
 ;; ====
 ;; Finally, let's extend our definition somewhat. We could, of course, just
 ;; change the defclass statement, but I wanted to introduce the `refine` function
-;; which allows addition of new frames to an existing definition. This is quite
-;; useful. You can different frames for different types of entity, but only the
+;; which allows the addition of new frames to an existing
+;; definition. This is quite
+;; useful. You can use different frames for different types of entity,
+;; but only the
 ;; correct frames for each type of entity (although many frames overlap).
 
 ;; Tawny has a number of convenience frames that have no direct equivalent

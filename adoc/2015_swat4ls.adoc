@@ -13,8 +13,6 @@ include::../src/tawny/tutorial/features.adoc[]
 
 include::pre-requisities.adoc[]
 
-include::../src/tawny/tutorial/hello.adoc[]
-
 include::../src/tawny/tutorial/onto_hello.adoc[]
 
 include::../src/tawny/tutorial/amino_acid_tree.adoc[]

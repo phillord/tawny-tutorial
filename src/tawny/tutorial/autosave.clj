@@ -26,12 +26,11 @@
 ;; * Require `tawny.owl` through an alias
 ;; * Also import an OWL API interfaces
 
-
-;; [source,notlisp]
+;; [source,lisp]
 ;; ----
-;; (ns tutorial.autosave
-;;   (:require [tawny.owl :as o])
-;;   (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
+(ns tawny.tutorial.autosave
+  (:require [tawny.owl :as o])
+  (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -54,12 +53,6 @@
 ;; The name collison between `import` and `owl-import` is sort of an example of
 ;; this problem.
 
-;; [source,lisp]
-;; ----
-(ns tawny.tutorial.autosave
-  (:require [tawny.owl :as o])
-  (:import [org.semanticweb.owlapi.model.OWLOntologyChangeListener]))
-;; ----
 ;; ====
 ;; endif::backend-slidy[]
 

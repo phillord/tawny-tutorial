@@ -8,55 +8,6 @@
 ;; * Allows cross-linking, and resuse of work
 ;; * Tawny supports this also
 
-
-;; == J'accuse reuse
-
-;; * Now I will rant!
-;; * Is a belief that reuse is automatically good
-;; * You should always use terms from another ontology
-;; * I disagree! Consequences are serious!
-;; * Duplicate, Duplicate, Duplicate
-;; * After you've used five or six terms, then _consider_ refactoring
-;; * Now I will stop ranting!
-
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; At this point I would like a rant. There has become a widely held believe,
-;; typified (although not solely caused by) the believe that we should always
-;; reuse terms from another ontology if they exist. And that this cross-linking
-;; is necessarily good.
-
-;; But this is not true. It is as at least as wrong in the ontology world as it
-;; is in the software world. In software, reusing a library in your own is called
-;; adding a *dependency*. You become *dependent* on it. You can be affected by
-;; changes in it. Your release process can be affected by its release process. If
-;; it rots, your project rots. If it is insecure, yours is insecure.
-
-;; Not only this, you become dependent on its dependencies also. And, in fact,
-;; the transitive closure of your dependencies. This project has over 70
-;; dependencies. And these can change over time. While in "SNAPSHOT" mode, the
-;; dependency graph of your project can change overnight, without any change to
-;; your code. And you have multi-path problems, "OWL Hell", where one ontology
-;; can be imported multiple times. And no one knows have to deal sanely with
-;; versioning.
-
-;; And this is just the software issue. With ontologies the problem is worse. You
-;; are making an http://ontogenesis.knowledgeblog.org/1468[ontological
-;; commitment]. And it may not be one that want, it may not be one that you agree
-;; with, and it may be one that contradicts your actual use case.
-
-;; Do not go contiually looking for terms that you can use and reuse. Consider
-;; searching for terms when you realise that you are getting too far away from
-;; the core requirements for your ontology, from your competency questions. If
-;; you really like someone elses definition, cut-and-paste it, give it your own
-;; identifiers, and comment that you have done so. Maybe, once you have five or
-;; six terms from the same ontology, then *consider* importing the other
-;; ontology. And don't blame me if it goes wrong.
-;; ====
-;; endif::backend-slidy[]
-
 ;; == An ontology to import
 
 ;; * However, reuse is inevitable
@@ -69,20 +20,6 @@
 ;; include::abc.clj[]
 ;; ----
 
-;; == Using this ontology
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; [source,lisp]
-;; ----
-(ns tawny.tutorial.use-abc
-  (:use [tawny.owl])
-  (:require [tawny.tutorial.abc]))
-;; ----
-;; ====
-;; endif::backend-slidy[]
-
 ;; == Using
 
 ;; * We have seen `use` many times before
@@ -90,11 +27,11 @@
 ;; * Here we use `require`
 ;; * Helps to avoid name collisons
 
-;; [source,notlisp]
+;; [source,lisp]
 ;; ----
-;; (ns tutorial.use-abc
-;;   (:use [tawny.owl])
-;;   (:require [tutorial.abc]))
+(ns tawny.tutorial.use-abc
+  (:use [tawny.owl])
+  (:require [tawny.tutorial.abc]))
 ;; ----
 
 ;; == Using

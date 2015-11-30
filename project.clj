@@ -1,4 +1,4 @@
-(defproject tawny.tutorial "1.0"
+(defproject tawny.tutorial "2.0"
   :description "A Tutorial for Tawny-OWL"
   :url "http://github.com/phillord/tawny-tutorial"
   :dependencies [[org.clojure/clojure "1.6.0"]

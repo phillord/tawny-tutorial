@@ -1,37 +1,47 @@
-
-
-
 == Motivation
 
 * Tawny-OWL was initially an accidental tool
 * We did not start off writing a new environment
 * We discovered we needed while trying to build an ontology
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+We didn't start out to develop a new ontology engineering tool. It
+happened along the way, as we tried at address a specific use case,
+which was modelling human karyotypes.
+
+====
+endif::backend-slidy[]
 
 == Use Case (chromosomes)
 
+* Current, representation comes from ISCN
+* Written in a book, no computational representation
 * The human karyotype is complex to describe
-* Alterations more so
 
 image::ChromXISCN09.jpg[height=300]
 
 ifndef::backend-slidy[]
 [NOTE]
 ====
-We didn't start out to develop a new ontology engineering tool. It happened
-along the way, as we tried at address a specific use case, which was modelling
-human karyotypes. 
+
+The current representation goes back to the days of type writers. The
+specification is not machine interpretable, the ISCN strings themselves are
+not interpretable, in fact, you cannot even represent them fully in ASCII
+because they use meaningful underlines.
+
 ====
 endif::backend-slidy[]
 
 == Use Case (karyotypes)
 
-* Current, representation comes from ISCN
-* Written in a book, no computational representation.
+* Alterations, even more so
 
 {set:incremental}
 
-* 47,XXY
+* 47,XXY (aka Klinefelter's Syndrome)
 * 46,Xc,+21
 * 46,XY,+21c,-21
 * 45,XY,-10,der(10)t(10;17)(q22;p12)
@@ -42,16 +52,6 @@ endif::backend-slidy[]
 
 {set:incremental!}
 
-
-ifndef::backend-slidy[]
-
-The current representation goes back to the days of type writers. The
-specification is not machine interpretable, the ISCN strings themselves are
-not interpretable, in fact, you cannot even represent them fully in ascii
-because they use meaningful underlines.
-
-endif::backend-slidy[]
-
 == A partonomy?
 
 * What you see is what you get?
@@ -59,6 +59,7 @@ endif::backend-slidy[]
 * Around 1000 bands, at different resolution levels.
 
 image::ChromXISCN09.jpg[height=300]
+
 
 == Protege
 
@@ -71,10 +72,13 @@ image::protege-pizza.png[height=300]
 ifndef::backend-slidy[]
 [NOTE]
 ====
-Technically, 1000 terms is not a problem for protege, it can scale to this
+
+Technically, 1000 terms is not a problem for Protege, it can scale to this
 size (or, indeed, considerably larger) with relative easy.
+
 ====
 endif::backend-slidy[]
+
 
 == Protege
 
@@ -88,6 +92,7 @@ image::click.gif[height=300]
 ifndef::backend-slidy[]
 [NOTE]
 ====
+
 But the UI doesn't scale in this way. It involves an awful lot of clicking --
 one report I have heard suggests that protege users spend upto 50% of their
 time expanding and closing the hierarchy. With the karyotype ontology this
@@ -95,8 +100,10 @@ problem would be profound. Worse, with the karyotype ontology we have a
 specific computational use in mind, and we don't know what the performance is
 going to be like -- reasoners can change performance quite a lot with
 different axiomatisations.
+
 ====
 endif::backend-slidy[]
+
 
 == Protege
 
@@ -109,8 +116,10 @@ image::click-fast.gif[height=300]
 ifndef::backend-slidy[]
 [NOTE]
 ====
+
 In practice, we are more likely to end up like this; 1000 classes is an awful
 lot of clicking, particularly when many of the classes are very similar.
+
 ====
 endif::backend-slidy[]
 
@@ -124,13 +133,22 @@ endif::backend-slidy[]
 
 [source,java]
 ----
-OWLClass clsA = df.getOWLClass(IRI.create(pizza_iri + "#A"));
-OWLClass clsB = df.getOWLClass(IRI.create(pizza_iri + "#B"));
-// Now create the axiom
-OWLAxiom axiom = df.getOWLSubClassOfAxiom(clsA, clsB);
-// add the axiom to the ontology.
+// Create ontology
+OWLOntologyManager m = create();
+OWLOntology o = m.createOntology(example_iri);
+// Add the OWL classes
+OWLClass nucleus = df.getOWLClass(IRI.create(example_iri + "#Nucleus"));
+OWLClass cell = df.getOWLClass(IRI.create(example_iri + "#Cell"));
+// Add the OWL object property
+OWLObjectProperty partOf = df.getOWLObjectProperty(IRI.create(example_iri + "#partOf"));
+// Assert the axiom
+// 1. Create the class expression
+OWLClassExpression partOfSomecell = df.getOWLObjectSomeValuesFrom(partOf, cell);
+// 2. Now create the axiom
+OWLAxiom axiom = df.getOWLSubClassOfAxiom(nucleus, partOfSomeCell);
+// 2. Add the axiom to the ontology
 AddAxiom addAxiom = new AddAxiom(o, axiom);
-// We now use the manager to apply the change
+// 3. We now use the manager to apply the change
 m.applyChange(addAxiom);
 ----
 
@@ -138,12 +156,14 @@ m.applyChange(addAxiom);
 ifndef::backend-slidy[]
 [NOTE]
 ====
+
 The main API out there is the OWL API. It's nice, but is long winded,
 and difficult, both because of the complexity of a type system needed for OWL
-(from the javadoc it is hard to work out which methods can be invoked on which
+(from the Javadoc it is hard to work out which methods can be invoked on which
 type), the change object system (so, you can use AddAxiom to add an annotation
 to an ontology, but only if you don't care about it working), and the factory
 layer. All complex.
+
 ====
 endif::backend-slidy[]
 
@@ -157,23 +177,26 @@ endif::backend-slidy[]
 
 [source,java]
 ----
+// Create ontology
 Brain brain = new Brain();
-//Add the OWL classes
+// Add the OWL classes
 brain.addClass("Nucleus");
 brain.addClass("Cell");
-//Add the OWL object property
-brain.addObjectProperty("part-of");
-//Assert the axiom
-brain.subClassOf("Nucleus", "part-of some Cell");
+// Add the OWL object property
+brain.addObjectProperty("partOf");
+// Assert the axiom
+brain.subClassOf("Nucleus", "partOf some Cell");
 ----
 
 ifndef::backend-slidy[]
 [NOTE]
 ====
+
 Another option, writtem by Samuel Croset is Brain. Much lighter weight than
 the OWL API. But EL only, and it is unclear how to marry what is essentially a
 script with Java's OO design. And still we keep the essential characteristics
 of Java. Any changes require, recompile, restart: it is slow.
+
 ====
 endif::backend-slidy[]
 
@@ -235,7 +258,7 @@ endif::backend-slidy[]
 == Karyotype Ontology
 
 * What have we achieved?
-* Build by Dr Jennifer Warrender
+* Built by Dr Jennifer Warrender
 * Around 1000 classes in the karyotype ontology
 * Similar numbers of tests, structural and reasoner based
 * Models 10 events, with patterns for downstream use
@@ -252,9 +275,3 @@ and informal sense of the word) ontology that describes most levels of the ISCN.
 
 ====
 endif::backend-slidy[]
-
-
-
-
-
-

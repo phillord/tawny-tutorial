@@ -4,7 +4,6 @@
 
 * The source for these slides
 * All the sample code
-* And an empty workspace
 * `git clone https://github.com/phillord/tawny-tutorial.git`
 * Or download https://github.com/phillord/tawny-tutorial/releases
 
@@ -15,7 +14,6 @@
 * https://github.com/phillord/tawny-tutorial
 * Protege
 
-
 == Installing JVM
 
 * You will need Java 1.7 or upward
@@ -23,7 +21,7 @@
 
 * https://java.com/en/download/
 * Or use your OS package manager
-* You need JDK, not just Java
+* You need JDK, not just JRE
 
 
 == Installing Leiningen
@@ -62,4 +60,4 @@ http://protege.stanford.edu
 * VIM Fireplace
 * Any of the many other options
 * If you do this, you are on your own...
-* You will get a much stronger editing environment thanotherwise
+* You will get a much stronger editing environment than otherwise

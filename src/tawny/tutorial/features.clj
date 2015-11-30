@@ -9,7 +9,7 @@
 ;; * Fully Extensible
 ;; * Integrated Reasoning
 ;; * Build on commondity language
-;; * Access to fully programming Tool Chain
+;; * Access to fully programming Toolchain
 
 
 ;; ifndef::backend-slidy[]
@@ -59,9 +59,8 @@
 ;; == Unprogrammatic Syntax
 
 ;; * Both OWL API and Brain carry Java baggage
-;; * You can never forget you are programming
 ;; * Tawny-OWL aimed to avoid this
-
+;; * You can never forget you are programming
 
 ;; [source,lisp]
 ;; ----
@@ -73,7 +72,7 @@
 ;; ====
 
 ;; We have aimed as far as possible to make tawny simple to define simple
-;; ontologies. So this statement for instead defines a new ontology. Of course,
+;; ontologies. So this statement for example defines a new ontology. Of course,
 ;; the choice of programming language that we have chosen has implications and
 ;; the parenthesis is the most obvious one to anyone from a lisp background.
 
@@ -127,6 +126,14 @@
 
 ;; [source,lisp]
 ;; ----
+;; (defclass A
+;;   :annotations
+;;   (label "A")
+;;   (comment "A is a kind of thing."))
+;; ----
+
+;; [source,lisp]
+;; ----
 (defclass A
   :label "A"
   :comment "A is a kind of thing.")
@@ -142,13 +149,13 @@
 
 ;; == Unprogrammatic Syntax
 
-;; * Frame names use `:colon` and not `colon:`
+;; * Frame names use `:frame-name` and not `frame-name:`
 ;; * Just for fit with lisp
 ;; * Some names have changed `:super` rather that `SubClassOf:`
 ;; ** Consistent with property (`:super` not `:SubPropertyOf`)
 ;; ** omn is wrong anyway
 ;; * Some new "convenience" frames
-;; * And `sub` meaning ontologies can be built bottom up or Top-down.
+;; * And `sub` meaning ontologies can be built bottom-up or top-down
 ;; * Easy creation of new entities
 
 ;; [source,lisp]
@@ -164,7 +171,7 @@
 
 ;; Being a programming language rather than a format it is relatively easy to add
 ;; new features with a clearly defined semantics. So, for example, I wanted to
-;; add a "sub" keyword so that I could build ontologeis bottom up. In practice,
+;; add a "sub" keyword so that I could build ontologies bottom up. In practice,
 ;; so far I have not really used this, but I do not feel that the syntax should
 ;; dictate the ontology development style.
 
@@ -236,7 +243,7 @@
 ;; * There is a compile cycle
 ;; * But you won't notice it
 ;; * Except that Tawny is performant
-;; * Tawnyized version of GO loads ~1 min.
+;; * Tawnyised version of GO loads ~1 min.
 
 
 ;; ifndef::backend-slidy[]
@@ -313,7 +320,7 @@
 ;; endif::backend-slidy[]
 
 
-;; == Patternized
+;; == Patternised
 
 ;; * Tawny-OWL allows patterns
 ;; * Broadcasting works naturally with patterns
@@ -468,7 +475,7 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Finally, we have full access to a rich tool chain, including a wide range of
+;; Finally, we have full access to a rich toolchain, including a wide range of
 ;; IDEs, power-editors or web editors, as well as some very novel environments
 ;; (take a look at lighttable -- implemented in Clojure and supporting it first).
 

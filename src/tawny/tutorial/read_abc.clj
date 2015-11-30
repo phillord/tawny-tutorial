@@ -22,24 +22,12 @@
 
 ;; * As usual, we define a namespace for our experiments!
 
-;; [source,notlisp]
-;; ----
-;; (ns tutorial.read-abc
-;;   (:use [tawny.owl])
-;;   (:require [tawny.read]))
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.read-abc
   (:use [tawny.owl])
   (:require [tawny.read]))
 ;; ----
-;; ====
-;; endif::backend-slidy[]
 
 ;; == Solution 1
 
