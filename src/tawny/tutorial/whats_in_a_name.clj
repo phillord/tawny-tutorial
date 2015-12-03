@@ -1,60 +1,8 @@
 ;; == Task {counter:task}: Understanding Names
 
-;; * Understand how tawny uses three namespaces
+;; * Understand how Tawny-OWL uses three namespaces
 ;; * See how to use them independently
 ;; * Understand how they allow OBO ID support
-
-;; == Background
-
-;; * Ontology Entities need names
-;; * Tawny has different requirements for names
-;; * But we need to support alternative workflows
-;; * So, Tawny is flexible
-;; * With "sensible" defaults
-
-
-;; == OWL
-
-;; * Tawny is build on the OWL API
-;; * Underneath, therefore, it is part of the web
-;; * OWL uses IRIs (i.e. URIs or URLs)
-;; * IRIs provide a single, shared global namespace
-;; * With a (social) mechanism for uniqueness
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; We have to inherit directly from the web, because all the software that we are
-;; building on depends on it and/or requires it.
-
-;; IRIs have this unusual characteristic of being global.
-;; ====
-;; endif::backend-slidy[]
-
-
-;; ==  Symbols
-
-;; * Tawny uses symbols to identify entities
-;; * Easy to type (`A` rather than `"A"`)
-;; * Provides define-before-use semantics
-;; * Comes directly from Clojure
-;; * Supported in the IDEs
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-
-;; Symbols are a core feature of Clojure and, indeed, any lisp. They are kind of
-;; equivalent to variable names in other programming languages, but not exactly
-;; the same since lisp gives you flexibility to handle them directly.
-
-;; Using symbols also provides a set of other advantages -- in addition to the
-;; define-before-use semantics, they are normally syntax highlighted specially by
-;; editors and, rather usefully, they will normally auto-complete
-;; ("code-complete" or "intellisense") in an IDE. Very useful for big ontologies.
-
-;; ====
-;; endif::backend-slidy[]
 
 ;; == Namespace
 
@@ -64,10 +12,80 @@
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.whats-in-a-name
-  (:use [tawny owl])
+  (:use [tawny.owl])
   (:require [tawny.obo])
   (:require [clojure.string :as s]))
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Usual Clojure namespace declaration for this task
+;; ====
+;; endif::backend-slidy[]
+
+;; == Background
+
+;; * Ontology entities need names
+;; * Tawny-OWL has different requirements for names
+;; * But we need to support alternative workflows
+;; * So, Tawny-OWL is flexible
+;; * With "sensible" defaults
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; First a bit a background; Ontologies entities need names
+;; ====
+;; endif::backend-slidy[]
+
+;; == 1. IRIs
+
+;; * Tawny-OWL is build on the OWL API
+;; * Underneath, therefore, it is part of the web
+;; * OWL uses IRIs (i.e. URIs or URLs)
+;; * IRIs provide a single, shared global namespace
+;; * With a (social) mechanism for uniqueness
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; The first Tawny namespace; IRIs
+
+;; We have to inherit directly from the web, because all the software that we are
+;; building on depends on it and/or requires it.
+
+;; IRIs have this unusual characteristic of being global.
+;; ====
+;; endif::backend-slidy[]
+
+
+;; == 2. Symbols
+
+;; * Tawny-OWL uses symbols to identify entities
+;; * Easy to type (`A` rather than `"A"`)
+;; * Provides define-before-use semantics
+;; * Comes directly from Clojure
+;; * Supported in the IDEs
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; The second Tawny namespace; symbols
+
+;; Symbols are a core feature of Clojure and, indeed, any Lisp. They are kind of
+;; equivalent to variable names in other programming languages, but not exactly
+;; the same since Lisp gives you flexibility to handle them directly.
+
+;; Using symbols also provides a set of other advantages -- in addition to the
+;; define-before-use semantics, they are normally syntax highlighted specially by
+;; editors and, rather usefully, they will normally auto-complete
+;; ("code-complete" or "intellisense") in an IDE. Very useful for big ontologies.
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Symbols and IRIs
 
@@ -121,7 +139,6 @@
 (defclass B
   :ontology i)
 ;; ----
-
 
 ;; == Symbols and IRIs
 
@@ -207,7 +224,7 @@
   :iri-gen tawny.obo/obo-iri-generate)
 ;; ----
 
-;; * Will explain this bit later!
+;; * Is explained in the questions and answers
 
 ;; [source,lisp]
 ;; ----
@@ -244,6 +261,7 @@
 ;; ====
 ;; endif::backend-slidy[]
 
+;; ifndef::backend-slidy[]
 
 ;; == OBO Identifiers
 
@@ -256,7 +274,6 @@
   :ontology obo)
 ;; ----
 
-;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
 ;; Interestingly, when we get to here, we get a strange ID with a UUID for
@@ -264,128 +281,12 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-
-;; == How OBO Identifiers work
-
-;; * The mapping is stored in a file
-;; * The `obo-restore-iri` line above reads this file
-;; * If a symbol has no mapping, we use the "pre-iri" form.
-
-
-;; == How OBO Identifiers work
-
-;; * The mapping file is generated
-;; * Human readable, and line-orientated
-;; * Deterministically ordered
-;; * Will version!
-;; * Uses EDN format.
-
-;; [source,notlisp]
-;; ----
-;; ("ro"
-;;  "http://purl.obolibrary.org/obo/EXAM_000001"
-;;  "G"
-;;  "http://purl.obolibrary.org/obo/EXAM_000002"
-;;  "F"
-;;  "http://purl.obolibrary.org/obo/EXAM_000003")
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; The mapping file has been designed to work with version control, because it
-;; needs to be shared between all developers. Although it is a generated file, it
-;; is source code, since it cannot be recreated from fresh (not in the same order
-;; anyway).
-
-;; EDN format is a Clojure thing. It's basically a Clojure read syntax.
-;; ====
-;; endif::backend-slidy[]
-
-;; == How OBO Identifiers work
-
-;; * Stable pre-iri's
-;; * No need for a server such as URIgen
-
-;; [source,lisp]
-;; ----
-;; this stores any new IDs we have created
-(comment
-  (tawny.obo/obo-store-iri obo "./src/tawny/tutorial/whats_in_a_name.edn"))
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; While the preiris are automatically created, if we choose they can be made
-;; stable by simply saving them into the file with the form above. This can be
-;; safely done every time the file is evaluated, because the order is
-;; deterministic, so it will cause no false diffs in versioning.
-
-;; This is potentially useful if you are collaborating with others and want to
-;; co-ordinate at pre-release time. It's not essential if others are using
-;; tawny -- there is no need, since classes can be refered to by symbol.
-
-;; There is a potential disadvantage. This creates an IRI (and entry in the file)
-;; for every new entity created. Not a problem with protege, but tawny is fully
-;; programmatic. I can create 10^6 new classes in one line of code.
-
-;; pre-iris all appear at the end of the EDN file!
-;; ====
-;; endif::backend-slidy[]
-
-;; == How OBO Identifiers work
-
-;; * How to create permanent IDs
-;; * Needs to be co-ordinated, since IDs are incremental
-;; * Use version-control to co-ordinate
-;; * One person, or as part of a release process
-
-;; [source,lisp]
-;; ----
-;; this coins permanent IDS, in a controlled process!
-(comment
-  (tawny.obo/obo-generate-permanent-iri
-   "./src/tawny/tutorial/whats_in_a_name.edn"
-   "http://purl.obolibrary.org/obo/EXAM_"))
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; At some point, you need to coin new IDs that will become permanent. This has
-;; to happen in a co-ordinated fashion. It could be done as part of release. Or
-;; by bot during continuous integration.
-;; ====
-;; endif::backend-slidy[]
-
-
-;; == How OBO Identifiers work
-
-;; * I think having no server is nice
-;; * Reusing version control makes sense
-;; * It's programmatic! You are free to disagree.
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; How well would this workflow work in practice? Not sure. It would work for a
-;; small number of developers. There are many tweaks that could be made for
-;; different scales -- saving to multiple files, pre-iris in one place, perms in
-;; another. No pre-iris at all. Use URIGen. Manually coin permanent IRIs as part
-;; of quality control.
-
-;; It's programmatic and easy to change.
-;; ====
-;; endif::backend-slidy[]
-
-;; == Tawny Names
+;; == 3. Tawny Names
 
 ;; * It is possible not to use symbols
 ;; * The `iri-gen` function takes a string not a symbol!
 ;; * This string is the tawny name
 ;; * Consider the following
-
 
 ;; [source,lisp]
 ;; ----
@@ -402,6 +303,9 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
+
+;; The third Tawnt namespace; tawny names
+
 ;; We can do without symbols and instead use just strings. Note that we also have
 ;; to switch functions `owl-class` instead of `defclass`.
 ;; ====
@@ -487,17 +391,50 @@
 
 ;; == Summary
 
-;; * The relationships are summarized as follows
-;; * We will look at the arrow on the right next!
-
-;; image::tawny-name.png[]
-
-
-;; == Task {task}: Conclusions
-
+;; * The relationships are summarised as follows
 ;; * There are three namespaces in use
 ;; ** tawny-name
 ;; ** clojure symbols
 ;; ** IRIs
 ;; * The relationship between the three is fluid
 ;; * Generally, just use symbols!
+
+;; image::tawny-name.png[]
+
+;; * We will look at the arrow on the right next
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; There are three namespaces used in Tawny:
+;; 1. Tawny-names -- annotation property
+;; 2. Clojure symbols -- in source reference
+;; 3. and IRIs
+
+;; There is a programmatic relationship between the three
+
+;; ====
+;; endif::backend-slidy[]
+
+
+;; == Task {task}: Conclusions
+
+;; * Can generate random UUID IRIs for ease
+;; * Mostly, we use the symbol (variable) name as fragment
+;; * Relationship is programmatic
+;; * OBO IDs are a pain in source
+;; * Bey we can support them
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; We can generate random UUID IRIs for ease
+;; Mostly, we use the symbol name as fragment
+;; The relationship is programmatic which helps in supporting OBO IDs
+;; OBO IDs are a pain in source
+;; But we support them
+
+;; ====
+;; endif::backend-slidy[]
