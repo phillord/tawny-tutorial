@@ -1,20 +1,35 @@
-;; == Task {counter:task} -- Defining some properties
+;; == Task {counter:task}: Defining some properties
 
-;; * A List of amino acids only gets us so far
+;; * A list of amino acids only gets us so far
 ;; * Now we define some properties
 ;; * First, we do this the long-hand way.
 
 ;; == Namespace
 
 ;; * By now you shold be familiar with the name space definition
-;; * It is different.
-;; * The `:use` clause means "use both `tawny.owl` and `tawny.pattern`".
+;; * It is different
+;; * This `:use` clause means "use both `tawny.owl` and `tawny.pattern`"
 
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.amino-acid-props
   (:use [tawny owl pattern]))
 ;; ----
+
+;; * The full code in these slides can be found in
+;; `src/tawny/tutorial/amino_acid_props.clj`
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; As usual we start with the name space declaration; you should be
+;; familiar with now. However this is slightly different. In addition
+;; to the tawny-owl, We want to "use" tawny-pattern namespace.
+
+;; ====
+;; endif::backend-slidy[]
+
 
 ;; == Starting our ontology
 
@@ -36,14 +51,24 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
+
+;; Now lets discuss the properties themselves.
+
+;; Amino acides have many properties e.g. size and polarity.
+
+;; Most of these properties are continuous e.g. hydrophobicity values
+;; range from -7.5 and 3.1
+
+;; The ontological modelling of continuous values is hard.
+
 ;; It is, of course, possible to model continuous values as data type properties
-;; and just put the numbers in. This works to a certain extent and is an option
-;; for modelling.
+;; and just put the numbers in. This works to a certain extent and is
+;; an option for modelling.
 
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == The Value Paritition
+;; == The Value Partition
 
 ;; * We introduce the "value partition"
 ;; * We split a continous range up into discrete chunks
@@ -65,18 +90,28 @@
 ;; [NOTE]
 ;; ====
 
+;; However the most common approach ontologists use instead is the
+;; value partition.
+
+;; The value partition the process of splitting up a continuos range
+;; into discrete chunks. For example splitting the spectrum of colours
+;; found on rainbow into seven "bins"/"values".
+
 ;; For full details and a discussion of the advantages and disadvantages of this
 ;; approach, the value partition is described in this recommendation edited by
 ;; Alan Rector.
 
 ;; http://www.w3.org/TR/swbp-specified-values/
 
-;; Putting "Size" under a ValuePartition superclass would also make sense.
+;; First we define the partition for size by:
+;; 1. creating a Size class
+;; 2. defining a hasSize object property
+;; a. that ensures that AminoAcid has a size, and only one size
 
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == Value Partition
+;; == The Value Partition
 
 ;; * Now we define the values
 ;; * Three values, and only three values
@@ -96,16 +131,25 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
+
+;; Next we define the values of Size
+;; There are only three values i.e. Tiny, Small, Large
+;; All of the values are different
+
+;; So we use the as-subclasses function, :disjoint and :cover keywords
+;; discussed in the task 2.
+
 ;; In a "real" ontology it would be good to add annotation properties and
 ;; comments describing exactly what these partitions mean.
+
 ;; ====
 ;; endif::backend-slidy[]
 
 
 ;; == Using the values
 
-;; * We can now create our amino-acids using these three sizes.
-;; * We only create three amino-acids here
+;; * We can now create our amino acids using these three sizes
+;; * We only create three amino acids here
 ;; * More would be needed.
 
 ;; [source,lisp]
@@ -123,15 +167,28 @@
 
  (defclass Asparagine
    :super (owl-some hasSize Small)))
+
+ ;;and the rest
 ;; ----
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; Once defined, we can use these values in our class definitions.
+
+;; e.g. Alanine hasSize some Tiny
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Using Facets
 
-;; * Many classes are associated with properties
-;; * Call these "facets" after "facetted classification".
-;; * Value Partition is a good example
-;; * Define `Charge` using the same pattern as `Size`.
+;; * Reatively new feature of Tawny-OWL
+;; * Call these "facets" after "faceted classification"
+;; * Many values are associated with a property
+;; * Extremely useful in conjunction with Value Partition
+;; * Define `Charge` using the same pattern as `Size`
 
 ;; [source,lisp]
 ;; ----
@@ -153,13 +210,23 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; See https://en.wikipedia.org/wiki/Faceted_classification for a description of
-;; a facetted classification.
 
-;; Facets are a relatively new feature of tawny-owl and I may come to regret the
-;; name as "facet" also has a meaning wrt to the OWL specification (it's a
-;; feature of a datatype property). The tawny-owl facet is unrelated to the OWL
-;; specification.
+;; Facets are a relatively new feature of Tawny that is unrelated to
+;; the OWL specification i.e. in this context facets are not features
+;; of a datatype.
+
+;; Instead the term "facets" is named after "faceted classification";
+;; a classification scheme for organising knowledge in a systematic
+;; order. You will have probably seen it on Amazon, Ebay, etc for
+;; filtering search results e.g. location, buy it now
+
+;; See https://en.wikipedia.org/wiki/Faceted_classification for a
+;; description of a facetted classification.
+
+;; Extremely useful to use in conjunction with the value partition. I
+;; will show how by focussing on the charge of an amino acid. First we
+;; define charge using the same pattern as size.
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -182,9 +249,18 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
+
+;; Now define the facet; we ensure that the values Positive, Neutral
+;; and Negative are associated with the hasCharge property.
+
+;; These facets are extra-logical; they do not change yhe semantics
+;; of ontology statements but are visible in the ontology as
+;; annotation axioms
+
 ;; I had a number of options for the implementation of facets. It would be
 ;; possible to do this without having them visible in the ontology, but this
 ;; seemed to the best way forward.
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -211,7 +287,14 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; We convert the facet into an existential restriction.
+
+;; Why is this useful?
+
+;; Now we can just provide the value and Tawny will convert the facet
+;; into an existential restriction.
+
+;; Saves on typing, potential time saver and less error prone.
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -246,7 +329,7 @@
 ;; ====
 ;; We have to add the `as-facet` call so, overall, the reduction in typing is not
 ;; enormous, although it's a fixed cost, while the saving is linear with the
-;; number of amino-acids, so the real saving would be a bit greater.
+;; number of amino acids, so the real saving would be a bit greater.
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -312,14 +395,13 @@
 
 ;; == Using Facets
 
-
 ;; * And the output.
 
 ;; [source,omn]
 ;; ----
 ;; Class: aa:Alanine
 
-;;     SubClassOf: 
+;;     SubClassOf:
 ;;         aa:hasCharge some aa:Neutral,
 ;;         aa:AminoAcid,
 ;;         aa:hasSize some aa:Tiny,
@@ -327,7 +409,6 @@
 ;;         aa:hasPolarity some aa:NonPolar
 
 ;; ----
-
 
 ;; == Task {task}: Conclusions
 

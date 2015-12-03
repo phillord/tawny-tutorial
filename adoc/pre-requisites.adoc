@@ -1,18 +1,4 @@
-
-
-== Tawny Tutorial
-
-* The source for these slides
-* All the sample code
-* `git clone https://github.com/phillord/tawny-tutorial.git`
-* Or download https://github.com/phillord/tawny-tutorial/releases
-
-== Other Technical Pre-Requisites
-
-* JVM
-* Leiningen
-* https://github.com/phillord/tawny-tutorial
-* Protege
+include::short-pre-requisites.adoc[]
 
 == Installing JVM
 
@@ -22,7 +8,6 @@
 * https://java.com/en/download/
 * Or use your OS package manager
 * You need JDK, not just JRE
-
 
 == Installing Leiningen
 
@@ -34,7 +19,7 @@
 * http://leiningen-win-installer.djpowell.net/
 * Or you can download the batch file and setup manually
 
-== Testing the Pre-Requisities
+== Testing the Pre-Requisites
 
 * In the terminal/cmd, in tawny-tutorial directory
 
@@ -50,7 +35,6 @@
 * One part will use it if available
 
 http://protege.stanford.edu
-
 
 == Or: the alternative
 

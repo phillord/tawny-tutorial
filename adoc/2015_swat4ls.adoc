@@ -11,7 +11,7 @@ include::karyotypes.adoc[]
 
 include::../src/tawny/tutorial/features.adoc[]
 
-include::pre-requisities.adoc[]
+include::short-pre-requisites.adoc[]
 
 include::../src/tawny/tutorial/onto_hello.adoc[]
 
@@ -29,6 +29,33 @@ include::../src/tawny/tutorial/read_abc.adoc[]
 
 include::../src/tawny/tutorial/amino_acid_build.adoc[]
 
+== Summary
+* Task 1 -- Build a hello world ontology
+* Task 2 -- Build the amino acid tree
+* Task 3 -- Using facets to define amino acid properties
+* Task 4 -- Introduced patterns e.g. the value partition pattern
+* Task 5 -- Symbols, IRIs and Tawny Names and handling OBO Identifiers
+* Task 6 -- Referring to existing ontology entities
+* Task 7 -- Importing existing ontologies into Tawny
+* Task 8 -- Extending Tawny-OWL syntax to programmatically generate
+  many defined classes
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+This is the end of the planned material.
+
+Just to summarise:
+- In task 1 I showed how to build a helo world ontology; introduced
+  namespace, defontology, defclass, defoproperty, frames
+- In task 2 I showed how to build a simple amino acid hierarchal
+  tree; defining disjoint and covering axioms
+TODO
+
+====
+endif::backend-slidy[]
+
 include::questions.adoc[]
 
 include::answers.adoc[]
@@ -38,8 +65,8 @@ include::../src/tawny/tutorial/autosave.adoc[]
 == Conclusions
 
 * Hope the tutorial was worthwhile!
-* Tawny can change the way you build ontologies
+* Tawny-OWL can change the way you build ontologies
 * Will actively support use
-* Always interested in future collaborations.
+* Always interested in future collaborations
 
 include::acknowledgements.adoc[]

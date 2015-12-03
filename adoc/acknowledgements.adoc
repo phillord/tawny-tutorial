@@ -1,6 +1,7 @@
 
 == Acknowledgements
 
+* Phillip Lord, Tawny-OWL
 * Jennifer Warrender, Karyotype Ontology, Tawny-OWL
 * Anthony Moorman, Driving use case
 * Ignazzio Palmizziano, OWL API Support

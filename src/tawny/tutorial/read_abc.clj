@@ -20,7 +20,7 @@
 
 ;; == Namespace
 
-;; * As usual, we define a namespace for our experiments!
+;; * As usual, we define a namespace for our experiments
 
 ;; [source,lisp]
 ;; ----
@@ -101,7 +101,7 @@
 ;; endif::backend-slidy[]
 
 
-;; == Task {task}: Conclusion
+;; == Task {task}: Conclusions
 
 ;; * Tawny-OWL supports a read mechanism
 ;; * Ontologies only available as OWL files can be used transparently

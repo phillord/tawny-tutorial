@@ -4,6 +4,7 @@
 ;; * We do this in several ways
 ;; * First, we start with a simple hierarchy
 
+
 ;; == Amino Acids
 
 ;; * Chemical Molecules
@@ -11,6 +12,18 @@
 ;; * And a "side chain" or "R" group which defines the differences
 ;; * Have a number of chemical properties
 ;; * There are 20
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; Amino acids are chemical molecules containing a carboxyl an an
+;; amino group. They have a number properties e.g. size and polarity
+;; and there are 20 of them.
+
+;; ====
+;; endif::backend-slidy[]
+
 
 ;; == A namespace
 
@@ -59,12 +72,11 @@
 ;; * With three amino-acids, this is painful and error-prone
 ;; * With twenty it would be almost impossible
 
-
 ;; [source,lisp]
 ;; ----
-(defclass Alanine
+(defclass Asparagine
     :super AminoAcid
-    :disjoint Arginine Asparagine)
+    :disjoint Alanine Arginine)
 ;; ----
 
 ;; == Disjoint
@@ -168,11 +180,8 @@
  :disjoint
 
  (defclass Alanine)
-
  (defclass Arginine)
-
  (defclass Asparagine)
-
  ;; and the rest...
  )
 ;; ----
@@ -258,7 +267,6 @@
 
 ;; * And, here is a subset of the equivalent OMN
 
-
 ;; [source,omn]
 ;; ----
 ;; Class: aa:AminoAcid
@@ -299,4 +307,3 @@
 ;; * We can group parts of the tree
 ;; * There is support for disjoints
 ;; * There is support for covering axioms
-

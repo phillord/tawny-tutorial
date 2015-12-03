@@ -531,7 +531,7 @@
 ;; ----
 
 
-;; == Conclusions
+;; ==  Task {task}: Conclusions
 
 ;; * We can use highly programmatic nature of Tawny
 ;; * We can generate many defined classes

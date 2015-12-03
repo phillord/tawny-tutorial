@@ -102,7 +102,7 @@
 ;; endif::backend-slidy[]
 
 
-;; == Using 
+;; == Using
 
 ;; * The final output is the same in both cases
 ;; * The symbolic approach (as always) protects against spelling mistakes!
@@ -118,7 +118,7 @@
 ;;         abc:B
 ;; ----
 
-;; == Task {task}: Summary
+;; == Task {task}: Conclusions
 
 ;; * `require` or `use` is a part of Clojure
 ;; * Gives us access to symbols from another namespace

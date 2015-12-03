@@ -1,11 +1,27 @@
 
 == Introduction
 
-* Tawny-OWL is fully programmatic environment for Ontology Development
+* Tawny-OWL is a fully programmatic environment for Ontology Development
 * Presents a different model of ontology development
 * Very powerful
 * Allows reuse of commodity tooling
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+Good morning, my name is Jennifer Warrender and I will be your
+presenter for today's Tawny-OWL tutorial. Tawny is a fully environment
+for ontology developement in that presents a different approach to
+ontology development. It was developed by Phillip Lord, Newcastle
+University and motivated by my karyotype work.
+
+TODO
+Very powerful tool -- As well as being simple to use, it and allows
+resuse if commodity tooling such as
+
+====
+endif::backend-slidy[]
 
 == Today
 
@@ -22,13 +38,18 @@ ifndef::backend-slidy[]
 
 Today, we will generally be taught material, particularly at the
 beginning and the end, where I need to describe parts of the
-system. The tutorial is well documented to allow users to build a
-small ontology using tawny. Then I have a reasonably flexible tail
-where I try and address questions that people have. Also, there is a
-degree of guesswork into how much material I can get into the time
-available, which this helps to address.
+system. 
 
-I do not have time to describe all of the features of tawny, nor give
+However the tutorial contains plenty of documented examples that allow
+you the audience to follow.
+
+I have also included a reasonably flexible tail where I try and
+address questions that people have.
+
+Also, there is a degree of guesswork into how much material I can get
+into the time available, which this helps to address.
+
+I do not have time to describe all of the features of Tawny, nor give
 a full tutorial.
 
 ====
@@ -47,9 +68,10 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 
-Although the tutorial does "build" I have tried to make it as loosely
-coupled as possible, although the truth be told, I have probably not
-been entirely successful at this.
+Although the tutorial does "build", I am aware that people will come
+in and out. So I have tried to make it as loosely coupled as possible,
+although the truth be told, I have probably not been entirely
+successful at this.
 
 The latter half requires more programming knowledge, and there is
 probably little that I can do about this. I will skip over what some
@@ -60,7 +82,7 @@ look it up. I do not want this to become a Clojure tutorial.
 endif::backend-slidy[]
 
 
-== Knowledge Prerequisites
+== Knowledge Pre-requisites
 
 * Required
 ** Basic knowledge of ontologies
@@ -78,6 +100,21 @@ endif::backend-slidy[]
    program in their IDE of choice
 
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+As stated in the tutorial advert; the pre-requisites are knowledge of
+ontolgoies, OWL and amino acids as the main focus on this tutroial is
+builidng an ontology of amino acids.
+
+You are not required to have any knowledge of Clojure, OWL API, Tawny,
+be programmers, or be familiar with IDEs with Clojure support. However
+any of these would would be of benefit to you.
+
+====
+endif::backend-slidy[]
+
 == Outcomes
 
 * Understand the motivation behind Tawny-OWL
@@ -87,13 +124,41 @@ endif::backend-slidy[]
 * Implement a pattern, using Tawny-OWL
 * Understand the relationship to programmatic IDEs and related tools
 
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+There are six outcomes:
+1. Understand why Tawny was built
+2. Understand the syntax of Tawny (Clojure)
+3. How to build a basic amino acid ontology using Tawny
+4-5. The usage and implemetation of patterns in Tawny
+6. TODO
+
+====
+endif::backend-slidy[]
+
 
 == Notes on Notes
 
 * All materials are available
+** http://homepages.cs.ncl.ac.uk/jennifer.warrender/swat4ls_2015/
 * These slides (2015_swat4ls.html)
 * As a book with lecture notes (2015_swat4ls_book.html)
-* Same thing as PDF (but less well checked!).
+* Same thing as PDF (2015_swat4ls.pdf)
 
-http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015
+ifndef::backend-slidy[]
+[NOTE]
+====
 
+With reagards to tutorial materials
+
+All materials are available @ this link
+
+They are avilable in three formats:
+1. Slide format
+2. Book format (slides w notes)
+3. Pdf version of the book
+
+====
+endif::backend-slidy[]

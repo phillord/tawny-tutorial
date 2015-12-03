@@ -1,4 +1,4 @@
-;; == Task {counter:task} Patternising
+;; == Task {counter:task}: Patternising
 
 ;; * Make full use of an existing pattern from Tawny
 
@@ -75,21 +75,21 @@
 ;; [source,omn]
 ;; ----
 ;; ObjectProperty: aa:hasSize
-;;     Domain: 
+;;     Domain:
 ;;         aa:AminoAcid
-;;     
-;;     Range: 
+;;
+;;     Range:
 ;;         aa:Size
-;;     
-;;     Characteristics: 
+;;
+;;     Characteristics:
 ;;         Functional
 
 
 ;; Class: aa:Size
-;;     EquivalentTo: 
+;;     EquivalentTo:
 ;;         aa:Large or aa:Small or aa:Tiny
 ;; ----
-;;     
+;;
 ;; == More value partitions
 
 ;; * Adding partitions for all the properties is easy.
@@ -134,9 +134,6 @@
 
  (defclass Asparagine
    :super (facet Neutral Hydrophilic Polar Aliphatic Small))
-
- (defclass Aspartate
-   :super (facet Negative Hydrophilic Polar Aliphatic Small))
 
  ;; and the rest
  )

@@ -173,7 +173,7 @@
 ;; <5> "#"
 ;; <6> Reverse the name passed in!
 
-;; == OBO identifiers
+;; == OBO Identifiers
 
 ;; * OBO identifiers present a challenge
 ;; * Source code is the ultimate in WYSIWYG
@@ -302,7 +302,7 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == How OBO identifiers work
+;; == How OBO Identifiers work
 
 ;; * Stable pre-iri's
 ;; * No need for a server such as URIgen
@@ -311,7 +311,7 @@
 ;; ----
 ;; this stores any new IDs we have created
 (comment
-  (tawny.obo/obo-store-iri obo "./src/tutorial/whats_in_a_name.edn"))
+  (tawny.obo/obo-store-iri obo "./src/tawny/tutorial/whats_in_a_name.edn"))
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -334,7 +334,7 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == How OBO Identifers work
+;; == How OBO Identifiers work
 
 ;; * How to create permanent IDs
 ;; * Needs to be co-ordinated, since IDs are incremental
@@ -346,7 +346,7 @@
 ;; this coins permanent IDS, in a controlled process!
 (comment
   (tawny.obo/obo-generate-permanent-iri
-   "./src/tutorial/whats_in_a_name.edn"
+   "./src/tawny/tutorial/whats_in_a_name.edn"
    "http://purl.obolibrary.org/obo/EXAM_"))
 ;; ----
 
@@ -408,7 +408,7 @@
 ;; endif::backend-slidy[]
 
 
-;; == Tawny Name
+;; == Tawny Names
 
 ;; * These forms do *NOT* define symbols
 ;; * This *WILL NOT* work
@@ -422,7 +422,7 @@
              :super (owl-some r J)))
 ;; ----
 
-;; == Tawny Name
+;; == Tawny Names
 
 ;; * Danger!
 ;; * Consider this statement.
@@ -490,7 +490,7 @@
 ;; * The relationships are summarized as follows
 ;; * We will look at the arrow on the right next!
 
-;; image:tawny-name.png[]
+;; image::tawny-name.png[]
 
 
 ;; == Task {task}: Conclusions

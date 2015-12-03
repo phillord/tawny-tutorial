@@ -15,25 +15,38 @@ which was modelling human karyotypes.
 ====
 endif::backend-slidy[]
 
-== Use Case (chromosomes)
 
-* Current, representation comes from ISCN
+== Use Case (karyotypes)
+
+* Current, string representation comes from ISCN
 * Written in a book, no computational representation
 * The human karyotype is complex to describe
 
-image::ChromXISCN09.jpg[height=300]
-
 ifndef::backend-slidy[]
 [NOTE]
-====
 
-The current representation goes back to the days of type writers. The
-specification is not machine interpretable, the ISCN strings themselves are
-not interpretable, in fact, you cannot even represent them fully in ASCII
-because they use meaningful underlines.
+====
+What is a karyotype? A karyotype is a desciption of the chromosomes of
+a cell.
+
+The current string representation comes from the International
+Systematic human Cytogenetic Nomenclature.
+It is a composite of three pieces of information:
+1. the number of chromosome
+2. the sex chromosomes present
+3. the presence of any abnormalities (if any)
+
+The current representation goes back to the days of type writers. ISCN
+is published as a book. The specification is not machine
+interpretable, the ISCN strings themselves are not interpretable, in
+fact, you cannot even represent them fully in ASCII because they use
+meaningful underlines (to describe homologous abnormalities).
+
+In addition, we find that describing human karyptypes is complex.
 
 ====
 endif::backend-slidy[]
+
 
 == Use Case (karyotypes)
 
@@ -41,24 +54,66 @@ endif::backend-slidy[]
 
 {set:incremental}
 
+* 46,XX
 * 47,XXY (aka Klinefelter's Syndrome)
 * 46,Xc,+21
 * 46,XY,+21c,-21
 * 45,XY,-10,der(10)t(10;17)(q22;p12)
 * 46,XY,der(7)t(2;7)(q21;q22)ins(7;?)(q22;?)
 * 46,XX,der(8)t(8;17)(p23;q21)inv(8)(p22q13)t(8;22)(q22;q12)
-* 46,XX,der(9)del(9)(p12)t(9;22)(q34;q11.2),der(9)t(9;12)(p13;q22)inv(9)(q13q22)
-* An ontological representation seems like a nice idea
+* 46,XX,der(9)del(9)(p12)t(9;22)(q34;q11.2),der(9)t(9;12)(p13;q22)inv(9)(q13;q22)
 
 {set:incremental!}
+
+* An ontological representation seems like a nice idea
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+Especially when alterations are involved.
+
+1. The first ISCN string represents a female individual with no
+   alterations
+
+2. The second is the ISCN string for a male individual with
+   klinefelter's syndrome -- an additional x chromosome
+
+...and so on.
+
+It is for these reasons an ontological reprsentation seems like a nice
+idea.
+
+====
+endif::backend-slidy[]
+
 
 == A partonomy?
 
 * What you see is what you get?
-* There are 23 chromosomes
-* Around 1000 bands, at different resolution levels.
+* There are 24 chromosomes
+* Around 1000 bands, at different resolutions
 
 image::ChromXISCN09.jpg[height=300]
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+
+How would we go about building an ontology for karyotypes?
+
+We could build it using a strict partonomy...
+
+There are:
+- 24 chromosmes (chormosomes 1-22, X and Y)
+- more than 1000 chromosome bands (bands can be subdivided into
+  sub-bands depending on which resolution you karyotype as shown in
+  the pic)
+
+And generally they are of similar structure.
+
+====
+endif::backend-slidy[]
 
 
 == Protege
@@ -68,13 +123,13 @@ image::ChromXISCN09.jpg[height=300]
 
 image::protege-pizza.png[height=300]
 
-
 ifndef::backend-slidy[]
 [NOTE]
 ====
 
-Technically, 1000 terms is not a problem for Protege, it can scale to this
-size (or, indeed, considerably larger) with relative easy.
+We could build this in Protege. Technically, 1000 terms is not a
+problem for Protege, it can scale to this size (or, indeed,
+considerably larger) with relative easy.
 
 ====
 endif::backend-slidy[]
@@ -93,13 +148,19 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 
-But the UI doesn't scale in this way. It involves an awful lot of clicking --
-one report I have heard suggests that protege users spend upto 50% of their
-time expanding and closing the hierarchy. With the karyotype ontology this
-problem would be profound. Worse, with the karyotype ontology we have a
-specific computational use in mind, and we don't know what the performance is
-going to be like -- reasoners can change performance quite a lot with
-different axiomatisations.
+But the UI doesn't scale in this way. It involves an awful lot of
+clicking -- one report I have heard suggests that protege users spend
+upto 50% of their time expanding and closing the hierarchy.
+
+With the karyotype ontology this problem would be profound.
+
+Worse, with the karyotype ontology we have a specific computational
+use in mind, and we don't know what the performance is going to be
+like -- reasoners can change performance quite a lot with different
+axiomatisations.
+
+If we want to change the axiomitisation after built, worse case
+scenario, we start again.
 
 ====
 endif::backend-slidy[]
@@ -107,8 +168,7 @@ endif::backend-slidy[]
 
 == Protege
 
-* But the user interface does not
-* We end up more like this.
+* We end up more like this
 
 image::click-fast.gif[height=300]
 
@@ -117,8 +177,9 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 
-In practice, we are more likely to end up like this; 1000 classes is an awful
-lot of clicking, particularly when many of the classes are very similar.
+In practice, we are more likely to end up like this; 1000 classes is
+an awful lot of clicking, particularly when many of the classes are
+very similar.
 
 ====
 endif::backend-slidy[]
@@ -129,7 +190,7 @@ endif::backend-slidy[]
 * Yes, but painfully
 * OWL API -- used by many, including Protege 4
 * Java and the OWL API are long-winded
-* Compile-Code-Test cycle!
+* Compile-Code-Test cycle
 
 [source,java]
 ----
@@ -152,17 +213,24 @@ AddAxiom addAxiom = new AddAxiom(o, axiom);
 m.applyChange(addAxiom);
 ----
 
-
 ifndef::backend-slidy[]
 [NOTE]
 ====
 
-The main API out there is the OWL API. It's nice, but is long winded,
-and difficult, both because of the complexity of a type system needed for OWL
-(from the Javadoc it is hard to work out which methods can be invoked on which
-type), the change object system (so, you can use AddAxiom to add an annotation
-to an ontology, but only if you don't care about it working), and the factory
-layer. All complex.
+Can we do this programmatically?
+
+Yes we can. The main API out there is the OWL API which is used by
+many, including Protege 4
+
+It's nice, but is long winded, and difficult. Both because of the
+complexity of a type system needed for OWL (from the Javadoc it is
+hard to work out which methods can be invoked on which type), the
+change object system (so, you can use AddAxiom to add an annotation to
+an ontology, but only if you don't care about it working), and the
+factory layer. All complex.
+
+In addition, it can be time consuming completing the compile=code-test
+cycle over and over.
 
 ====
 endif::backend-slidy[]
@@ -172,8 +240,8 @@ endif::backend-slidy[]
 
 * Written by Samuel Croset, EBI
 * EL only
-* Compile/run cycle
-* How does this fit with Java's OO?
+* How does this script fit with Java's OO design?
+* Compile-Run cycle
 
 [source,java]
 ----
@@ -192,13 +260,20 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 
-Another option, writtem by Samuel Croset is Brain. Much lighter weight than
-the OWL API. But EL only, and it is unclear how to marry what is essentially a
-script with Java's OO design. And still we keep the essential characteristics
-of Java. Any changes require, recompile, restart: it is slow.
+There are alternatives. 
+
+For example Brain, written by Samuel Croset. It is much lighter weight
+than the OWL API.
+
+But it is only EL expressive, and it is unclear how what is
+essentially a script fits with Java's OO design.
+
+Lastly the any changes require, recompile, restart which is slow/time
+consuming.
 
 ====
 endif::backend-slidy[]
+
 
 == The Paragon
 
@@ -217,9 +292,17 @@ endif::backend-slidy[]
 ifndef::backend-slidy[]
 [NOTE]
 ====
-So, my paragon here is R, the statistical language. It is interactive,
-convienient to use. It can be used cleanly in batch. In general, very nice.
-Not to say that I want to copy all of its features though.
+
+So what is the ideal? 
+
+Something like R, the statistical language. It is interactive,
+convienient to use. It can be used cleanly in batch. In general, very
+nice to type and use.
+
+However we're not saying that we wanted to copy all of its features
+though. The syntax can be bizzare and tge language semantics can be
+considered strange.
+
 ====
 endif::backend-slidy[]
 
@@ -231,25 +314,25 @@ endif::backend-slidy[]
 * Java (JVM) -- because of the OWL API
 * Pre-existing development tooling
 
-
 ifndef::backend-slidy[]
 [NOTE]
 ====
 
-These are the limitations that we had to live within. Most importantly of all,
-I wanted it to be as simple as possible to build structurally simple
-ontologies. It should largely be possible to type and write ontologies without
-feeling that you are programming.
+These are the limitations that we had to live within. 
+
+Most importantly of all, I wanted it to be as simple as possible to
+build structurally simple ontologies. It should largely be possible to
+type and write ontologies without feeling that you are programming.
 
 It was going to be written using the OWL API because there is too much code
-there to rewrite, and no one would trust me to do that in a standards
+there to rewrite, and no one would trust Phil to do that in a standards
 compliant way.
 
 This required the use of the JVM.
 
-And I wanted access to pre-existing development tooling. I did not want to
-build a complete development environment, I needed something off-the-shelf, so
-that it was good.
+Lastly I wanted access to pre-existing development tooling. I did not
+want to build a complete development environment, I needed something
+off-the-shelf, so that it was good.
 
 ====
 endif::backend-slidy[]
@@ -258,7 +341,7 @@ endif::backend-slidy[]
 == Karyotype Ontology
 
 * What have we achieved?
-* Built by Dr Jennifer Warrender
+* Built by Jennifer Warrender
 * Around 1000 classes in the karyotype ontology
 * Similar numbers of tests, structural and reasoner based
 * Models 10 events, with patterns for downstream use
@@ -269,9 +352,12 @@ ifndef::backend-slidy[]
 [NOTE]
 ====
 
-Before I move onto tawny-owl, what did we achieve with the karyotype ontology.
-Well, I think quite a lot. We now have a large, consistent (in both the formal
-and informal sense of the word) ontology that describes most levels of the ISCN.
+Before I move onto Tawny-OWL features, I want to briefly summarise
+what we achieved with the karyotype ontology.
+
+Well, I think quite a lot. We now have a large, consistent (in both
+the formal and informal sense of the word) ontology that describes
+most levels of the ISCN.
 
 ====
 endif::backend-slidy[]

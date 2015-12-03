@@ -1,12 +1,20 @@
-;; == Task {counter:task}
+;; == Task {counter:task}: Ontological Hello World
 
-;; Build a Hello World Ontology!
+;; * Build a Hello World Ontology
+;; * For everything that follows you have `src/tawny/tutorial/onto_hello.clj`
 
-;; == Ontological Hello World
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
 
-;; * For everything that follows you have:
-;; ** A full file with all the answers (`src/tutorial/onto_hello_s.clj`)
-;; * Better to copy and paste if you can!
+;; The first task of this tutorial is to build a simple hello world
+;; ontology.
+
+;; For those who have successfully downloaded teh git repository,
+;; everything that I discuss in the section can be found in...
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == The namespace
 
@@ -24,13 +32,19 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; The Clojure namespace declaration is the only "programmatic" part of tawny
-;; that you have to see. Rather like Java, Clojure namespaces are consistent with
-;; the filename (although dashes are replaced with underscores for strange
-;; reasons). Most development environments will put this in for you.
 
-;; We also add a statement to say that we wish to "use" tawny.owl. This is a
-;; file local import, and it will occur a lot!
+;; Before you can cretae a new ontology, you must first decalre teh
+;; namespace.
+
+;; The Clojure namespace declaration is the only "programmatic" part
+;; of Tawny that you have to see. Rather like Java, Clojure namespaces
+;; are consistent with the filename (although dashes are replaced with
+;; underscores for strange reasons). Most development environments
+;; will put this in for you.
+
+;; We also add a statement to say that we wish to "use"
+;; tawny.owl. This is a file local import, and it will occur a lot!
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -54,15 +68,18 @@
 ;; [NOTE]
 ;; ====
 
-;; Next we define a new ontology. It has a name that we can use to refer to it,
-;; which is a useful property as we shall see, although most of the time, we do
-;; not have to. For the `defontology` statement everything except for the name is
-;; optional, although there are quite a few frames more of which we will use as
+;; Next we define a new ontology. It has a name that we can use to
+;; refer to it, which is a useful property as we shall see, although
+;; most of the time, we do not have to. For the `defontology`
+;; statement everything except for the name is optional, although
+;; there are quite a few frames more of which we will use as
 ;; we move through the tutorial.
 
-;; The name is also used as a prefix when saving the ontology (although this can
-;; be overriden), so I tend not to use hyphens, as it messes with syntax
-;; hightlight for my Manchester syntax viewer.
+;; The name is also used as a prefix when saving the
+;; ontology (although this can be overriden), so I tend not to use
+;; hyphens, as it messes with syntax hightlight for my Manchester
+;; syntax viewer.
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -71,7 +88,6 @@
 
 ;; * Use a `defclass` statement
 ;; * Statements are delineated with `()`
-;; * Also called "form" or "sexp" (s-expression)
 ;; * `Hello` is also a variable
 ;; * `Hello` and `hello` are different
 ;; * Cannot use the same name twice
@@ -86,11 +102,14 @@
 ;; [NOTE]
 ;; ====
 
-;; Now we define a new class. As we can see, by comparing against the
-;; `defontology`, statements, we have parenthical statements all the way through.
-;; This form of statement is also known in lisp speak as a "form", an
-;; "s-expression" (to distinguish is from m-expressions which don't exist!) or
-;; rather more obscurely "sexp".
+;; Once an ontology has been created we can define a new class. This
+;; is accomplished using the defclas staement.
+
+;; As we can see, by comparing against the `defontology`,
+;; statements have are parenthical statements all the way through.
+
+;; This form of statement is also known in lisp speak as a "form",
+;; an "s-expression" or rather more obscurely "sexp".
 
 ;; One key point from a programming point-of-view, clojure is a lisp-1. All
 ;; variables are in the same namespace, and that includes all the ontology
@@ -117,11 +136,13 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
+
 ;; Properties use defoproperty. There are also annotation and object properties,
 ;; and I have opted for somewhat opaque function names to avoid a large amount of
 ;; typing. Hard to know whether this was a great decision or not, but the
 ;; alternative really seemed various unreadable to me. More over, there are only
 ;; a few of these names, and OWL 3 is unlikely to come along any time soon.
+
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -130,8 +151,8 @@
 
 ;; * Now we use a frame
 ;; * `:super` says "everything that follows is a super class"
-;; * Or, `HelloWorld` has a `super` which is `Hello`
-;; * http://www.russet.org.uk/blog/2985
+;; ** Or, `HelloWorld` has a `:super` which is `Hello`
+;; ** http://www.russet.org.uk/blog/2985
 ;; * `owl-some` is the existential operator
 ;; * The default operator (or only) operator in many ontologies
 
@@ -206,8 +227,8 @@
 
 ;; ** `&&`, `||` and `!`
 
-;; * A "long-cuts" (`owl-only`)
-;; * And consistent but clashing names in `tawny.english`.
+;; * A "long-cut" (`owl-only`)
+;; * And consistent but clashing names in `tawny.english` namespace
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -222,11 +243,11 @@
 ;; endif::backend-slidy[]
 
 
-;; == Save the Ontology
+;; == Saving the Ontology
 
-;; * Either add this form to the file and Ctrl-S
-;; * Or just type into REPL (window with prompt)
-;; * Open `o.omn` either in a text editor or Protege to check
+;; * To save an ontology we use `save-ontology`
+;; * path/name of file is required
+;; * format is optional (default is :owl)
 
 ;; [source,notlisp]
 ;; ----
@@ -250,8 +271,6 @@
 ;; * Could also just change `defclass` form and re-evaluate
 ;; * `:label` and `:comment` add annotations using OWL built-in
 ;; * `:annotation` is general purpose frame
-;; * We add a label in Portugese
-;; * Re-save the ontology
 
 ;; [source,lisp]
 ;; ----
@@ -283,7 +302,6 @@
 ;; == Task {task}: Conclusions
 
 ;; * Tawny-OWL uses *frames*
-;; * We look like Manchester syntax
+;; * It looks like Manchester syntax
 ;; * But in a lispy way
 ;; * Easy to type, including short-cuts
-
