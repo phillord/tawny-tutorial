@@ -4,7 +4,6 @@
 ;; * We do this in several ways
 ;; * First, we start with a simple hierarchy
 
-
 ;; == Amino Acids
 
 ;; * Chemical Molecules
@@ -17,23 +16,25 @@
 ;; [NOTE]
 ;; ====
 
-;; Amino acids are chemical molecules containing a carboxyl an an
+;; Amino acids are chemical molecules containing a carboxyl and an
 ;; amino group. They have a number properties e.g. size and polarity
 ;; and there are 20 of them.
 
 ;; ====
 ;; endif::backend-slidy[]
 
-
 ;; == A namespace
 
-;; * The full code in these slides can be found in `tutorial/amino_acid_tree.clj`
+;; * The name space declaration
 
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.amino-acid-tree
   (:use [tawny.owl]))
 ;; ----
+
+;; * The full code in these slides can be found in
+;; `src/tawny/tutorial/amino_acid_tree.clj`
 
 ;; == Tree
 
@@ -108,11 +109,11 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == Explict Definition
+;; == Explicit definition
 
 ;; * Tawny uses explicit definition
 ;; * Variables must be defined *before* use
-;; * This is deliberate!
+;; * This is deliberate
 ;; * Can be avoided by using Strings
 ;; * But that is error-prone
 
@@ -151,8 +152,8 @@
 ;; [NOTE]
 ;; ====
 ;; Before we show the solution to the disjoint problem, we simplify our
-;; definitions. Typing `:super AminoAcid` a lot is a pain also, so lets avoid
-;; that. We introduce a new function, `as-subclasses`
+;; definitions. Typing `:super AminoAcid` a lot is a pain also, so
+;; let's avoid that. We introduce a new function, `as-subclasses`
 
 ;; The advantage of lexically grouping all of the subclasses in this way is also
 ;; that it makes the *intent* of the developer obvious. If we need to add a new
@@ -160,7 +161,7 @@
 ;; yes), then adding it next in the list *also* makes it a subclass as it
 ;; should be.
 
-;; This ability to make the developer intent, and conformance to a pattern
+;; This ability to make the developer intent and conformance to a pattern
 ;; explicit is a good thing!
 ;; ====
 ;; endif::backend-slidy[]
@@ -212,7 +213,7 @@
 ;; name them all. But to a chemist, it is demonstrably false as there are many,
 ;; many amino acids. How we scope the ontology and frame our competency questions
 ;; can very much affect the model that we build. We will show later that this
-;; axiom has a very significant affect on the end model, much more significant
+;; axiom has a very significant effect on the end model, much more significant
 ;; than you might presuppose at the moment.
 ;; ====
 ;; endif::backend-slidy[]
@@ -291,12 +292,12 @@
 ;; [NOTE]
 ;; ====
 ;; I have not shown all the OMN because it is long and tedious, but these are the
-;; keypoints added by the subclasses function.
+;; key points added by the subclasses function.
 
 ;; If you evaluated the `:disjoint Alanine` definitions early (and they did not
 ;; crash!), then you will find that there are some `Disjoint:` frames on
 ;; individual amino acids also. These make no semantic difference and are an
-;; artifact of the tutorial.
+;; artefact of the tutorial.
 ;; ====
 ;; endif::backend-slidy[]
 

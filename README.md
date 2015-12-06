@@ -1,8 +1,9 @@
-# Tawny Tutorial
+# Tawny-OWL Tutorial
 
 This is a hands-on tutorial for Tawny-OWL (http://github.com/phillord/tawny-owl).
 
-The next delivery location is at SWAT4LS 2015.
+The next delivery location is at SWAT4LS 2015. The slides for this are
+available at http://homepages.cs.ncl.ac.uk/jennifer.warrender/swat4ls_2015/
 
 The initial delivery location is at ICBO 2015. The slides for this are
 available at http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015/

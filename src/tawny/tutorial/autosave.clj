@@ -1,4 +1,4 @@
-;; == Task {counter:task}: Programming an Autosave
+;; == Programming an Autosave
 
 ;; * Extend Tawny, so that it saves the ontology on every change
 
@@ -231,7 +231,7 @@
 ;; * There is already an `auto-save` function in `tawny.repl`
 ;; * And an `on-change` function
 
-;; == Task {task}: Conclusion
+;; == Conclusions
 
 ;; * Clojure provides easy interop with Java
 ;; * We can use this to extend Tawny-OWL capabilities

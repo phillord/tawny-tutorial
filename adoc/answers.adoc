@@ -56,7 +56,7 @@ to another location, via ssh or http, check them in somewhere. This can be
 achieved either in the project source or as a leiningen plugin.
 
 Or, finally, we can deploy our ontology like any other piece of Clojure code,
-as a maven artifact, to maven central, to clojars (like maven central but for
+as a maven artefact, to maven central, to clojars (like maven central but for
 Clojure), or to our own private repo. This also separates our the ontology
 identifier from the download location. It's possible to argue whether this is
 a good thing or a bad thing.
@@ -159,7 +159,7 @@ have no structure at all unless you use microsyntax. Moreover most annotations
 are sets -- so no order.
 
 We have been experimenting heavily with literate programming tools. I started
-this quite a few years back, but they now work well, and we have build a
+this quite a few years back, but they now work well, and we have built a
 specialised tool called "lentic".
 ====
 endif::backend-slidy[]
@@ -195,7 +195,7 @@ endif::backend-slidy[]
 (label "Ciao" "it")
 ----
 
-* Can define internationalized function calls
+* Can define internationalised function calls
 
 [source,lisp]
 ----
@@ -223,10 +223,10 @@ endif::backend-slidy[]
 * Can "import" ontology terms from spreadsheet, XML or a database
 * Can work over existing source
 * Therefore can generate core of ontology
-* And expand it with manually annotated crosslinks
+* And expand it with manually annotated cross links
 
-* See paper in ICBO 2015!
-* http://www.russet.org.uk/blog/3076
+* See ICBO 2015 paper - http://arxiv.org/abs/1505.04114
+* See Phillip Lord's blog - http://www.russet.org.uk/blog/3076
 
 == What happens if the labels of read ontologies change
 
@@ -250,14 +250,14 @@ disappears than tawny adds an alias and deprecation warning.
 endif::backend-slidy[]
 
 
-== How do you convert an existing ontology to Tawny
+== How do you convert an existing ontology to Tawny-OWL
 
 * `tawny.render` can perform a syntactic transformation
 * Given OWL provides equivalent Clojure code
 * Used interactively to provide documentation
 * Can be used to port an ontology
 * Currently "patternising" ontology is manual
-* See Jennifer Warrenders PhD thesis where she did this with SIO
+* See Jennifer Warrender's PhD thesis where she did this with SIO
 
 ifndef::backend-slidy[]
 [NOTE]
@@ -272,12 +272,12 @@ endif::backend-slidy[]
 
 == How Fast is Tawny
 
-* For raw, un-patternized ontology tawny takes about 2x as reading OWL/XML
+* For raw, un-patternised ontology tawny takes about 2x as reading OWL/XML
 * Tested by rendering and load GO
 * About 56Mb of lisp
 * Loads in about 1min
 * Most of excess time is in parsing, (Clojure also compiles)
-* Patternized ontology would involve less parsing
+* Patternised ontology would involve less parsing
 
 ifndef::backend-slidy[]
 [NOTE]
@@ -293,7 +293,7 @@ of the time anyway.
 ====
 endif::backend-slidy[]
 
-== Can I integrate more tightly with protege?
+== Can I integrate more tightly with Protege?
 
 * We have built a GUI shell into Protege
 * Can also use Protege to open a Clojure REPL via a socket
@@ -316,7 +316,7 @@ this yet.
 
 In our hands, the auto-reload function works well. I tend to render first to
 OMN and look at that. Tawny also has a documentation capability which shows
-you the "unwound" definition of terms. And then finally I use protege after
+you the "unwound" definition of terms. And then finally I use Protege after
 that.
 ====
 endif::backend-slidy[]
@@ -334,12 +334,13 @@ endif::backend-slidy[]
 ifndef::backend-slidy[]
 [NOTE]
 ====
-Clojure uses maven dependency management. As a tawny ontology is just a piece
-of clojure, we can use the same mechanism with tawny ontologies also. Which
-means that we can specify ontological dependencies also. This means we can
-specify version ranges (OWL doesn't allow this to my knowledge). And we can
-can reuse tooling. We can use leiningin to show us a dependency graph, we can
-look for version conflicts, we can exclude duplicates from the transistive
+Clojure uses maven dependency management. As a tawny ontology is just
+a piece of Clojure, we can use the same mechanism with tawny
+ontologies also. Which means that we can specify ontological
+dependencies also. This means we can specify version ranges (OWL
+doesn't allow this to my knowledge). And we can reuse tooling. We
+can use Leiningen to show us a dependency graph, we can look for
+version conflicts, and we can exclude duplicates from the transitive
 closure.
 
 Interestingly, we can also publish our ontology independently from our IDs.
@@ -393,7 +394,7 @@ endif::backend-slidy[]
 ifndef::backend-slidy[]
 [NOTE]
 ====
-I made this change very carefully and was very reticient about it: not least
+I made this change very carefully and was very reticent about it: not least
 because it made my main user of Tawny at the time (Jennifer Warrender) change
 all of their existing code. But I had really confusing code inside Tawny where
 my `add-subclass` functions had backward semantics to all the others.
@@ -404,3 +405,247 @@ different purpose. I do not worry about this too much because other tools will
 pick up, for example, the use of a class as a super-property.
 ====
 endif::backend-slidy[]
+
+== How do OBO identifiers work?
+
+* The mapping is stored in a file
+* The `obo-restore-iri` line above reads this file
+* If a symbol has no mapping, we use the "pre-iri" form.
+
+== How OBO Identifiers work
+
+* The mapping file is generated
+* Human readable, and line-orientated
+* Deterministically ordered
+* Will version!
+* Uses EDN format.
+
+[source,notlisp]
+----
+("ro"
+ "http://purl.obolibrary.org/obo/EXAM_000001"
+ "G"
+ "http://purl.obolibrary.org/obo/EXAM_000002"
+ "F"
+ "http://purl.obolibrary.org/obo/EXAM_000003")
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+The mapping file has been designed to work with version control, because it
+needs to be shared between all developers. Although it is a generated file, it
+is source code, since it cannot be recreated from fresh (not in the same order
+anyway).
+
+EDN format is a Clojure thing. It's basically a Clojure read syntax.
+====
+endif::backend-slidy[]
+
+== How OBO Identifiers work
+
+* Stable pre-iri's
+* No need for a server such as URIgen
+
+[source,lisp]
+----
+this stores any new IDs we have created
+(comment
+  (tawny.obo/obo-store-iri obo "./src/tawny/tutorial/whats_in_a_name.edn"))
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+While the preiris are automatically created, if we choose they can be made
+stable by simply saving them into the file with the form above. This can be
+safely done every time the file is evaluated, because the order is
+deterministic, so it will cause no false diffs in versioning.
+
+This is potentially useful if you are collaborating with others and want to
+co-ordinate at pre-release time. It's not essential if others are using
+tawny -- there is no need, since classes can be referred to by symbol.
+
+There is a potential disadvantage. This creates an IRI (and entry in the file)
+for every new entity created. Not a problem with Protege, but tawny is fully
+programmatic. I can create 10^6 new classes in one line of code.
+
+pre-iris all appear at the end of the EDN file!
+====
+endif::backend-slidy[]
+
+== How OBO Identifiers work
+
+* How to create permanent IDs
+* Needs to be co-ordinated, since IDs are incremental
+* Use version-control to co-ordinate
+* One person, or as part of a release process
+
+[source,lisp]
+----
+this coins permanent IDS, in a controlled process!
+(comment
+  (tawny.obo/obo-generate-permanent-iri
+   "./src/tawny/tutorial/whats_in_a_name.edn"
+   "http://purl.obolibrary.org/obo/EXAM_"))
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+At some point, you need to coin new IDs that will become permanent. This has
+to happen in a co-ordinated fashion. It could be done as part of release. Or
+by bot during continuous integration.
+====
+endif::backend-slidy[]
+
+
+== How OBO Identifiers work
+
+* I think having no server is nice
+* Reusing version control makes sense
+* It's programmatic! You are free to disagree.
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+How well would this workflow work in practice? Not sure. It would work for a
+small number of developers. There are many tweaks that could be made for
+different scales -- saving to multiple files, pre-iris in one place, perms in
+another. No pre-iris at all. Use URIGen. Manually coin permanent IRIs as part
+of quality control.
+
+It's programmatic and easy to change.
+====
+endif::backend-slidy[]
+
+== Do I have to conform to the no-use-before-define rule?
+
+* It is possible not to use symbols
+* The `iri-gen` function takes a string not a symbol!
+* This string is the tawny name
+* Consider the following
+
+[source,lisp]
+----
+String building!
+(defontology s)
+
+(owl-class "J" :ontology s)
+(object-property "r" :ontology s)
+(owl-class "K"
+           :ontology s
+           :super (owl-some "r" "J"))
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+We can do without symbols and instead use just strings. Note that we also have
+to switch functions `owl-class` instead of `defclass`.
+====
+endif::backend-slidy[]
+
+== What are Tawny Names?
+
+* These forms do *NOT* define symbols
+* This *WILL NOT* work
+* Neither `r` nor `J` have been defined
+
+[source,lisp]
+----
+(comment
+  (owl-class "L"
+             :ontology s
+             :super (owl-some r J)))
+----
+
+== Tawny Names
+
+* Danger!
+* Consider this statement.
+* But we did not define "L"
+* But we have used it.
+
+[source,lisp]
+----
+(owl-class "M"
+           :ontology s
+           :super "L")
+----
+
+* And so, it becomes defined
+
+[source,omn]
+----
+Class: s:M
+    SubClassOf:
+        s:L
+
+Class: s:L
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+The use of strings means that we can define things without the tawny-name
+being in "primary position". It just happens. You need to be careful.
+====
+endif::backend-slidy[]
+
+
+== Why use strings?
+
+* Partly, there for implementation
+* But made public as string manipulation is easier
+* Most useful for development
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+The main reason that I have left this in place is for use as an API. Clojure
+allows full manipulation of symbols like most lisps, but it's a bit of a pain.
+It's not possible, for example, to concatenate two symbols to make a longer
+one (or rather, they need to be converted to strings, then concat'd then
+converted back again). And the creation and interning of new symbols as
+variables requires the use of macros rather than normal functions.
+
+Having said that, tawny does offer some facilities to help with this process
+
+ - `tawny.owl/intern-owl-entity`
+ - `tawny.owl/intern-owl-string`
+ - `tawny.owl/defentity`
+ - `tawny.owl/intern-owl-entities`
+ - `tawny.util/quote-word`
+ - `tawny.util/name-tree`
+
+We will see a few of these later.
+====
+endif::backend-slidy[]
+
+== How do we create a new symbol with the `amino-acid` syntax?
+
+* If we want to create a new symbol Tawny-OWL provides `defentity`
+* It does a few other things as well
+
+[source,lisp]
+----
+(defentity defaminoacid
+  "Defines a new amino acid."
+  'amino-acid)
+----
+
+ifndef::backend-slidy[]
+[NOTE]
+====
+In fact, `defclass`, `defoproperty` and the rest are all defined in
+this way.  This is a common enough thing to want to do, that I made
+this macro public. It is an easy way, for instance, to add new frames
+or set default values for existing frames, or to define patterns.
+
+`defentity` does one or two other things as well, chiefly adding
+metadata to the var created. If you don't know what this means (unless
+you know Clojure you probably wont) then it really isn't important.
+====
+endif::backend-slidy[]
+

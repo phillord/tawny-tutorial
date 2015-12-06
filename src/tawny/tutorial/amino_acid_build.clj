@@ -1,19 +1,17 @@
 ;; == Task {counter:task}: Create New Syntax
 
-;; * Create new syntax describing the amino-acids
-;; * Create some defined defined classes
+;; * Create new syntax describing the amino acids
 ;; * Create all the defined classes
 ;; * Use the reasoner
 
 ;; == The Finale
 
 ;; * This is rather more advanced
-;; * But pulls together most of the strands
+;; * Generate a new syntax
+;; * But pulls together most of the tasks
 ;; * Demonstrates the value of a *programmatic* environment
-;; * Possible to build ontologies without this.
-;; * Sometimes only lambda is enough!
-;; * The biology is quite cute also
-
+;; * Possible to build ontologies without this
+;; * The biology is interesting also
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -23,8 +21,8 @@
 ;; demonstrates one of the uses of tawny -- while it is harder to generate this
 ;; new syntax, than just use existing, once you have done it is easier to use.
 
-;; There is also some interesting biology and an interesting ontological question
-;; that comes out of the end of it.
+;; There is also some interesting biology and an interesting
+;; ontological question that comes out of the end of it.
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -44,17 +42,15 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Probably this is an extreme example of `use`. If I were doing this normally, I
-;; would almost certainly `require` `pattern`, `reasoner` and `util` through an
-;; alias.
-
+;; Probably this is an extreme example of `use`. If I were doing this
+;; normally, I would almost certainly `require` `pattern`, `reasoner`
+;; and `util` through an alias.
 ;; ====
 ;; endif::backend-slidy[]
 
-
 ;; == The Upper Ontology
 
-;; * Nothing new here!
+;; * Nothing new here
 
 ;; [source,lisp]
 ;; ----
@@ -90,29 +86,43 @@
   :super PhysicoChemicalProperty)
 ;; ----
 
-;; == Defining our AminoAcids
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+;; Nothing new here except for the Parent class for all amino acid
+;; properties
+
+;; The rest we have defined before:
+;; An ontology
+;; Classes
+;; Value partitions (includes as-facet extra-logical restrictions)
+;; ====
+;; endif::backend-slidy[]
+
+;; == Defining our `amino-acid`
 
 ;; * Done this before
 ;; * It involves too much typing
 ;; * Want new syntax
-;; * Also to help ensure consistency
+;; * Ensure consistency across all class definitions
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Building amino acids by defining a class for each is no good at all, as it's
-;; too long. Also, it's too risky. So, we are going to expand the syntax, so that
-;; it will work well.
+;; Building amino acids by defining a class for each is no good at
+;; all, as it's too long. Also, it's still too risky. So, we are going
+;; to expand the syntax, so that it will works better and ensures
+;; consistency across all class definitions.
 ;; ====
 ;; endif::backend-slidy[]
 
-
-;; == Defining out AminoAcid
+;; == Defining our `amino-acid`
 
 ;; * The function is relatively easy
 ;; * `defdontfn` gives default ontology handling
+;; * Name of the function `amino-acid`
 ;; * `& properties` is variadic or "one or more args".
-;; * `owl-class` function does NOT define a new variable
+;; * `owl-class` function does *not* define a new symbol
 
 ;; [source,lisp]
 ;; ----
@@ -125,57 +135,33 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; The function for making a new amino acid is relatively simple, as these
-;; things go. It just passes off most of it's work to `owl-class`. We could also
-;; add "AminoAcid" as a superclass here, but I chose to do this later for reasons
-;; that should become apparent.
+;; The function for making a new amino acid is relatively simple, as
+;; these things go. It just passes off most of it's work to
+;; `owl-class`. We could also add "AminoAcid" as a superclass here,
+;; but I chose to do this later for reasons that should become
+;; apparent.
 
-;; This function does not intern -- we can define a new amino-acid like this, but
-;; the `entity` would be a string and we cannot refer to it afterwards as
-;; anything other than a string.
+;; This function does not intern -- we can define a new amino-acid
+;; like this, but the `entity` would be a string and we cannot refer
+;; to it afterwards as anything other than a string.
 
-;; We cannot just replace `owl-class` with `defclass` to achieve this. The
-;; explanation requires knowledge of lisp, but it is this: because amino-acid is
-;; a function it's arguments are evaluated so we cannot pass a bare symbol --
-;; Clojure will crash. More `defclass` is a macro, so it will be called when the
-;; `amino-acid` is evaluated NOT called. We have to make a macro to do this.
+;; We cannot just replace `owl-class` with `defclass` to achieve
+;; this. The explanation requires knowledge of lisp, but it is this:
+;; because amino-acid is a function it's arguments are evaluated so we
+;; cannot pass a bare symbol -- Clojure will crash. More `defclass` is
+;; a macro, so it will be called when the `amino-acid` is evaluated
+;; NOT called. We have to make a macro to do this; for more
+;; information see Q&As.
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == Making a new variable
+;; == Defining lots of `amino-acids`
 
-;; * If we want to create a new symbol tawny provides `defentity`
-;; * It does a few other things as well
-
-;; [source,lisp]
-;; ----
-(defentity defaminoacid
-  "Defines a new amino acid."
-  'amino-acid)
-;; ----
-
-;; ifndef::backend-slidy[]
-;; [NOTE]
-;; ====
-;; In fact, `defclass`, `defoproperty` and the rest are all defined in this way.
-;; This is a common enough thing to want to do, that I made this macro public. It
-;; is an easy way, for instance, to add new frames or set default values for
-;; existing frames, or to define patterns.
-
-;; `defentity` does one or two other things as well, chiefly adding metadata to
-;; the var created. If you don't know what this means (unless you know clojure
-;; you probably wont) then it really isn't important.
-;; ====
-;; endif::backend-slidy[]
-
-
-;; == Define Lots of Amino Acids
-
-;; * Lets define all the amino-acids at once
+;; * Let's define all twenty `amino-acid` at once
 ;; * Pass definitions as a list (of lists)
-;; * Call using `map`
-;; * The anonymous function *destructures*
-;; * `->Named` packages name and entity together
+;; * 1. Call using `map`
+;; * 2. The anonymous function *destructures*
+;; * 3. `->Named` packages name and entity together
 
 ;; [source,lisp]
 ;; ----
@@ -191,17 +177,23 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Better than creating one amino-acid, let's create all of them at once. This
-;; function does two things -- it calls the `amino-acid` function over several
-;; definitions. And secondly, it bundles the return value with the name of the
-;; entity (which is the first element of the definition). We use this next.
+;; Why stop there? Better than creating one amino-acid, let's create
+;; all twenty of them at once.
+
+;; This function does three things
+;; 1. map: calls the `amino-acid` function over several definitions.
+;; 2. destructures (Lisp specific): splits definitions into
+;; Entity (first value of definitions) and & properties (rest i.e. all
+;; values of definitions)
+;; 3. it bundles the return value with the name of the entity (which
+;; is the first element of the definition).
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == And make variables
 
-;; * We want to use symbols and define a new variable.
-;; * Tawny has some support for this
+;; * We want to use symbols and define a new variable
+;; * Tawny-OWL has some support for this
 ;; * Not going to explain in detail
 
 ;; [source,lisp]
@@ -224,12 +216,12 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == Define the amino-acids
+;; == Define the amino acids
 
-;; * Now we can define all the amino-acids in one go.
-;; * The syntactic regularity means we are unlikely to miss something.
-;; * For me, this makes the effort worth while.
-;; * We also define subclasses, disjoints and covering.
+;; * Now we can define all twenty amino acids in one go
+;; * The syntactic regularity means we are unlikely to miss something
+;; * This makes the effort worth while
+;; * We also define subclasses, disjoints and covering
 ;; * Pay attention to the `:cover`
 
 ;; [source,lisp]
@@ -263,8 +255,9 @@
 
 ;; == Defined Classes
 
-;; - Defined Classes can be reasoned over.
-;; - Anything with a `Small` facet is a `SmallAminoAcid`
+;; * Next we define defined classes
+;; * Defined Classes can be reasoned over
+;; * Anything with a `Small` facet is a `SmallAminoAcid`
 
 ;; [source,lisp]
 ;; ----
@@ -275,15 +268,15 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Defined subclasses are the heart of reasoning in OWL. Effectively, they form
-;; queries and they tell us useful things.
+;; Defined subclasses are the heart of reasoning in OWL. Effectively,
+;; they form queries and they tell us useful things.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == And some more
 
-;; - There are lots of these
-;; - We can combine them in many ways.
+;; * There are lots of these
+;; * We can combine them in many ways
 
 ;; [source,lisp]
 ;; ----
@@ -303,19 +296,39 @@
 ;; ====
 ;; endif::backend-slidy[]
 
-;; == Where to stop
+;; == Where do we stop?
 
-;; * Where to stop
 ;; * 3? 10?
 ;; * Why not do them all?
-;; * We are using a programmatic tool
-;; * How would we do this
+;; * "Doing them all" actually means the Cartesian product
+;; * We are using a *programmatic* tool
+;; * How would we do this?
 
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; * "Doing them all" actually means the Cartesian product
+;; * Surprisingly there is not a function for this
+;; * This is pure Clojure, not doing to describe it
+
+;; [source,lisp]
+;; ----
+(defn cart [colls]
+  (if (empty? colls)
+    '(())
+    (for [x (first colls)
+          more (cart (rest colls))]
+      (cons x more))))
+;; ----
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == A defined class function
 
 ;; * Similar to before
-;; * This does not create variables
+;; * This does not create symbols
 
 ;; [source,lisp]
 ;; ----
@@ -334,32 +347,16 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; We can build a function to replicate this. We use some string manipulation for
-;; this to generate the name. I have not done the interning here -- I leave this
-;; an exercise!
+;; We can build a function to replicate this. We use some string
+;; manipulation for this to generate the name. I have not done the
+;; interning here -- I leave this as an exercise!
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Doing them all
 
-;; * "Doing them all" actually means the cartesian product
-;; * Surprisingly there is not a function for this
-;; * This is pure Clojure, not doing to describe it
-
-;; [source,lisp]
-;; ----
-(defn cart [colls]
-  (if (empty? colls)
-    '(())
-    (for [x (first colls)
-          more (cart (rest colls))]
-      (cons x more))))
-;; ----
-
-;; == Doing them all
-
-;; * Call the `amino-acid-def` function on cartesian product
-;; * This creates 453 defined classes
+;; * Call the `amino-acid-def` function on the Cartesian product
+;; * This creates 431 defined classes
 
 ;; [source,lisp]
 ;; ----
@@ -384,102 +381,115 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; We now call actually run the cartesian product. We add "nil" so that we get
-;; single, double, and triple as well as full length products, and filter for nil
-;; to get rid of them again.
+;; We now call actually run the Cartesian product. We add "nil" so
+;; that we get single, double, and triple as well as full length
+;; products, and filter for nil to get rid of them again.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Reasoning
 
-;; * Finally, we reason over this.
-;; * We choose to use hermit
+;; * Finally, we reason over this
+;; * Here, we choose to use HermiT
 ;; * And check consistency
 ;; * This takes a second or two
 
 ;; [source,lisp]
 ;; ----
 (reasoner-factory :hermit)
+
+;; => true
 (consistent?)
 ;; ----
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Tawny support a couple of reasoners out of the box, including Hermit and ELK.
-;; Here we are instantiating using a `:keyword`, but this is just a short-cut --
-;; any OWL API `OWLReasonerFactory` can be used directly.
+;; Tawny supports a couple of reasoners out of the box, including
+;; Hermit and ELK. Here we are instantiating using a `:keyword`, but
+;; this is just a short-cut -- any OWL API `OWLReasonerFactory` can be
+;; used directly.
 
 ;; The reasoner is invoked to check consistency automatically. Tawny uses a GUI
 ;; (a progress bar) by default to show this process, but falls back to text if
-;; that is not possible (so you can check consistency in a CI environment without
-;; hassles.
+;; that is not possible (so you can check consistency in a CI
+;; environment without hassles.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Reasoning
 
-;; * We can count numbers
+;; * When reasoning, working what happened can be tough
+;; * Especially when using a "Textual User Interface"
+;; * But, we can count numbers
 ;; * We have reasoned many subclases of `AminoAcid`
 
 ;; [source,lisp]
 ;; ----
+;; => 20
 (count (subclasses AminoAcid))
+
+;; => 451
 (count (isubclasses AminoAcid))
 ;; ----
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Working out what has happened can be quite hard (this is something that we
-;; wish to fix in future versions of tawny), but counting subclasses work as well
-;; as anything. We now have a lot more inferred subclasses than asserted.
+;; Working out what has happened can be quite hard (this is something
+;; that we wish to fix in future versions of tawny), but counting
+;; subclasses work as well as anything. We now have a lot more
+;; inferred subclasses than asserted.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Reasoning
 
-;; * But we are not coherent!
+;; * While we consistent, we are not coherent
 ;; * In fact, we have many unsatisfiable classes
 ;; * What is happening?
 
 ;; [source,lisp]
 ;; ----
+;; => false
 (coherent?)
 
+;; => 242
 (count (unsatisfiable))
 ;; ----
 
 ;; == Visualising
 
-;; * Are many ways to visualize our ontology
+;; * Many ways to visualise our ontology
 ;; * Saving it and opening in Protege is easiest
-
 
 ;; [source,notlisp]
 ;; ----
-;; (save-ontology "o.owl" :owl)
+;; (save-ontology "aabuild.owl" :owl)
 ;; ----
+
+;; image::protege-aabuild.png[height=300]
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Protege is really nice for visualising ontologies. So, we use that here.
-;; I always save to the same file name, but better to save as OWL rather than OMN
-;; because it parses more correctly.
+;; Protege is really nice for visualising ontologies. So, we use that
+;; here. I always save to the same file name, but better to save as
+;; OWL rather than OMN because it parses better.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Visualising
 
-;; * Many defined classes are equiavlent
+;; * Many defined classes are equivalent
 ;; * Many are unsatifisable
 ;; * Happens because there are 20 amino-acids
-;; * But 700 defined classes
+;; * But 431 defined classes
 ;; * Many defined classes have necessarily the same extent
 ;; * Many can have no individuals (`Negative` and `Hydrophobic`)
 ;; * Only happens *with* the covering axiom
 
+;; image::protege-unsatisfiable.png[height=300]
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -509,10 +519,11 @@
 
 ;; * Using defined classes as a query
 ;; * Not that useful
-;; * Most of the infered subclasses are defined!
+;; * Most of the inferred subclasses are defined
 
 ;; [source,lisp]
 ;; ----
+;; => 242
 (count
  (isubclasses SmallAminoAcid))
 ;; ----
@@ -524,6 +535,7 @@
 
 ;; [source,lisp]
 ;; ----
+;; => 0
 (count
  (filter
   #(not (.isDefined % aabuild))

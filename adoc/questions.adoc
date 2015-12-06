@@ -8,14 +8,13 @@
 
 == Questions and Answers
 
-* Remainder of tutorial will be audience driven
-* Welcome to take any questions
+* Remainder of tutorial will be audience-driven
+* Welcome to take any questions or help set-up Tawny-OWL
 * Also have set of potential questions with prepared answers
 * Can get full tutorial, with notes
 
 * Readable http://homepages.cs.ncl.ac.uk/jennifer.warrender/swat4ls_2015/
 * Source http://github.com/phillord/tawny-tutorial
-
 
 == Questions
 
@@ -23,7 +22,7 @@
 - How does this affect ontology deployment?
 - How do you version your ontology?
 - How do you test your ontology?
-- How do you continously integrate your ontology?
+- How do you continuously integrate your ontology?
 - What about advanced documentation for ontologies?
 - How do I collaboratively develop my ontology?
 - Can I internationalise my ontology?
@@ -31,8 +30,11 @@
 - What happens if the labels of read ontologies change?
 - How do you convert an existing ontology to Tawny-OWL?
 - How fast is Tawny-OWL?
-- Can I integrate more tightly with protege?
+- Can I integrate more tightly with Protege?
 - How does Tawny-OWL affect dependency management with ontologies?
 - Can I link ontologies into software?
 - What's this `:super`? why not `:subclass`?
 - How do we extend Tawny-OWL, so that it saves the ontology on every change?
+- How do OBO identifiers work?
+- Do I have to conform to the no-use-before-define rule?
+- How do we create a new symbol with the amino-acid `function`?

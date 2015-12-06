@@ -1,7 +1,6 @@
 ;; == Task {counter:task}: Ontological Hello World
 
 ;; * Build a Hello World Ontology
-;; * For everything that follows you have `src/tawny/tutorial/onto_hello.clj`
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -10,7 +9,7 @@
 ;; The first task of this tutorial is to build a simple hello world
 ;; ontology.
 
-;; For those who have successfully downloaded teh git repository,
+;; For those who have successfully downloaded the git repository,
 ;; everything that I discuss in the section can be found in...
 
 ;; ====
@@ -29,16 +28,19 @@
   (:use [tawny.owl]))
 ;; ----
 
+;; * The full code in these slides can be found in
+;; `src/tawny/tutorial/onto_hello.clj`
+
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
 
-;; Before you can cretae a new ontology, you must first decalre teh
+;; Before you can create a new ontology, you must first declare the
 ;; namespace.
 
 ;; The Clojure namespace declaration is the only "programmatic" part
 ;; of Tawny that you have to see. Rather like Java, Clojure namespaces
-;; are consistent with the filename (although dashes are replaced with
+;; are consistent with the file name (although dashes are replaced with
 ;; underscores for strange reasons). Most development environments
 ;; will put this in for you.
 
@@ -76,8 +78,8 @@
 ;; we move through the tutorial.
 
 ;; The name is also used as a prefix when saving the
-;; ontology (although this can be overriden), so I tend not to use
-;; hyphens, as it messes with syntax hightlight for my Manchester
+;; ontology (although this can be overridden), so I tend not to use
+;; hyphens, as it messes with syntax highlight for my Manchester
 ;; syntax viewer.
 
 ;; ====
@@ -103,7 +105,7 @@
 ;; ====
 
 ;; Once an ontology has been created we can define a new class. This
-;; is accomplished using the defclas staement.
+;; is accomplished using the defclass statement.
 
 ;; As we can see, by comparing against the `defontology`,
 ;; statements have are parenthical statements all the way through.
@@ -111,7 +113,7 @@
 ;; This form of statement is also known in lisp speak as a "form",
 ;; an "s-expression" or rather more obscurely "sexp".
 
-;; One key point from a programming point-of-view, clojure is a lisp-1. All
+;; One key point from a programming point-of-view, Clojure is a lisp-1. All
 ;; variables are in the same namespace, and that includes all the ontology
 ;; entities that we might define. It's easy to clobber one with another so be
 ;; careful!
@@ -140,7 +142,7 @@
 ;; Properties use defoproperty. There are also annotation and object properties,
 ;; and I have opted for somewhat opaque function names to avoid a large amount of
 ;; typing. Hard to know whether this was a great decision or not, but the
-;; alternative really seemed various unreadable to me. More over, there are only
+;; alternative really seemed various unreadable to me. Moreover, there are only
 ;; a few of these names, and OWL 3 is unlikely to come along any time soon.
 
 ;; ====
@@ -179,7 +181,7 @@
 
 ;; == On the use of "owl" (a quick diversion)
 
-;; * It is `owl-some` rather than `some`.
+;; * It is `owl-some` rather than `some`
 ;; * But it is `only` and not `owl-only`
 ;; * This avoids a name clash with `clojure.core`
 ;; * Have not gone the OWL API route
@@ -257,8 +259,8 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; To check my axiomatisation I often save my ontology in manchester syntax -- I
-;; normally always use the same filename (makes using git, and .gitignore
+;; To check my axiomatisation I often save my ontology in Manchester syntax -- I
+;; normally always use the same file name (makes using git, and .gitignore
 ;; easier). And I have my editor auto-reload. We will be looking at how to build
 ;; an auto-save function later.
 ;; ====
@@ -294,7 +296,7 @@
 ;; Tawny has a number of convenience frames that have no direct equivalent
 ;; in OMN. `:label` adds labels in English, and `:comment` does the equivalent.
 ;; Obviously you can specify any type of annotation you wish, and tawny can build
-;; internationalized ontologies perfectly well.
+;; internationalised ontologies perfectly well.
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -303,5 +305,5 @@
 
 ;; * Tawny-OWL uses *frames*
 ;; * It looks like Manchester syntax
-;; * But in a lispy way
+;; * But in a Lispy way
 ;; * Easy to type, including short-cuts

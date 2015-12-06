@@ -11,14 +11,16 @@ ifndef::backend-slidy[]
 ====
 
 Good morning, my name is Jennifer Warrender and I will be your
-presenter for today's Tawny-OWL tutorial. Tawny is a fully environment
-for ontology developement in that presents a different approach to
-ontology development. It was developed by Phillip Lord, Newcastle
-University and motivated by my karyotype work.
+presenter for today's Tawny-OWL tutorial. 
 
-TODO
-Very powerful tool -- As well as being simple to use, it and allows
-resuse if commodity tooling such as
+Developed by Phillip Lord, Newcastle University and motivated by my
+karyotype work; Tawny is a fully environment for ontology development
+in that presents a different approach to ontology development.
+
+Very powerful tool; As well as being simple to use, built on a
+programming environment and OWL API. 
+
+In addition, allows reuse of commodity tooling
 
 ====
 endif::backend-slidy[]
@@ -41,7 +43,9 @@ beginning and the end, where I need to describe parts of the
 system. 
 
 However the tutorial contains plenty of documented examples that allow
-you the audience to follow.
+you the audience to follow. You will find the documentation for
+Clojure code embedded in the Clojure files themselves. This "literate
+programming" was accomplished using *lentic*.
 
 I have also included a reasonably flexible tail where I try and
 address questions that people have.
@@ -93,11 +97,11 @@ endif::backend-slidy[]
 ** Knowledge of Clojure
 ** Knowledge of OWL API
 ** Knowledge of Tawny-OWL
-** Be highly-experienced programmers but WOULD BENEFIT from some
-   programming experience
-** Familiarity with an IDE/Editor with Clojure support but WOULD
-   BENEFIT if they followed instructions to run Clojure "hello world"
-   program in their IDE of choice
+** Be highly-experienced programmers
+*** WOULD BENEFIT from some programming experience
+** Familiarity with an IDE/Editor with Clojure support
+*** WOULD BENEFIT if they followed instructions to run Clojure "hello
+   world" program in their IDE of choice
 
 
 ifndef::backend-slidy[]
@@ -105,12 +109,12 @@ ifndef::backend-slidy[]
 ====
 
 As stated in the tutorial advert; the pre-requisites are knowledge of
-ontolgoies, OWL and amino acids as the main focus on this tutroial is
-builidng an ontology of amino acids.
+ontologies, OWL and amino acids as the main focus on this tutorial is
+building an ontology of amino acids.
 
 You are not required to have any knowledge of Clojure, OWL API, Tawny,
 be programmers, or be familiar with IDEs with Clojure support. However
-any of these would would be of benefit to you.
+any of these would be of benefit to you.
 
 ====
 endif::backend-slidy[]
@@ -131,9 +135,9 @@ ifndef::backend-slidy[]
 There are six outcomes:
 1. Understand why Tawny was built
 2. Understand the syntax of Tawny (Clojure)
-3. How to build a basic amino acid ontology using Tawny
-4-5. The usage and implemetation of patterns in Tawny
-6. TODO
+3. How to build a basic (amino acid) ontology using Tawny
+4-5. The usage and implementation of patterns in Tawny
+6. Understand how Tawny relates to programmatic IDEs and related tools
 
 ====
 endif::backend-slidy[]
@@ -141,24 +145,22 @@ endif::backend-slidy[]
 
 == Notes on Notes
 
-* All materials are available
+* All materials are available:
 ** http://homepages.cs.ncl.ac.uk/jennifer.warrender/swat4ls_2015/
 * These slides (2015_swat4ls.html)
 * As a book with lecture notes (2015_swat4ls_book.html)
-* Same thing as PDF (2015_swat4ls.pdf)
 
 ifndef::backend-slidy[]
 [NOTE]
 ====
 
-With reagards to tutorial materials
+With regards to tutorial materials:
 
 All materials are available @ this link
 
-They are avilable in three formats:
+They are available in two formats:
 1. Slide format
 2. Book format (slides w notes)
-3. Pdf version of the book
 
 ====
 endif::backend-slidy[]

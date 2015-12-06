@@ -1,11 +1,14 @@
 (ns tawny.tutorial.core
-  (:require [tawny.owl :only save-ontology]
-            [tawny.tutorial
-             features hello onto-hello
-             amino-acid-tree amino-acid-props
-             amino-acid-pattern whats-in-a-name
-             use-abc read-abc amino-acid-build
-             autosave amino-acid-sio]))
+  (:require
+   [tawny.owl :only save-ontology]
+   [tawny.tutorial
+    features hello onto-hello
+    amino-acid-tree amino-acid-props
+    amino-acid-pattern whats-in-a-name
+    use-abc read-abc amino-acid-build
+    autosave amino-acid-sio]
+   )
+  )
 
 (defonce output-file-path "./output/")
 
@@ -13,7 +16,7 @@
   "'Overloads' save-ontology function."
   [o name type]
   (tawny.owl/save-ontology o (str output-file-path name) type))
-  
+
 (defn -main
   "Save ontologies in .omn and .owl format"
   []
@@ -45,11 +48,8 @@
   (save-ontology tawny.tutorial.whats-in-a-name/obo "name-obo.omn" :omn)
   (save-ontology tawny.tutorial.whats-in-a-name/obo "name-obo.owl" :owl)
 
-  (save-ontology tawny.tutorial.whats-in-a-name/s "name-strings.omn" :omn)
-  (save-ontology tawny.tutorial.whats-in-a-name/s "name-strings.owl" :owl)
-
-  (save-ontology tawny.tutorial.use-abc/useabc "use-abc.omn" :omn)
-  (save-ontology tawny.tutorial.use-abc/useabc "use-abc.owl" :owl)
+  (save-ontology tawny.tutorial.use-abc/myABC "use-abc.omn" :omn)
+  (save-ontology tawny.tutorial.use-abc/myABC "use-abc.owl" :owl)
 
   (save-ontology tawny.tutorial.read-abc/myABC "read-abc.omn" :omn)
   (save-ontology tawny.tutorial.read-abc/myABC "read-abc.owl" :owl)

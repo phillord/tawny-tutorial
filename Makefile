@@ -32,9 +32,9 @@ book-fast: adoc/2015_swat4ls_book.html
 adoc/2015_swat4ls_book.html: $(ADOC_FILES)
 	asciidoc --backend=html --out-file adoc/2015_swat4ls_book.html adoc/2015_swat4ls.adoc 
 
-# pdf: gen-src pdf-fast
+pdf: gen-src pdf-fast
 
-# pdf-fast: adoc/2015_swat4ls.pdf
+pdf-fast: adoc/2015_swat4ls.pdf
 
 adoc/2015_swat4ls.pdf: $(ADOC_FILES)
 	a2x --dblatex-opts \

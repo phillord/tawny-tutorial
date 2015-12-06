@@ -7,7 +7,7 @@
 ;; * Patternised
 ;; * Fully Extensible
 ;; * Integrated Reasoning
-;; * Built on commondity language
+;; * Built on commodity language
 ;; * Access to fully programming Toolchain
 
 ;; ifndef::backend-slidy[]
@@ -38,9 +38,10 @@
 ;; == Ontology Building Tool
 
 ;; * Tawny-OWL is an Ontology Building Tool
-;; * "A Textual User Interface"
+;; * A "Textual User Interface"
 ;; * Usable as an API
 ;; * But not designed as an API
+;; * Built with the users in mind
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -48,14 +49,17 @@
 
 ;; First feature : Tawny is an ontology building tool
 
-;; TODO
-;; It the textual user interface equivalent of Protege?
+;; Unlike Protege (which has a GUI), Tawny-OWL has a textual user
+;; interface; changes to the ontology are made through the
+;; application of Clojure forms
 
 ;; For those of you from a functional programming background, tawny is
 ;; not very functional.
 
-;; It is usuable as an API for manipulating ontologies, but was not
-;; really designed for that purpose but built with the users in mind
+;; It is unusable as an API for manipulating ontologies, but was not
+;; really designed for that purpose but built with the users in mind;
+;; features have been implemented to help the users build the ontology
+;; quickly and simply as possible.
 
 ;; ====
 ;; endif::backend-slidy[]
@@ -79,16 +83,16 @@
 ;; Second feature : Tawny has an unprogrammatic syntax
 
 ;; The problem with exiting programmatic solutions to building
-;; ontologies (i.e. the OWL API and Brain) is that is carties alot of
+;; ontologies (e.g. the OWL API and Brain) is that is carries a lot of
 ;; Java baggage.
 
-;; In addition, when using these you can never truly forget that you
-;; are programming
+;; So, when using these you can never truly forget that you are
+;; programming
 
 ;; Thus we have aimed as far as possible to make tawny simple to
 ;; define simple ontologies.
 
-;; So this statement for example defines a new ontology. Of course,
+;; Here, this statement defines a new ontology. Of course,
 ;; the choice of programming language that we have chosen has
 ;; implications and the parenthesis is the most obvious one to anyone
 ;; from a lisp background.
@@ -99,10 +103,12 @@
 
 ;; == Unprogrammatic Syntax
 
-;; * Many OWL syntaxes to chose from
+;; * Many OWL syntaxes to choose from
 ;; * Functional, Concrete, XML, RDF
 ;; * Manchester syntax (OMN) is designed for typing
 ;; * Frame-based, rather than axiom-based
+;; ** i.e. all information about an entity is grouped
+;; ** Entity-Frame-Value
 
 ;; [source,omn]
 ;; ----
@@ -116,13 +122,13 @@
 ;; [NOTE]
 ;; ====
 
-;; Creating a new syntax for ontologies seemed nnecessary as there
+;; Creating a new syntax for ontologies seemed unnecessary as there
 ;; are really far too many of these already e.g. Functional, XML or
 ;; RDF
 
 ;; Thus it was decided that Tawny model an existing syntax.
 
-;; Which syntax?
+;; But which syntax?
 
 ;; One which was built for the specific use case of typing was
 ;; Manchester syntax (also known as "OWL Manchester Notation" or
@@ -142,7 +148,7 @@
 ;; == Unprogrammatic Syntax
 
 ;; * Tawny-OWL modelled on OMN
-;; * Modified to use Lisp/Clojure syntax
+;; * Modified to use Clojure/Lisp syntax
 
 ;; [source,lisp]
 ;; ----
@@ -161,7 +167,7 @@
 
 ;; Thus Tawny is modelled on Manchester Syntax...
 
-;; ...but modified to use valid Lisp/Clojure syntax
+;; ...but modified to use valid Clojure/Lisp syntax
 
 ;; This is the equivalent class definition for class A in
 ;; Tawny (recall the OMN definition shown on the previous slide)
@@ -179,10 +185,10 @@
 ;; == Unprogrammatic Syntax
 
 ;; * Frame name usage i.e. `:frame-name` and not `frame-name:`
-;; ** Just for fit with Lisp
+;; ** Just for fit with Clojure
 ;; * Some frame name changes e.g. `:super` rather that `SubClassOf:`
 ;; ** More information at http://www.russet.org.uk/blog/2985
-;; ** Consistent with property i.e `:super` not `SubPropertyOf:`
+;; ** Consistent with property i.e. `:super` not `SubPropertyOf:`
 ;; * Some new "convenience" frames
 ;; ** `:label` and `:comment`
 ;; ** `:sub` meaning ontologies can be built bottom-up or top-down
@@ -200,10 +206,10 @@
 ;; ====
 
 ;; These are not the only differences between Manchester syntax and
-;; Tawny-OWL
+;; Tawny-OWL.
 
 ;; Usage of frame names has changed so its :frame-name rather than
-;; frame-name:. This was so that we could use Clojure keyowrds as
+;; frame-name:. This was so that we could use Clojure keywords as
 ;; frame names.
 
 ;; Some of the frame names have changed. For example :super rather
@@ -216,9 +222,9 @@
 ;; easy to add new features with a clearly defined semantics.
 
 ;; So, for example:
-;; - :label and :comment -- exapand to relevant annotation axioms
+;; - :label and :comment -- expand to relevant annotation axioms
 ;; - :sub keyword so that ontologies can be built bottom-up. In
-;;   practice, so far this has not really used. However thsi ensures
+;;   practice, so far this has not really used. However this ensures
 ;;   that the syntax does not dictate the ontology development style.
 
 ;; Together these provide an easy way of creating of new entities
@@ -251,7 +257,7 @@
 
 ;; Though it is optional through the use of Strings.
 
-;; General Concept Inclusion (GCI) are fully supported which OMN
+;; General Concept Inclusion (GCI) is fully supported which OMN
 ;; doesn't do.
 
 ;; We can also build patterns in the same syntax and files as the
@@ -297,8 +303,8 @@
 
 ;; * There is a compile cycle
 ;; * But you won't notice it
-;; * Accept that Tawny is performant
-;; * Tawnyised version of GO loads ~1 min.
+;; * Tawny-OWL is performant
+;; * Tawnyised version of GO loads ~1 min
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -308,7 +314,7 @@
 
 ;; So those of you from a programming background, may be
 ;; thinking "hmm, an interpreted language running on top of
-;; JVM. Actually, clojure statements are compiled to bytecode
+;; JVM. Actually, Clojure statements are compiled to bytecode
 ;; on-the-fly the run directly on the JVM (which in turn will JIT
 ;; compile them). So, it's fast enough.
 
@@ -338,7 +344,7 @@
 ;; Feature 4 : Broadcasting
 
 ;; Broadcasting is a really very handy feature from R. You do not have to
-;; explictly deal with the lists and numbers (ontology entities in the
+;; explicitly deal with the lists and numbers (ontology entities in the
 ;; case of tawny).
 
 ;; In this R example, we are adding four to all the elements of the
@@ -351,6 +357,7 @@
 ;; == Broadcasting
 
 ;; * Tawny-OWL does something similar
+;; * `owl-some` expand to *two* existential restrictions
 
 ;; [source,lisp]
 ;; ----
@@ -473,7 +480,7 @@
 ;; In theory, tawny does nothing that it is not possible to do
 ;; already. But the single syntax and environment is important. I can
 ;; easily add new syntax even for a specific ontology. Doing this
-;; where half the ontology is build in protege and half outside is
+;; where half the ontology is built in protege and half outside is
 ;; just intractable. With a single syntax it becomes so easy that it
 ;; happens often and all the time.
 
@@ -483,7 +490,7 @@
 
 ;; == Reasoned Over
 
-;; * Tawny fully supports reasoning
+;; * Tawny-OWL fully supports reasoning
 ;; * In this case using HermiT
 ;; * Based on all the examples given so far, `F` has three subclasses
 
@@ -536,12 +543,12 @@
 ;; [NOTE]
 ;; ====
 
-;; Feature 8 : Commidity language
+;; Feature 8 : Commodity language
 
 ;; Most of this I am not going to show anything other than implicitly,
-;; but tawny is based on a commodity language. So it access to many
-;; APIs which can do useful things for you. We have used quite a few
-;; of these either in the context of programming tawny or in
+;; but tawny is based on a commodity language. So it has access to
+;; many APIs which can do useful things for you. We have used quite a
+;; few of these either in the context of programming tawny or in
 ;; developing OWL ontologies using tawny (in fact all
 ;; of those given here).
 
@@ -576,19 +583,19 @@
 ;; [NOTE]
 ;; ====
 
-;; Feature 9 : Commidity Toolchain
+;; Feature 9 : Commodity Toolchain
 
-;; Finally, we have full access to a rich toolchain, including a wide
+;; Finally, we have full access to a rich Toolchain, including a wide
 ;; range of IDEs, power-editors or web editors, as well as some very
 ;; novel environments (take a look at lighttable -- implemented in
 ;; Clojure and supporting it first).
 
 ;; We also make extensive use of version control -- we've been using
-;; git, but you can use what ever you want. You can integrate your
+;; git, but you can use whatever you want. You can integrate your
 ;; ontology development process and software development process.
 
 ;; Dependency -- we'll see later how to access ontologies using the
-;; maven dependency management system. Some one else can host your
+;; maven dependency management system. Someone else can host your
 ;; ontology without having to use their URIs!
 
 ;; Testing and Continuous Integration. Remote evaluation (actually,

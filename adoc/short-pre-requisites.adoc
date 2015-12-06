@@ -14,11 +14,6 @@ Now a quick detour i.e. pre-requisites.
 All resources for this tutorial can be found on the git repository;
 link and command provided.
 
-You will find the documentation for Clojure code embedded in the
-Clojure files themselves. This "literate programming" was accomplished
-using Phil's "lenticular" tool. Phil will be talking about this in his
-paper talk @ 15:40 tomorrow.
-
 ====
 endif::backend-slidy[]
 
@@ -43,7 +38,7 @@ endif::backend-slidy[]
 
 == Or: the alternative
 
-* Protege or text editor
+* Protege
 * All generated ontologies
 * http://homepages.cs.ncl.ac.uk/jennifer.warrender/swat4ls_2015/ontologies/
 

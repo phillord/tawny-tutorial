@@ -30,31 +30,17 @@ include::../src/tawny/tutorial/read_abc.adoc[]
 include::../src/tawny/tutorial/amino_acid_build.adoc[]
 
 == Summary
-* Task 1 -- Build a hello world ontology
-* Task 2 -- Build the amino acid tree
-* Task 3 -- Using facets to define amino acid properties
-* Task 4 -- Introduced patterns e.g. the value partition pattern
-* Task 5 -- Symbols, IRIs and Tawny Names and handling OBO Identifiers
-* Task 6 -- Referring to existing ontology entities
-* Task 7 -- Importing existing ontologies into Tawny
-* Task 8 -- Extending Tawny-OWL syntax to programmatically generate
-  many defined classes
-
-ifndef::backend-slidy[]
-[NOTE]
-====
-
-This is the end of the planned material.
-
-Just to summarise:
-- In task 1 I showed how to build a helo world ontology; introduced
-  namespace, defontology, defclass, defoproperty, frames
-- In task 2 I showed how to build a simple amino acid hierarchal
-  tree; defining disjoint and covering axioms
-TODO
-
-====
-endif::backend-slidy[]
+* Task 1 - Built a hello world ontology
+* Task 2 - Built the amino acid tree (classes only)
+* Task 3 - Introduced facets to define amino acid existential
+  restrictions
+* Task 4 - Introduced patterns e.g. the value partition pattern to
+  define our properties
+* Task 5 - How Tawny-OWL supports OBO Identifiers
+* Task 6 - Using other existing Tawny-OWL ontologies
+* Task 7 - Reading other existing ontologies into Tawny-OWL
+* Task 8 - Extending Tawny-OWL syntax to programmatically generate
+  many amino acid classes and defined classes
 
 include::questions.adoc[]
 
@@ -64,9 +50,26 @@ include::../src/tawny/tutorial/autosave.adoc[]
 
 == Conclusions
 
-* Hope the tutorial was worthwhile!
+* Hope the tutorial was worthwhile
 * Tawny-OWL can change the way you build ontologies
 * Will actively support use
 * Always interested in future collaborations
+
+== Lentic talk
+
+* Highly Literate Approach to Ontology Building
+* New lenticular environment for building and documenting ontologies
+* Literate programming principles
+* Tuesday 7th December, 2015 @ *15:50*
+
+http://www.swat4ls.org/wp-content/uploads/2015/10/SWAT4LS_2015_paper_9.pdf
+
+== UKON 2016 (#ukon2016)
+
+* The 5th UK Ontology Network Meeting
+* Newcastle University
+* Thursday 16th April, 2016
+
+http://ukontology.org/
 
 include::acknowledgements.adoc[]

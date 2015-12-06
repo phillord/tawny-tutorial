@@ -26,7 +26,7 @@ ifndef::backend-slidy[]
 [NOTE]
 
 ====
-What is a karyotype? A karyotype is a desciption of the chromosomes of
+What is a karyotype? A karyotype is a description of the chromosomes of
 a cell.
 
 The current string representation comes from the International
@@ -42,7 +42,7 @@ interpretable, the ISCN strings themselves are not interpretable, in
 fact, you cannot even represent them fully in ASCII because they use
 meaningful underlines (to describe homologous abnormalities).
 
-In addition, we find that describing human karyptypes is complex.
+In addition, we find that describing human karyotypes is complex.
 
 ====
 endif::backend-slidy[]
@@ -77,11 +77,11 @@ Especially when alterations are involved.
    alterations
 
 2. The second is the ISCN string for a male individual with
-   klinefelter's syndrome -- an additional x chromosome
+   Klinefelter's syndrome -- an additional x chromosome
 
 ...and so on.
 
-It is for these reasons an ontological reprsentation seems like a nice
+It is for these reasons an ontological representation seems like a nice
 idea.
 
 ====
@@ -105,7 +105,7 @@ How would we go about building an ontology for karyotypes?
 We could build it using a strict partonomy...
 
 There are:
-- 24 chromosmes (chormosomes 1-22, X and Y)
+- 24 chromosomes (chromosomes 1-22, X and Y)
 - more than 1000 chromosome bands (bands can be subdivided into
   sub-bands depending on which resolution you karyotype as shown in
   the pic)
@@ -118,7 +118,7 @@ endif::backend-slidy[]
 
 == Protege
 
-* Could do this in protege
+* Could do this in Protege
 * Technically, it scales well to an ontology of this size
 
 image::protege-pizza.png[height=300]
@@ -149,8 +149,8 @@ ifndef::backend-slidy[]
 ====
 
 But the UI doesn't scale in this way. It involves an awful lot of
-clicking -- one report I have heard suggests that protege users spend
-upto 50% of their time expanding and closing the hierarchy.
+clicking -- one report I have heard suggests that Protege users spend
+up to 50% of their time expanding and closing the hierarchy.
 
 With the karyotype ontology this problem would be profound.
 
@@ -159,7 +159,7 @@ use in mind, and we don't know what the performance is going to be
 like -- reasoners can change performance quite a lot with different
 axiomatisations.
 
-If we want to change the axiomitisation after built, worse case
+If we want to change the axiomatisation after built, worst case
 scenario, we start again.
 
 ====
@@ -229,7 +229,7 @@ change object system (so, you can use AddAxiom to add an annotation to
 an ontology, but only if you don't care about it working), and the
 factory layer. All complex.
 
-In addition, it can be time consuming completing the compile=code-test
+In addition, it can be time consuming completing the compile-code-test
 cycle over and over.
 
 ====
@@ -275,16 +275,16 @@ consuming.
 endif::backend-slidy[]
 
 
-== The Paragon
+== The Paragon : R
 
-* R provides an interactive, exploratory environment for stats
+* *R* provides an interactive, exploratory environment for statistics
 * Command line shell, wrapped by several GUIs
-* Language is convienient to type and use
+* Language is convenient to type and use
 
 {set:incremental}
 
-* It's not all good!
-* The syntax can be bizzare
+* It's not all good
+* The syntax can be bizarre
 * The language semantics are strange
 
 {set:incremental!}
@@ -296,11 +296,11 @@ ifndef::backend-slidy[]
 So what is the ideal? 
 
 Something like R, the statistical language. It is interactive,
-convienient to use. It can be used cleanly in batch. In general, very
+convenient to use. It can be used cleanly in batch. In general, very
 nice to type and use.
 
 However we're not saying that we wanted to copy all of its features
-though. The syntax can be bizzare and tge language semantics can be
+though. The syntax can be bizarre and the language semantics can be
 considered strange.
 
 ====
@@ -341,7 +341,6 @@ endif::backend-slidy[]
 == Karyotype Ontology
 
 * What have we achieved?
-* Built by Jennifer Warrender
 * Around 1000 classes in the karyotype ontology
 * Similar numbers of tests, structural and reasoner based
 * Models 10 events, with patterns for downstream use

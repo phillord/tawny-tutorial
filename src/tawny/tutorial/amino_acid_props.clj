@@ -2,11 +2,11 @@
 
 ;; * A list of amino acids only gets us so far
 ;; * Now we define some properties
-;; * First, we do this the long-hand way.
+;; * First, we do this the long-hand way
 
 ;; == Namespace
 
-;; * By now you shold be familiar with the name space definition
+;; * By now you should be familiar with the namespace definition
 ;; * It is different
 ;; * This `:use` clause means "use both `tawny.owl` and `tawny.pattern`"
 
@@ -23,17 +23,16 @@
 ;; [NOTE]
 ;; ====
 
-;; As usual we start with the name space declaration; you should be
+;; As usual we start with the namespace declaration; you should be
 ;; familiar with now. However this is slightly different. In addition
 ;; to the tawny-owl, We want to "use" tawny-pattern namespace.
 
 ;; ====
 ;; endif::backend-slidy[]
 
-
 ;; == Starting our ontology
 
-;; * As before, we define (yet another!) amino acid ontology
+;; * As before, we define (another) amino acid ontology
 
 ;; [source,lisp]
 ;; ----
@@ -46,24 +45,24 @@
 
 ;; * Amino Acids have many properties
 ;; * Most of these are _continuous_
-;; * Hard to model Ontologically
+;; * Hard to model ontologically
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
 
-;; Now lets discuss the properties themselves.
+;; Now let's discuss the properties themselves.
 
-;; Amino acides have many properties e.g. size and polarity.
+;; Amino acids have many properties e.g. size and polarity.
 
 ;; Most of these properties are continuous e.g. hydrophobicity values
-;; range from -7.5 and 3.1
+;; range from -7.5 and 3.1.
 
 ;; The ontological modelling of continuous values is hard.
 
-;; It is, of course, possible to model continuous values as data type properties
-;; and just put the numbers in. This works to a certain extent and is
-;; an option for modelling.
+;; It is, of course, possible to model continuous values as data type
+;; properties and just put the numbers in. This works to a certain
+;; extent and is an option for modelling.
 
 ;; ====
 ;; endif::backend-slidy[]
@@ -71,11 +70,10 @@
 ;; == The Value Partition
 
 ;; * We introduce the "value partition"
-;; * We split a continous range up into discrete chunks
+;; * We split a continuous range up into discrete chunks
 ;; * Like the colours of the rainbow
 ;; * First we define the partition itself
-;; * AminoAcid's have a size, and only one size!
-
+;; * `AminoAcid`'s have a size, and only one size!
 
 ;; [source,lisp]
 ;; ----
@@ -93,7 +91,7 @@
 ;; However the most common approach ontologists use instead is the
 ;; value partition.
 
-;; The value partition the process of splitting up a continuos range
+;; The value partition the process of splitting up a continuous range
 ;; into discrete chunks. For example splitting the spectrum of colours
 ;; found on rainbow into seven "bins"/"values".
 
@@ -182,13 +180,50 @@
 ;; ====
 ;; endif::backend-slidy[]
 
+;; == Interim Summary
+
+;; * Defined the Size value partition
+;; * Used these values in our class definitions
+;; * Issues with these restriction declarations?
+;; ** Long-winded
+;; ** Duplication
+;; ** Error-prone
+;; * What can we do to overcome these?
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; What have we done?
+;; - defined the Size value partition
+;; - used these values in our class definitions
+
+;; This way of declaring restrictions is OK but:
+
+;; - its long-winded and involves a lot of typing
+
+;; - contains a lot of duplication: 20 amino acids means 20
+;; existential restrictions of similar structure
+;; - what if we add another property?
+;; - for each new property that's another 20 existential restrictions
+;; of similar structure
+
+;; - with a bigger ontology with many classes and properties it is
+;; possible to accidently create an existential with the correct
+;; property but incorrect value or vice versa
+
+;; What can we do to overcome these issues?
+
+;; ====
+;; endif::backend-slidy[]
+
 ;; == Using Facets
 
-;; * Reatively new feature of Tawny-OWL
+;; * Relatively new feature of Tawny-OWL
 ;; * Call these "facets" after "faceted classification"
-;; * Many values are associated with a property
-;; * Extremely useful in conjunction with Value Partition
-;; * Define `Charge` using the same pattern as `Size`
+;; * Useful when many values are associated with a property
+;; * For example value partition
+;; * First define `Charge` using the same pattern as `Size`
 
 ;; [source,lisp]
 ;; ----
@@ -211,21 +246,21 @@
 ;; [NOTE]
 ;; ====
 
-;; Facets are a relatively new feature of Tawny that is unrelated to
-;; the OWL specification i.e. in this context facets are not features
-;; of a datatype.
+;; We can used facets; a relatively new feature of Tawny.
 
-;; Instead the term "facets" is named after "faceted classification";
-;; a classification scheme for organising knowledge in a systematic
-;; order. You will have probably seen it on Amazon, Ebay, etc for
-;; filtering search results e.g. location, buy it now
+;; Facets is named after faceted classification; a classification
+;; scheme for organising knowledge in a systematic order. You will
+;; have probably seen it on Amazon, Ebay, etc. for filtering search
+;; results e.g. location, buy it now.
 
 ;; See https://en.wikipedia.org/wiki/Faceted_classification for a
 ;; description of a facetted classification.
 
-;; Extremely useful to use in conjunction with the value partition. I
-;; will show how by focussing on the charge of an amino acid. First we
-;; define charge using the same pattern as size.
+;; Extremely useful when many values are associated with a property
+;; AA's found in the value partition.
+
+;; But first, let's define the Charge value partition using the same
+;; pattern as Size.
 
 ;; ====
 ;; endif::backend-slidy[]
@@ -253,7 +288,7 @@
 ;; Now define the facet; we ensure that the values Positive, Neutral
 ;; and Negative are associated with the hasCharge property.
 
-;; These facets are extra-logical; they do not change yhe semantics
+;; These facets are extra-logical; they do not change the semantics
 ;; of ontology statements but are visible in the ontology as
 ;; annotation axioms
 
@@ -269,7 +304,7 @@
 ;; * Can now give just the class
 ;; * Again, using `refine` although could just alter the code
 ;; * `(facet Neutral)` rather than `(owl-some hasCharge Neutral)`
-;; * Saves some typing
+;; * Saves us some typing
 
 ;; [source,lisp]
 ;; ----
@@ -293,15 +328,15 @@
 ;; Now we can just provide the value and Tawny will convert the facet
 ;; into an existential restriction.
 
-;; Saves on typing, potential time saver and less error prone.
+;; Saves on some typing
 
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == And others
 
-;; * Does not save that much typing
-;; * Let's add `Hydrophobicity`
+;; * But we added the `as-facet` declaration
+;; * Now let's add `Hydrophobicity`
 
 ;; [source,lisp]
 ;; ----
@@ -327,16 +362,19 @@
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; We have to add the `as-facet` call so, overall, the reduction in typing is not
-;; enormous, although it's a fixed cost, while the saving is linear with the
-;; number of amino acids, so the real saving would be a bit greater.
+
+;; Not entirely true; We have to add the `as-facet` call so, overall,
+;; the reduction in typing is not enormous, although it's a fixed
+;; cost, while the saving is linear with the number of amino acids, so
+;; the real saving would be a bit greater.
+
 ;; ====
 ;; endif::backend-slidy[]
 
 
 ;; == Using Facets
 
-;; * And Polarity.
+;; * And `Polarity`.
 
 ;; [source,lisp]
 ;; ----
@@ -361,7 +399,7 @@
 ;; * `facet` broadcasts
 ;; * We can apply two at once
 ;; * A different property can be used for each
-;; * We could do all four value partitions at once!
+;; * We could do all four value partitions at once
 
 ;; [source,lisp]
 ;; ----
@@ -384,10 +422,11 @@
 ;; Now we can see the full saving advantage. Instead of four separate
 ;; statements, we have a single one.
 
-;; The advantage goes beyond typing, of course, this also is an advantage in the
-;; consistency of building our ontology. We cannot associate the wrong class with
-;; the wrong property. In this case, we have set the logical axioms up such that
-;; if we did use the wrong property, the reasoner is likely to pick the complaint
+;; The advantage goes beyond typing, of course, this also is an
+;; advantage in the consistency of building our ontology. We cannot
+;; associate the wrong class with the wrong property. In this case, we
+;; have set the logical axioms up such that if we did use the wrong
+;; property, the reasoner is likely to pick the complaint
 ;; up anyway. But this is immediate and at the point of use.
 ;; ====
 ;; endif::backend-slidy[]
@@ -395,7 +434,7 @@
 
 ;; == Using Facets
 
-;; * And the output.
+;; * And the output
 
 ;; [source,omn]
 ;; ----
@@ -409,6 +448,15 @@
 ;;         aa:hasPolarity some aa:NonPolar
 
 ;; ----
+
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
+
+;; Here is the complete class definition of Alanine in OMN format
+
+;; ====
+;; endif::backend-slidy[]
 
 ;; == Task {task}: Conclusions
 

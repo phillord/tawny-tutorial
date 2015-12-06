@@ -5,45 +5,66 @@
 
 ;; == The problem
 
-;; * In the previous example, `abc.owl` was developed in Tawny-OWL
-;; * We need the Tawny-OWL source code for this to work
+;; * We showed that we can import existing Tawny-OWL ontologies
+;; * By using and importing the relevant namespace
+;; * In order for this to work, we need the Tawny-OWL source code
 ;; * What if we do not have it?
-;; * Or, worse, what if it does not exist?
+;; * Or worse, what if it does not exist?
+;; * Tawny-OWL supports this
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; It is possible that you want access to an OWL ontology that was not developed
-;; using Tawny-OWL, but by some legacy editor like Protege?
+
+;; In the previous task, we showed that we can import existing
+;; Tawny-OWL ontologies by using and importing the namespace.
+
+;; But in order for this to work, we need the Tawny source code; this
+;; is not always possible
+
+;; What happens if we do not have the original source code? Or worse,
+;; what if it does not exist in the first place i.e. it was built
+;; through a different means such as Protege?
+
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Namespace
 
-;; * As usual, we define a namespace for our experiments
+;; * As usual, we declare the namespace
+;; * It is different
+;; * `Require` the `tawny.owl` and `tawny.read`
+;; * Have access to the symbols but do not import them into the local
+;; namespace
+;; * Ensures that the namespace has nothing else in it
+;; * Avoids namespace collisions
 
 ;; [source,lisp]
 ;; ----
 (ns tawny.tutorial.read-abc
-  (:use [tawny.owl])
-  (:require [tawny.read]))
+  (:require [tawny owl read]))
 ;; ----
 
-;; == Solution 1
+;; ifndef::backend-slidy[]
+;; [NOTE]
+;; ====
 
-;; * We could `owl-import` a IRI
-;; * And refer to all entities by IRI
-;; * Painful
-;; * Error prone
-;; * And with OBO identifiers, untenable
+;; As usual, let's start with declaring our namespace
 
+;; Note that this namespace declaration is different; both `tawny.owl`
+;; and `tawny.read` are required i.e. we have access to the symbols
+;; but do not import them locally.
 
-;; == Solution 2
+;; This ensures that nothing else is in it, if for no other reason
+;; than to avoid namespace collisions.
+
+;; ====
+;; endif::backend-slidy[]
+
+;; == Reading
 
 ;; * Tawny-OWL provides a solution called _reading_
 ;; * Reading makes all entities available as symbols
-;; * In this case, a file `abcother.owl` has been saved locally
-;; * Can read from any URL.
 
 ;; [source,lisp]
 ;; ----
@@ -52,54 +73,60 @@
   :location (tawny.owl/iri (clojure.java.io/resource "abcother.owl")))
 ;; ----
 
+;; * In this case, a file `abcother.owl` has been saved locally
+;; * Can read from any URL
+;; * Highly configurable (e.g. filter and transform names)
+
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Normally, you read an ontology into a namespace with nothing else in it, if
-;; for no other reason than to avoid name collisons.
+;; Tawny provides a solution to this problem called reading.
 
-;; Also, note that we are using the OWL file from local, which gives us a degree
-;; of flexibility -- you do not want to download GO everytime you restart the REPL.
+;; Reading makes all the entities available as symbols.
 
-;; Although not covered here, `defread` is highly configurable. You can filter
-;; just the terms you want, change the names as you chose.
+;; Also, note that we are using the OWL file from local, which gives
+;; us a degree of flexibility -- you do not want to download GO
+;; every time you restart the REPL.
+
+;; Although not covered here, `defread` is highly configurable. You
+;; can filter just the terms you want, change the names as you chose.
 ;; ====
 ;; endif::backend-slidy[]
 
 ;; == Reading
 
-;; * Now we define our new ontology and import ABC
+;; * Here, we define our new ontology and imports the ontology
+;; axioms from other `abc` ontology
 
 ;; [source,lisp]
 ;; ----
-(defontology myABC)
+(tawny.owl/defontology myABC)
 
-(owl-import abc)
+(tawny.owl/owl-import abc)
 ;; ----
 
 ;; == Reading
 
 ;; * And access it's value by symbol
-;; * Symbols must be defined.
+;; * Symbols must be defined
 
 ;; [source,lisp]
 ;; ----
-(defclass MyA
+(tawny.owl/defclass MyA
   :super A)
 
-(defclass MyB
+(tawny.owl/defclass MyB
   :super B)
 ;; ----
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
 ;; ====
-;; Having read our ontology this now gives us the ability to refer directly, with
-;; symbols. So, we can type `A` or `B`. This is safe, and has all the advantages
-;; of symbol based definition.
+;; Having read our ontology this now gives us the ability to refer
+;; directly, with symbols. So, we can type `A` or `B`. This is safe,
+;; and has all the advantages of symbol based definition.
 ;; ====
 ;; endif::backend-slidy[]
-
 
 ;; == Task {task}: Conclusions
 
