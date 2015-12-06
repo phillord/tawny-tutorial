@@ -70,8 +70,8 @@
 
 ;; * Let's make everything disjoint
 ;; * `Asparagine` is not the same as `Alanine` or `Arginine`
-;; * With three amino-acids, this is painful and error-prone
-;; * With twenty it would be almost impossible
+;; * With three amino acids, this is painful and error-prone
+;; * With twenty it would be almost impossible to be consistent
 
 ;; [source,lisp]
 ;; ----
@@ -82,7 +82,7 @@
 
 ;; == Disjoint
 
-;; * But there is a more serious problem
+;; * Furthermore, there is a more serious problem
 ;; * Change `Arginine` to this
 ;; * This will now crash (probably)
 
@@ -111,11 +111,12 @@
 
 ;; == Explicit definition
 
-;; * Tawny uses explicit definition
+;; * Tawny-OWL uses explicit definition
 ;; * Variables must be defined *before* use
 ;; * This is deliberate
 ;; * Can be avoided by using Strings
 ;; * But that is error-prone
+;; * How do we overcome these problems?
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -200,9 +201,9 @@
 ;; == And, finally, covering
 
 ;; * We might also want to say
-;; * These are the only amino-acids there are
+;; * These are the only amino acids there are
 ;; * To do this we use a "covering" axiom
-;; * Interesting ontology! Biologically true, chemically not.
+;; * Interesting ontological question; Biologically true, chemically not
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -222,7 +223,7 @@
 ;; == And, finally, covering
 
 ;; * This is also easy to implement
-;; * Here with all the amino-acids in full
+;; * Here with all the amino acids in full
 ;; * Again, the source code grouping is useful!
 
 ;; [source,lisp]

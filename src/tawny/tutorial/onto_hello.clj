@@ -9,9 +9,6 @@
 ;; The first task of this tutorial is to build a simple hello world
 ;; ontology.
 
-;; For those who have successfully downloaded the git repository,
-;; everything that I discuss in the section can be found in...
-
 ;; ====
 ;; endif::backend-slidy[]
 
@@ -46,6 +43,9 @@
 
 ;; We also add a statement to say that we wish to "use"
 ;; tawny.owl. This is a file local import, and it will occur a lot!
+
+;; For those who have successfully downloaded the git repository,
+;; everything that I discuss in the section can be found in...
 
 ;; ====
 ;; endif::backend-slidy[]
@@ -156,7 +156,7 @@
 ;; ** Or, `HelloWorld` has a `:super` which is `Hello`
 ;; ** http://www.russet.org.uk/blog/2985
 ;; * `owl-some` is the existential operator
-;; * The default operator (or only) operator in many ontologies
+;; * The default operator in many ontologies
 
 ;; [source,lisp]
 ;; ----

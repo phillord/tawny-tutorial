@@ -88,7 +88,7 @@
 
 ;; == The size value partition
 
-;; * And (some of) the OMN.
+;; * And (some of) the OMN
 
 ;; [source,omn]
 ;; ----
@@ -134,7 +134,7 @@
 
 ;; * `defpartition` also applies the `as-facet` function
 ;; * So, we can use `facet` also
-;; * Syntactically, the ontology has simplified
+;; * Syntactically, defining the ontology has simplified
 ;; * Same semantics underneath
 
 ;; [source,lisp]

@@ -181,7 +181,8 @@
 ;; all twenty of them at once.
 
 ;; This function does three things
-;; 1. map: calls the `amino-acid` function over several definitions.
+;; 1. map applies the anonymous function (contaains `amino-acid`
+;; function) to each definition.
 ;; 2. destructures (Lisp specific): splits definitions into
 ;; Entity (first value of definitions) and & properties (rest i.e. all
 ;; values of definitions)
@@ -255,8 +256,8 @@
 
 ;; == Defined Classes
 
-;; * Next we define defined classes
-;; * Defined Classes can be reasoned over
+;; * Next we define our defined classes
+;; * Defined Classes can be reasoned to query an ontology
 ;; * Anything with a `Small` facet is a `SmallAminoAcid`
 
 ;; [source,lisp]
@@ -327,7 +328,7 @@
 
 ;; == A defined class function
 
-;; * Similar to before
+;; * Similar to `amino-acid` (sing.) function
 ;; * This does not create symbols
 
 ;; [source,lisp]
@@ -486,7 +487,7 @@
 ;; * Happens because there are 20 amino-acids
 ;; * But 431 defined classes
 ;; * Many defined classes have necessarily the same extent
-;; * Many can have no individuals (`Negative` and `Hydrophobic`)
+;; * Many can not have any individuals (`Negative` and `Hydrophobic`)
 ;; * Only happens *with* the covering axiom
 
 ;; image::protege-unsatisfiable.png[height=300]

@@ -89,7 +89,7 @@
 ;; So, when using these you can never truly forget that you are
 ;; programming
 
-;; Thus we have aimed as far as possible to make tawny simple to
+;; Thus we have aimed (as far as possible) to make tawny simple to
 ;; define simple ontologies.
 
 ;; Here, this statement defines a new ontology. Of course,
@@ -135,8 +135,9 @@
 ;; OMN). It is a relatively clean syntax, and can be used to define
 ;; new classes easily.
 
-;; Manchester is frame-based which means that all information about an
-;; entity is grouped into a single construct as shown in the example.
+;; Manchester syntax is frame-based which means that all information
+;; about an ntity is grouped into a single construct as shown in the
+;; example.
 
 ;; Generally a frame-based syntax follows the format:
 ;; Entity-Frame-Value(s)
@@ -594,9 +595,8 @@
 ;; git, but you can use whatever you want. You can integrate your
 ;; ontology development process and software development process.
 
-;; Dependency -- we'll see later how to access ontologies using the
-;; maven dependency management system. Someone else can host your
-;; ontology without having to use their URIs!
+;; Dependency -- someone else can host your ontology without having to
+;; use their URIs!
 
 ;; Testing and Continuous Integration. Remote evaluation (actually,
 ;; you will use this all the time even if it seems you are not).

@@ -18,9 +18,8 @@ karyotype work; Tawny is a fully environment for ontology development
 in that presents a different approach to ontology development.
 
 Very powerful tool; As well as being simple to use, built on a
-programming environment and OWL API. 
-
-In addition, allows reuse of commodity tooling
+programming environment and OWL API thus allowing the reuse of
+commodity tooling.
 
 ====
 endif::backend-slidy[]

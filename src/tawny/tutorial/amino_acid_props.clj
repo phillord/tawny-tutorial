@@ -44,7 +44,7 @@
 ;; == Amino Acid properties
 
 ;; * Amino Acids have many properties
-;; * Most of these are _continuous_
+;; * Most of these are _continuous_ values
 ;; * Hard to model ontologically
 
 ;; ifndef::backend-slidy[]
@@ -60,7 +60,7 @@
 
 ;; The ontological modelling of continuous values is hard.
 
-;; It is, of course, possible to model continuous values as data type
+;; It is, of course, possible to model continuous values as datatype
 ;; properties and just put the numbers in. This works to a certain
 ;; extent and is an option for modelling.
 
@@ -69,7 +69,7 @@
 
 ;; == The Value Partition
 
-;; * We introduce the "value partition"
+;; * We introduce the "value partition" pattern
 ;; * We split a continuous range up into discrete chunks
 ;; * Like the colours of the rainbow
 ;; * First we define the partition itself
@@ -91,7 +91,7 @@
 ;; However the most common approach ontologists use instead is the
 ;; value partition.
 
-;; The value partition the process of splitting up a continuous range
+;; The value partition process involves the splitting up a continuous range
 ;; into discrete chunks. For example splitting the spectrum of colours
 ;; found on rainbow into seven "bins"/"values".
 
@@ -246,7 +246,7 @@
 ;; [NOTE]
 ;; ====
 
-;; We can used facets; a relatively new feature of Tawny.
+;; We can use facets; a relatively new feature of Tawny.
 
 ;; Facets is named after faceted classification; a classification
 ;; scheme for organising knowledge in a systematic order. You will
@@ -257,7 +257,7 @@
 ;; description of a facetted classification.
 
 ;; Extremely useful when many values are associated with a property
-;; AA's found in the value partition.
+;; e.g. value partition
 
 ;; But first, let's define the Charge value partition using the same
 ;; pattern as Size.
@@ -268,10 +268,7 @@
 
 ;; == Facet
 
-;; * Now define the values as facet of `hasCharge`
-;; * facets are _extra-logical_
-;; * They do *not* change the semantics of ontology statements
-;; * They *are* visible in the ontology
+;; * Now define the facet of `hasCharge`
 
 ;; [source,lisp]
 ;; ----
@@ -280,6 +277,10 @@
 
  Positive Neutral Negative)
 ;; ----
+
+;; * facets are _extra-logical_
+;; * They do *not* change the semantics of ontology statements
+;; * They *are* visible in the ontology
 
 ;; ifndef::backend-slidy[]
 ;; [NOTE]
@@ -374,7 +375,7 @@
 
 ;; == Using Facets
 
-;; * And `Polarity`.
+;; * And `Polarity`
 
 ;; [source,lisp]
 ;; ----

@@ -1,6 +1,6 @@
 ;; == Task {counter:task}: Importing other Ontologies
 
-;; * Understand how to _import_ and _use_ another Tawny-OWL ontology
+;; * Understand how to _use_ and _import_ another Tawny-OWL ontology
 
 ;; == Importing
 

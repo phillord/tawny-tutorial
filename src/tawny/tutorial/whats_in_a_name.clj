@@ -58,7 +58,7 @@
 ;; is not necessarily valid as a (Clojure) symbol
 
 ;; In addition, we need to support alternative workflows e.g. OBO
-;; numeric IDs
+;; numeric IDs.
 
 ;; So Tawny is flexible; IRIs and tawny names can be independent and
 ;; has been built with "sensible" defaults

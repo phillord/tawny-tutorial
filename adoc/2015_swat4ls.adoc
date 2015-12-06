@@ -29,19 +29,6 @@ include::../src/tawny/tutorial/read_abc.adoc[]
 
 include::../src/tawny/tutorial/amino_acid_build.adoc[]
 
-== Summary
-* Task 1 - Built a hello world ontology
-* Task 2 - Built the amino acid tree (classes only)
-* Task 3 - Introduced facets to define amino acid existential
-  restrictions
-* Task 4 - Introduced patterns e.g. the value partition pattern to
-  define our properties
-* Task 5 - How Tawny-OWL supports OBO Identifiers
-* Task 6 - Using other existing Tawny-OWL ontologies
-* Task 7 - Reading other existing ontologies into Tawny-OWL
-* Task 8 - Extending Tawny-OWL syntax to programmatically generate
-  many amino acid classes and defined classes
-
 include::questions.adoc[]
 
 include::answers.adoc[]

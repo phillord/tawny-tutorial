@@ -81,8 +81,11 @@ Especially when alterations are involved.
 
 ...and so on.
 
-It is for these reasons an ontological representation seems like a nice
-idea.
+What we show here is that the karyotype are progressively getting more
+complex.
+
+It is for thesse reasons (underlining and complexity) an ontological
+representation seems like a nice idea.
 
 ====
 endif::backend-slidy[]
@@ -110,7 +113,7 @@ There are:
   sub-bands depending on which resolution you karyotype as shown in
   the pic)
 
-And generally they are of similar structure.
+And generally these classes are of similar structure.
 
 ====
 endif::backend-slidy[]
@@ -220,7 +223,7 @@ ifndef::backend-slidy[]
 Can we do this programmatically?
 
 Yes we can. The main API out there is the OWL API which is used by
-many, including Protege 4
+many, including Protege 4.
 
 It's nice, but is long winded, and difficult. Both because of the
 complexity of a type system needed for OWL (from the Javadoc it is
@@ -265,10 +268,10 @@ There are alternatives.
 For example Brain, written by Samuel Croset. It is much lighter weight
 than the OWL API.
 
-But it is only EL expressive, and it is unclear how what is
-essentially a script fits with Java's OO design.
+But it is only EL expressive, and it is unclear how (what is
+essentially a script) fits with Java's OO design.
 
-Lastly the any changes require, recompile, restart which is slow/time
+Lastly any changes require, recompile, restart which is slow/time
 consuming.
 
 ====
