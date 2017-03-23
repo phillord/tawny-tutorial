@@ -232,7 +232,7 @@ endif::backend-slidy[]
 
 * OBO ontologies use numeric IDs
 * These are unreadable, so we syntactically transform labels
-* If label changes (but ID remains the same) is a problem
+* If label changes (but ID remains the same) it's a problem
 * Can use `tawny.memorize` to remember mappings
 * Which adds aliases to those now missing (with optional "deprecated" warnings)
 
@@ -368,7 +368,7 @@ endif::backend-slidy[]
 * Added in Tawny-OWL and the Music Ontology
 * We now have software that plays a tune
 * And provides OWL metadata about that tune
-* More to investigate here.
+* More to investigate here
 
 ifndef::backend-slidy[]
 [NOTE]

@@ -95,10 +95,8 @@
 ;; ObjectProperty: aa:hasSize
 ;;     Domain:
 ;;         aa:AminoAcid
-
 ;;     Range:
 ;;         aa:Size
-
 ;;     Characteristics:
 ;;         Functional
 
@@ -149,14 +147,14 @@
    :super (facet Positive Hydrophilic Polar Aliphatic Large))
 
  (defclass Asparagine
-   :super (facet Neutral Hydrophilic Polar Aliphatic Small))
+   :super (facet Neutral Hydrophilic Polar Aliphatic Small)))
 
  ;; and the rest
- )
+
 ;; ----
 
 ;; == Task {task}: Conclusions
 
 ;; * Tawny-OWL directly supports the value partition
 ;; * This integrates with facets
-;; * Together, can simply this (very common) form of ontology
+;; * Together, can simplify this (very common) form of ontology

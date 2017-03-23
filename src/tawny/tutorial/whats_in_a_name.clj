@@ -130,9 +130,9 @@
 ;; ----
 (defontology o)
 
-;; => #<OWLClassImpl <8d9d3120-d374-4ffb-99d8-ffd93a7d5fdd#o#A>>
 (defclass A
   :ontology o)
+;; => #<OWLClassImpl <8d9d3120-d374-4ffb-99d8-ffd93a7d5fdd#o#A>>
 ;; ----
 
 ;; * Generates a random UUID
@@ -172,9 +172,9 @@
 (defontology i
    :iri "http://www.w3id.org/ontolink/example/i")
 
-;; => #<OWLClassImpl <http://www.w3id.org/ontolink/example/i#B>>
 (defclass B
   :ontology i)
+;; => #<OWLClassImpl <http://www.w3id.org/ontolink/example/i#B>>
 ;; ----
 
 ;; == Symbols and IRIs
@@ -194,9 +194,9 @@
                        "#"
                        (s/reverse name)))))
 
-;; => #<OWLClassImpl <http://www.w3id.org/ontolink/example/r#EDC>>
 (defclass CDE
   :ontology r)
+;; => #<OWLClassImpl <http://www.w3id.org/ontolink/example/r#EDC>>
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -254,17 +254,17 @@
 
 ;; [source,lisp]
 ;; ----
-;; => #<OWLClassImpl <http://purl.obolibrary.org/obo/EXAM_000003>>
 (defclass F
   :ontology obo)
+;; => #<OWLClassImpl <http://purl.obolibrary.org/obo/EXAM_000003>>
 
-;; => #<OWLClassImpl <http://purl.obolibrary.org/obo/EXAM_000002>>
 (defclass G
   :ontology obo)
+;; => #<OWLClassImpl <http://purl.obolibrary.org/obo/EXAM_000002>>
 
-;; => #<OWLObjectPropertyImpl <http://purl.obolibrary.org/obo/EXAM_000001>>
 (defoproperty ro
   :ontology obo)
+;; => #<OWLObjectPropertyImpl <http://purl.obolibrary.org/obo/EXAM_000001>>
 ;; ----
 
 ;; ifndef::backend-slidy[]

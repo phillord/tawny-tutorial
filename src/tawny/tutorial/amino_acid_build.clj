@@ -201,7 +201,7 @@
 ;; ----
 (defmacro defaminoacids
   [& definitions]
-  `(tawny.pattern/intern-owl-entities
+  '(tawny.pattern/intern-owl-entities
     (apply amino-acids
      (tawny.util/name-tree ~definitions))))
 ;; ----
@@ -399,8 +399,8 @@
 ;; ----
 (reasoner-factory :hermit)
 
-;; => true
 (consistent?)
+;; => true
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -420,18 +420,18 @@
 
 ;; == Reasoning
 
-;; * When reasoning, working what happened can be tough
+;; * When reasoning, working out what happened can be tough
 ;; * Especially when using a "Textual User Interface"
 ;; * But, we can count numbers
 ;; * We have reasoned many subclases of `AminoAcid`
 
 ;; [source,lisp]
 ;; ----
-;; => 20
 (count (subclasses AminoAcid))
+;; => 20
 
-;; => 451
 (count (isubclasses AminoAcid))
+;; => 451
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -446,17 +446,17 @@
 
 ;; == Reasoning
 
-;; * While we consistent, we are not coherent
+;; * While we are consistent, we are not coherent
 ;; * In fact, we have many unsatisfiable classes
 ;; * What is happening?
 
 ;; [source,lisp]
 ;; ----
-;; => false
 (coherent?)
+;; => false
 
-;; => 242
 (count (unsatisfiable))
+;; => 242
 ;; ----
 
 ;; == Visualising
@@ -524,9 +524,9 @@
 
 ;; [source,lisp]
 ;; ----
-;; => 242
 (count
  (isubclasses SmallAminoAcid))
+;; => 242
 ;; ----
 
 ;; == As a query
@@ -536,11 +536,11 @@
 
 ;; [source,lisp]
 ;; ----
-;; => 0
 (count
  (filter
   #(not (.isDefined % aabuild))
   (isubclasses SmallAminoAcid)))
+;; => 0
 ;; ----
 
 

@@ -6,9 +6,9 @@
     amino-acid-tree amino-acid-props
     amino-acid-pattern whats-in-a-name
     use-abc read-abc amino-acid-build
-    autosave amino-acid-sio]
-   )
-  )
+    autosave amino-acid-sio]))
+
+
 
 (defonce output-file-path "./output/")
 
