@@ -358,7 +358,7 @@
 ;; == Broadcasting
 
 ;; * Tawny-OWL does something similar
-;; * `owl-some` expand to *two* existential restrictions
+;; * `owl-some` expands to *two* existential restrictions
 
 ;; [source,lisp]
 ;; ----
@@ -411,7 +411,6 @@
 ;; [source,omn]
 ;; ----
 ;; Class: o:D
-
 ;;     SubClassOf:
 ;;         o:r some o:A,
 ;;         o:r some o:B,
@@ -500,13 +499,13 @@
 (defclass F
    :equivalent (owl-some r (owl-or A B)))
 
-;; #{}
 (subclasses F)
+;; #{}
 
 (reasoner-factory :hermit)
 
-;; #{C D E}
 (isubclasses F)
+;; #{C D E}
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -565,7 +564,7 @@
 
 ;; * Editing
 ;; ** IDEs: Eclipse, IntelliJ, Netbeans
-;; ** Power Editors: Emacs, Vim, Sublime
+;; ** Power Editors: Emacs, Vim, Sublime, Cursive (via IntelliJ)
 ;; ** Web Editors: Catnip, GorrilaRepl
 ;; ** Novel: LightTable
 

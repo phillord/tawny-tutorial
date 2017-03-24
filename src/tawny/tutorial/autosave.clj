@@ -95,9 +95,9 @@
   "Autosave the current ontology everytime any change happens."
   ([o filename format]
    (let [listener (proxy [org.semanticweb.owlapi.model.OWLOntologyChangeListener]
-               []
-             (ontologiesChanged[l]
-               (o/save-ontology o filename format)))]
+                   []
+                   (ontologiesChanged[l]
+                     (o/save-ontology o filename format)))]
      (reset! auto-save-listener listener)
      (.addOntologyChangeListener
       (o/owl-ontology-manager) listener)

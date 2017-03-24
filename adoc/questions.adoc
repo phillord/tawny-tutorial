@@ -26,7 +26,7 @@
 - What about advanced documentation for ontologies?
 - How do I collaboratively develop my ontology?
 - Can I internationalise my ontology?
-- Can I scaffolding my ontology from existing sources?
+- Can I scaffold my ontology from existing sources?
 - What happens if the labels of read ontologies change?
 - How do you convert an existing ontology to Tawny-OWL?
 - How fast is Tawny-OWL?

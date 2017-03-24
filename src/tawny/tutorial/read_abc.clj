@@ -7,9 +7,9 @@
 
 ;; * We showed that we can import existing Tawny-OWL ontologies
 ;; * By using and importing the relevant namespace
-;; * In order for this to work, we need the Tawny-OWL source code
-;; * What if we do not have it?
-;; * Or worse, what if it does not exist?
+;; * In order for this to work, we need the ontologies defined using Tawny-OWL
+;; * What if they aren't?
+;; * What if all we have are ontologies defined in other languages?
 ;; * Tawny-OWL supports this
 
 ;; ifndef::backend-slidy[]
@@ -33,7 +33,7 @@
 
 ;; * As usual, we declare the namespace
 ;; * It is different
-;; * `Require` the `tawny.owl` and `tawny.read`
+;; * `require` the `tawny.owl` and `tawny.read`
 ;; * Have access to the symbols but do not import them into the local
 ;; namespace
 ;; * Ensures that the namespace has nothing else in it

@@ -148,7 +148,7 @@
 
 ;; * We can now create our amino acids using these three sizes
 ;; * We only create three amino acids here
-;; * More would be needed.
+;; * More would be needed
 
 ;; [source,lisp]
 ;; ----

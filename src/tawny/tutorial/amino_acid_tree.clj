@@ -144,9 +144,9 @@
 
   (defclass Alanine)
   (defclass Arginine)
-  (defclass Asparagine)
+  (defclass Asparagine))
   ;; and the rest...
-  )
+
 ;; ----
 
 ;; ifndef::backend-slidy[]
@@ -183,9 +183,9 @@
 
  (defclass Alanine)
  (defclass Arginine)
- (defclass Asparagine)
+ (defclass Asparagine))
  ;; and the rest...
- )
+
 ;; ----
 
 ;; ifndef::backend-slidy[]
